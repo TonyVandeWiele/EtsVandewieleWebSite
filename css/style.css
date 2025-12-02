@@ -383,69 +383,100 @@ header.scrolled .hamburger { color: var(--primary-green); }
 
 
 /* ========================================================================= */
-/* --- 8. BRAND SECTION (MODERNE AVEC CAROUSEL) --- */
+/* --- 8. BRAND SECTION (CORRIGÉ MOBILE) --- */
 /* ========================================================================= */
 .brands {
-  padding: 80px 0;
+  padding: 60px 0;
   background: var(--white);
-  overflow: hidden;
-  /* Important pour cacher les logos en dehors du champ de vision */
+  overflow: hidden; /* Masque ce qui dépasse */
+  position: relative;
+  z-index: 1;
 }
+
 .brands .container {
   text-align: center;
+  margin-bottom: 10px;
 }
+
 .brands .container p {
   text-transform: uppercase;
-  letter-spacing: 3px; /* Augmenté l'espacement pour plus de présence */
-  font-size: 1rem; /* Augmenté de 0.8rem à 1rem */
-  font-weight: 600; /* Ajouté pour épaissir le texte */
-  color: var(--text-dark); /* Changé la couleur pour un meilleur contraste */
-  opacity: 0.6; /* Rendu subtil */
-  margin-bottom: 50px; /* Augmenté l'espace après le texte */
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #999;
+  margin: 50px 0 ;
 }
 
 /* Conteneur de la zone de défilement */
 .logo-carousel-container {
   overflow: hidden;
-  max-width: 100%;
+  width: 100%;
+  position: relative;
+
+  /* SYNTAXE ANCIENNE (Pour faire plaisir à VS Code et vieux Safari) */
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(transparent),
+    color-stop(10%, black),
+    color-stop(90%, black),
+    to(transparent)
+  );
+
+  /* SYNTAXE MODERNE STANDARD */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-/* Piste de défilement (contient tous les logos) */
+/* Piste de défilement */
 .logo-carousel-track {
   display: flex;
-  width: max-content;
-  animation: scroll-logos 20s linear infinite;
+  align-items: center;
+  width: max-content; /* S'adapte au contenu total */
+  white-space: nowrap; /* Empêche le retour à la ligne (CRUCIAL) */
+  animation: scroll-logos 30s linear infinite; /* Ralenti un peu pour l'élégance */
+
+  /* OPTIMISATION MOBILE (GPU) */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
-/* Styles des logos individuels */
+/* Styles des logos */
 .brand-logo {
-  height: 120px;
+  height: 80px; /* Taille standard desktop ajustée */
   width: auto;
-  margin: 0 30px;
-  opacity: 0.8; /* Légèrement moins opaque par défaut */
+  margin: 0 40px; /* Espace Desktop */
+  opacity: 0.6;
+  filter: grayscale(100%); /* Optionnel: rend les logos gris par défaut */
+  transition: all 0.4s ease;
+  flex-shrink: 0; /* Empêche l'écrasement */
 
-  /* Transition appliquée sur le transform et le filtre d'ombre */
-  transition: transform 0.4s ease-out, filter 0.4s ease-out, opacity 0.4s;
-  flex-shrink: 0;
+  /* Astuce pour éviter le flou sur certains écrans */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .brand-logo:hover {
-  opacity: 1; /* Le logo s'affiche en pleine couleur au survol */
-  /* Le logo retrouve sa couleur d'origine */
+  opacity: 1;
+  filter: grayscale(0%);
   transform: scale(1.1);
 }
 
-/* Définition de l'animation de défilement */
+/* Animation */
 @keyframes scroll-logos {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Doit correspondre exactement à la moitié de la piste */
 }
 
-/* RESPONSIVE : Ajustement de la taille des logos sur mobile */
+/* RESPONSIVE */
 @media (max-width: 992px) {
   .brand-logo {
-    height: 100px; /* Taille réduite sur tablette/mobile */
-    margin: 0 40px;
+    height: 60px; /* Plus petit sur mobile pour ne pas être envahissant */
+    margin: 0 15px; /* CORRECTION: Espace réduit (30px total entre logos) */
+  }
+
+  .logo-carousel-track {
+    animation-duration: 20s; /* Un peu plus rapide sur mobile */
   }
 }
 
