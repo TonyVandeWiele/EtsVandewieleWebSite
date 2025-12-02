@@ -204,7 +204,10 @@
         </div>
 
         <div class="reveal-up delay-200 robot-image-container">
-          <img src="images/robot.jpg" alt="STIHL iMOW Robot Tondeuse Blanc" class="promo-robot-img">
+          <div class="image-column">
+            <img src="images/robot-imow3.jpg" alt="STIHL iMOW Robot Tondeuse Modèle 3" class="promo-robot-img" width="800" height="400">
+            <img src="images/robot-imow5.jpg" alt="STIHL iMOW Robot Tondeuse Modèle 5" class="promo-robot-img" width="800" height="710">
+          </div>
         </div>
       </div>
     </div>
@@ -212,13 +215,28 @@
 
   <section class="brands">
     <div class="container">
-      <p>Nos partenaires officiels</p>
-      <div class="brands-list">
-        <span>STIHL</span>
-        <span>VIKING</span>
-        <span>iMOW</span>
-        <span>HONDA</span>
-        <span>ECHO</span>
+      <p>Nos partenaires officiels de confiance</p>
+      <div class="logo-carousel-container reveal-up">
+        <div class="brands-list logo-carousel-track">
+          <img src="images/logo-stihl.png" alt="Logo STIHL" class="brand-logo">
+          <img src="images/logo-iseki.png" alt="Logo ISEKI" class="brand-logo">
+          <img src="images/logo-sunseeker.png" alt="Logo SUNSEEKER" class="brand-logo">
+          <img src="images/logo-ferris.png" alt="Logo FERRIS" class="brand-logo">
+          <img src="images/logo-snapper.png" alt="Logo SNAPPER" class="brand-logo">
+          <img src="images/logo-stihl-imow.png" alt="Logo IMOW" class="brand-logo">
+          <img src="images/logo-solo.png" alt="Logo SOLO" class="brand-logo">
+          <img src="images/logo-gianni-ferrari.png" alt="Logo GIANNI-FERRARI" class="brand-logo">
+          <img src="images/logo-anova.png" alt="Logo ANOVA" class="brand-logo">
+          <img src="images/logo-stihl.png" alt="Logo STIHL" class="brand-logo">
+          <img src="images/logo-iseki.png" alt="Logo ISEKI" class="brand-logo">
+          <img src="images/logo-sunseeker.png" alt="Logo SUNSEEKER" class="brand-logo">
+          <img src="images/logo-ferris.png" alt="Logo FERRIS" class="brand-logo">
+          <img src="images/logo-snapper.png" alt="Logo SNAPPER" class="brand-logo">
+          <img src="images/logo-stihl-imow.png" alt="Logo IMOW" class="brand-logo">
+          <img src="images/logo-solo.png" alt="Logo SOLO" class="brand-logo">
+          <img src="images/logo-gianni-ferrari.png" alt="Logo GIANNI-FERRARI" class="brand-logo">
+          <img src="images/logo-anova.png" alt="Logo ANOVA" class="brand-logo">
+        </div>
       </div>
     </div>
   </section>
@@ -230,17 +248,20 @@
         <div class="separator"></div>
       </div>
 
-      <div class="contact-info-wrapper reveal-up">
+      <div class="contact-info-wrapper reveal-up" itemscope itemtype="http://schema.org/LocalBusiness">
         <div class="contact-grid-content">
           <div class="contact-main-info">
-            <h3>Ets Van de Wiele</h3>
+            <h3 itemprop="name">Ets Van de Wiele</h3>
             <p class="intro-contact">Besoin d'un devis, d'un conseil ou d'un service après-vente ? Contactez-nous !</p>
 
-            <div class="info-item">
+            <div class="info-item" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
               <div class="icon-wrapper"><i class="fas fa-map-marker-alt"></i></div>
               <div>
                 <h4>Adresse</h4>
-                <p>67 Rue de la Gare<br>7910 Frasnes-lez-Anvaing, Belgique</p>
+                <p>
+                  <span itemprop="streetAddress">67 Rue de la Gare</span><br>
+                  <span itemprop="postalCode">7910</span> <span itemprop="addressLocality">Frasnes-lez-Anvaing</span>, <span itemprop="addressCountry">Belgique</span>
+                </p>
               </div>
             </div>
 
@@ -248,7 +269,7 @@
               <div class="icon-wrapper"><i class="fas fa-phone"></i></div>
               <div>
                 <h4>Téléphone</h4>
-                <p><a href="tel:069866047">069 86 60 47</a></p>
+                <p><a href="tel:069866047" itemprop="telephone">069 86 60 47</a></p>
               </div>
             </div>
 
@@ -256,7 +277,7 @@
               <div class="icon-wrapper"><i class="fas fa-envelope"></i></div>
               <div>
                 <h4>Email</h4>
-                <p><a href="mailto:ets.vandewiele@gmail.com">ets.vandewiele@gmail.com</a></p>
+                <p><a href="mailto:ets.vandewiele@gmail.com" itemprop="email">ets.vandewiele@gmail.com</a></p>
               </div>
             </div>
           </div>
@@ -277,7 +298,6 @@
           </div>
         </div>
       </div>
-
       <div class="map-container reveal-up delay-100">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.6800365978506!2d3.5693387000000003!3d50.6866055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c31ceb03642765%3A0xcdde051307e6bade!2sVan%20De%20Wiele%20%2F%20Eric!5e1!3m2!1sfr!2sbe!4v1764691123633!5m2!1sfr!2sbe"
@@ -289,17 +309,134 @@
       </div>
     </div>
   </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <h2>Questions Fréquentes</h2>
+        <div class="separator"></div>
+      </div>
+
+      <div class="faq-grid reveal-up">
+        <div class="faq-item">
+          <button class="faq-question">
+            Faites-vous l'entretien des machines d'autres marques ?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Nous sommes spécialisés dans les marques STIHL, Viking, Iseki et Ferris pour garantir un stock de pièces optimal. Pour les autres marques, n'hésitez pas à nous contacter par téléphone pour vérifier la faisabilité.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Proposez-vous l'installation à domicile des robots ?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolument. C'est notre spécialité ! L'installation comprend l'étude du terrain, la pose du câble périphérique (enterré), la programmation et la mise en route complète.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Quels sont vos délais pour un entretien classique ?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>En saison basse (hiver), le délai est très court. Au printemps, cela peut varier de 3 à 7 jours. Nous conseillons toujours de faire l'hivernage entre novembre et février.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Puis-je utiliser de l'essence classique (E10/E5) ?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Nous le déconseillons fortement pour les moteurs 2 temps et 4 temps de jardinage. L'éthanol présent dans l'essence de pompe dégrade les membranes des carburateurs lors de l'inactivité. Nous recommandons le carburant <strong>STIHL MotoMix</strong> (conservation 5 ans) pour garantir la longévité de votre machine.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Venez-vous chercher mon tracteur pour l'entretien ?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Oui, nous disposons d'un service d'enlèvement et de retour à domicile pour les machines volumineuses (tracteurs, riders) dans la région de Frasnes, Leuze, Ath et alentours. Contactez-nous pour connaître les tarifs de transport.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Acceptez-vous les Éco-chèques ?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Oui, nous acceptons les éco-chèques (Edenred, Sodexo, Monizze) pour l'achat de matériel respectueux de l'environnement, notamment toute la gamme à batterie et les robots tondeuses.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Mon terrain est en pente, le robot iMOW peut-il passer ?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Les robots STIHL iMOW sont de véritables grimpeurs ! Les modèles standards gèrent des pentes jusqu'à 40% ou 45%, et la gamme "EVO" peut monter jusqu'à 60%. Lors de notre visite terrain, nous validerons la faisabilité technique.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Faites-vous l'affûtage de chaînes et de lames ?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Tout à fait. Nous affûtons les chaînes de tronçonneuse, les lames de tondeuse et les tailles-haies dans notre atelier. Le délai est généralement très court (souvent 24h à 48h selon l'affluence).</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Quelle est la durée de garantie des machines ?
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Pour un usage particulier, la garantie légale est de 2 ans. En utilisant exclusivement du carburant MotoMix dès l'achat d'une machine thermique STIHL, vous pouvez parfois bénéficier d'extensions de garantie (voir conditions en magasin).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="container">
     <h3>VAN DE WIELE ETS</h3>
     <div class="social-links">
-      <a href="https://www.facebook.com/p/Van-de-Wiele-Ets-100057390913959/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.facebook.com/VandeWieleEts/" target="_blank"><i class="fab fa-facebook"></i></a>
     </div>
-    <p>© 2025 Ets Van de Wiele. Tous droits réservés.</p>
+    <p>© 2025 Ets Van de Wiele. Tous droits réservés. | <a href="html/mentions-legales.html">Mentions Légales</a></p>
   </div>
 </footer>
+
+<a href="#accueil" id="backToTopBtn" class="back-to-top">
+  <i class="fas fa-chevron-up"></i>
+</a>
+
+<div id="promoToast" class="promo-toast">
+  <div class="toast-icon-box">
+    <i class="fas fa-gift"></i>
+  </div>
+  <div class="toast-content">
+    <span class="toast-label">Offres de Noël</span>
+    <span class="toast-sub">iMOW à prix réduit !</span>
+  </div>
+  <a href="#promo" class="toast-action">Voir</a>
+  <button id="closeToast" class="toast-close"><i class="fas fa-times"></i></button>
+</div>
 
 <script src="js/script.js"></script>
 </body>

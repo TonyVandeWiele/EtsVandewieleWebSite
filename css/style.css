@@ -192,7 +192,7 @@ header.scrolled .hamburger { color: var(--primary-green); }
 /* ========================================================================= */
 /* --- 5. SERVICES CARDS --- */
 /* ========================================================================= */
-.services { padding: 120px 0; background: var(--light-bg); }
+.services { padding: 120px 0 25px 0; background: var(--light-bg); }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 .service-card {
   background: var(--white); padding: 60px 30px; border-radius: var(--border-radius-soft);
@@ -228,7 +228,7 @@ header.scrolled .hamburger { color: var(--primary-green); }
 }
 .carousel-container {
   position: relative;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   overflow: hidden;
   margin-bottom: 50px;
@@ -336,7 +336,7 @@ header.scrolled .hamburger { color: var(--primary-green); }
   gap: 40px; margin-top: 30px;
 }
 .pricing-container { flex: 1; min-width: 300px; }
-.robot-image-container { flex: 1; min-width: 300px; text-align: center; }
+.robot-image-container { display: flex; flex: 1; min-width: 300px; text-align: center; align-items: center; gap: 20px;}
 
 .section-header.promo-header { color: var(--white); text-align: left; margin-bottom: 0; }
 .promo-header h2 { color: var(--white); font-size: 3rem; margin-top: 10px; }
@@ -374,27 +374,86 @@ header.scrolled .hamburger { color: var(--primary-green); }
 .promo-list li { margin-bottom: 10px; }
 .promo-list li i { color: var(--accent-orange); margin-right: 10px; }
 
+@media (max-width: 768px) {
+  .robot-image-container {
+    flex-direction: column; /* Les deux colonnes d'images s'empilent verticalement */
+    gap: 40px;
+  }
+}
+
 
 /* ========================================================================= */
-/* --- 8. BRAND SECTION --- */
+/* --- 8. BRAND SECTION (MODERNE AVEC CAROUSEL) --- */
 /* ========================================================================= */
-.brands { padding: 50px 0; background: var(--white); overflow: hidden; }
-.brands .container { text-align: center; }
+.brands {
+  padding: 80px 0;
+  background: var(--white);
+  overflow: hidden;
+  /* Important pour cacher les logos en dehors du champ de vision */
+}
+.brands .container {
+  text-align: center;
+}
 .brands .container p {
-  text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;
-  color: #999; margin-bottom: 30px;
-}
-.brands-list {
-  display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;
-  opacity: 0.6; font-weight: 900; font-size: 2rem; color: #333;
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Augmenté l'espacement pour plus de présence */
+  font-size: 1rem; /* Augmenté de 0.8rem à 1rem */
+  font-weight: 600; /* Ajouté pour épaissir le texte */
+  color: var(--text-dark); /* Changé la couleur pour un meilleur contraste */
+  opacity: 0.6; /* Rendu subtil */
+  margin-bottom: 50px; /* Augmenté l'espace après le texte */
 }
 
+/* Conteneur de la zone de défilement */
+.logo-carousel-container {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* Piste de défilement (contient tous les logos) */
+.logo-carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-logos 20s linear infinite;
+}
+
+/* Styles des logos individuels */
+.brand-logo {
+  height: 120px;
+  width: auto;
+  margin: 0 30px;
+  opacity: 0.8; /* Légèrement moins opaque par défaut */
+
+  /* Transition appliquée sur le transform et le filtre d'ombre */
+  transition: transform 0.4s ease-out, filter 0.4s ease-out, opacity 0.4s;
+  flex-shrink: 0;
+}
+
+.brand-logo:hover {
+  opacity: 1; /* Le logo s'affiche en pleine couleur au survol */
+  /* Le logo retrouve sa couleur d'origine */
+  transform: scale(1.1);
+}
+
+/* Définition de l'animation de défilement */
+@keyframes scroll-logos {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* RESPONSIVE : Ajustement de la taille des logos sur mobile */
+@media (max-width: 992px) {
+  .brand-logo {
+    height: 100px; /* Taille réduite sur tablette/mobile */
+    margin: 0 40px;
+  }
+}
 
 /* ========================================================================= */
 /* --- 9. CONTACT SECTION (Grille 2 colonnes & Correction Map) --- */
 /* ========================================================================= */
 .contact {
-  padding: 100px 0; background: var(--light-bg);
+  padding: 50px 0; background: var(--light-bg);
 }
 
 /* Conteneur principal: ombre et fond blanc */
@@ -404,7 +463,7 @@ header.scrolled .hamburger { color: var(--primary-green); }
   box-shadow: var(--shadow-soft);
   overflow: hidden;
   padding: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   width: 100%;
 }
 
@@ -448,11 +507,14 @@ header.scrolled .hamburger { color: var(--primary-green); }
   font-size: 1.2rem;
 }
 .schedule .schedule-list p {
-  font-size: 0.95rem; color: var(--text-dark); line-height: 1.8;
-  margin: 0; padding: 0;
+  display: flex; /* Rend le conteneur flex */
+  justify-content: space-between; /* Aligne le jour à gauche et les heures à droite */
+  font-size: 0.95rem;
+  line-height: 1.8;
+  padding-right: 5px; /* Petit espace pour l'alignement */
 }
 .schedule .schedule-list strong {
-  display: inline-block; width: 80px; font-weight: 600;
+  width: auto;
 }
 .schedule .schedule-list .closed { opacity: 0.7; }
 
@@ -492,6 +554,52 @@ footer h3 { color: var(--white); margin-bottom: 20px; font-weight: 800; }
 }
 .social-links a:hover { color: var(--accent-orange); }
 
+/* ========================================================================= */
+/* --- 10.5 BACK TO TOP BUTTON --- */
+/* ========================================================================= */
+.back-to-top {
+  position: fixed;
+  bottom: 25px; /* Distance du bas */
+  right: 25px; /* Distance de la droite */
+  width: 50px;
+  height: 50px;
+  background: var(--accent-orange);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0; /* Caché par défaut */
+  visibility: hidden; /* Assure que le bouton n'est pas interactif quand il est caché */
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  font-size: 1.2rem;
+  transform: translateY(20px);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--bright-orange);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Ajustement pour les petits écrans */
+@media (max-width: 600px) {
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1rem;
+  }
+}
 
 /* ========================================================================= */
 /* --- 11. RESPONSIVE --- */
@@ -541,3 +649,182 @@ footer h3 { color: var(--white); margin-bottom: 20px; font-weight: 800; }
   .section-header.promo-header { text-align: center; }
   .promo-header h2 { font-size: 2.5rem; }
 }
+
+/* ========================================================================= */
+/* --- STYLE SPÉCIFIQUE : PAGE MENTIONS LÉGALES --- */
+/* ========================================================================= */
+
+/* Force l'en-tête à être blanc (opaque) sur les pages internes */
+.header-colored {
+  background: var(--white) !important; /* Utiliser !important pour écraser "transparent" si nécessaire */
+  padding: 15px 0;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Force les couleurs du logo et des liens à être sombres (comme si on avait scrollé) */
+.header-colored .logo,
+.header-colored .hamburger,
+.header-colored .nav-links a {
+  color: var(--primary-green) !important;
+}
+
+/* La couleur d'accent du lien "Promos Noël" doit rester orange */
+.header-colored .nav-links li:nth-child(3) a {
+  color: var(--accent-orange) !important;
+}
+
+/* ========================================================================= */
+/* --- 12. SMART PROMO TOAST (Moderne & Discret) --- */
+/* ========================================================================= */
+.promo-toast {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px); /* Effet verre dépoli moderne */
+  padding: 10px 15px;
+  border-radius: 50px; /* Forme de pilule */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 998; /* Juste en dessous du menu mobile si besoin */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  /* Animation d'état */
+  transform: translateY(100px) scale(0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.promo-toast.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.toast-icon-box {
+  background: var(--accent-orange);
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  animation: pulse-orange 2s infinite;
+}
+
+.toast-content {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.toast-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary-green);
+  text-transform: uppercase;
+}
+
+.toast-sub {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.toast-action {
+  background: var(--primary-green);
+  color: white;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.toast-action:hover {
+  background: var(--dark-green);
+  transform: translateY(-1px);
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 5px;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.toast-close:hover { color: var(--text-dark); }
+
+@keyframes pulse-orange {
+  0% { box-shadow: 0 0 0 0 rgba(255, 136, 0, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 136, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 136, 0, 0); }
+}
+
+/* Responsive : On centre en bas sur mobile */
+@media (max-width: 600px) {
+  .promo-toast {
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    width: 90%;
+    max-width: 350px;
+    justify-content: space-between;
+  }
+  .promo-toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* --- FAQ SECTION --- */
+.faq-section { padding: 80px 0; background: var(--white); }
+.faq-grid { max-width: 800px; margin: 0 auto; }
+
+.faq-item {
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background: var(--light-bg);
+  border: none;
+  padding: 20px;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.faq-question:hover { background: #f0f0f0; }
+.faq-question i { transition: 0.3s; color: var(--accent-orange); }
+
+/* Classe active ajoutée par JS */
+.faq-question.active { background: var(--primary-green); color: white; }
+.faq-question.active i { transform: rotate(45deg); color: white; }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: white;
+}
+
+.faq-answer p { padding: 20px; color: #555; font-size: 0.95rem; }
+
+
