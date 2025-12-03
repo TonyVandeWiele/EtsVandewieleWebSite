@@ -17,13 +17,26 @@
 <header id="header">
   <div class="container">
     <nav>
-      <a href="#" class="logo">VAN DE WIELE <span>ETS</span></a>
+      <a href="#" class="logo-wrapper">
+        <img src="images/logo-vdw.jpg" alt="Logo Van de Wiele" class="nav-logo-img">
+
+        <div class="logo-text">
+          VAN DE WIELE <span>ETS</span>
+        </div>
+      </a>
+
       <ul class="nav-links">
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#services">Services Pro</a></li>
         <li><a href="#promo">Promos Noël</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" class="nav-fb" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </li>
       </ul>
+
       <div class="hamburger"><i class="fas fa-bars"></i></div>
     </nav>
   </div>
@@ -396,13 +409,13 @@
         <div class="separator"></div>
       </div>
 
-      <div class="contact-info-wrapper reveal-up" itemscope itemtype="http://schema.org/LocalBusiness">
+      <div class="contact-info-wrapper reveal-up" itemscope itemtype="https://schema.org/LocalBusiness">
         <div class="contact-grid-content">
           <div class="contact-main-info">
             <h3 itemprop="name">Ets Van de Wiele</h3>
             <p class="intro-contact">Besoin d'un devis, d'un conseil ou d'un service après-vente ? Contactez-nous !</p>
 
-            <div class="info-item" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <div class="info-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
               <div class="icon-wrapper"><i class="fas fa-map-marker-alt"></i></div>
               <div>
                 <h4>Adresse</h4>
@@ -563,10 +576,24 @@
 <footer>
   <div class="container">
     <h3>VAN DE WIELE ETS</h3>
+
     <div class="social-links">
-      <a href="https://www.facebook.com/VandeWieleEts/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
     </div>
-    <p>© 2025 Ets Van de Wiele. Tous droits réservés. | <a href="html/mentions-legales.html">Mentions Légales</a></p>
+
+    <p class="copyright">© 2025 Ets Van de Wiele. Tous droits réservés.</p>
+
+    <div class="footer-credits">
+      <div class="credit-text">
+        Site réalisé par <span class="creator-name">Tony Van de Wiele</span>
+      </div>
+      <a href="html/mentions-legales.html" class="legal-btn">
+        Mentions Légales <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
   </div>
 </footer>
 

@@ -4,37 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mentions Légales | Ets Van de Wiele</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
-    /* Style minimal pour que la page ressemble au reste du site */
+    body { background-color: #fdfdfd; color: #333; }
     .legal-content {
-      padding: 150px 25px;
-      max-width: 900px;
+      padding: 150px 25px 80px 25px;
+      max-width: 800px;
       margin: 0 auto;
-      min-height: 80vh;
+      min-height: 60vh;
     }
     .legal-content h1 {
+      font-family: 'Montserrat', sans-serif;
       font-size: 2.5rem;
-      color: var(--primary-green);
-      margin-bottom: 40px;
+      color: #15653E;
+      margin-bottom: 50px;
+      text-align: center;
+      position: relative;
+    }
+    .legal-content h1::after {
+      content: ''; display: block; width: 60px; height: 4px;
+      background: #FF8800; margin: 15px auto 0; border-radius: 2px;
     }
     .legal-content h2 {
-      font-size: 1.5rem;
-      color: var(--accent-orange);
-      margin-top: 30px;
-      margin-bottom: 15px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      color: #333;
+      margin-top: 40px; margin-bottom: 20px;
+      border-left: 4px solid #FF8800; padding-left: 15px;
     }
     .legal-content ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      padding-left: 10px;
-      margin-bottom: 20px;
+      list-style-type: none; padding-left: 0; margin-bottom: 20px;
+      background: white; padding: 25px; border-radius: 8px;
+      border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.03);
     }
     .legal-content li {
-      margin-bottom: 8px;
+      margin-bottom: 12px; line-height: 1.6; font-family: 'Open Sans', sans-serif;
+    }
+    .legal-content li strong { color: #15653E; display: inline-block; width: 240px; }
+    .legal-content p { line-height: 1.8; color: #555; text-align: justify; margin-bottom: 15px;}
+    .legal-link { color: #FF8800; font-weight: 600; text-decoration: none; }
+    .legal-link:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .legal-content li strong { display: block; width: 100%; margin-bottom: 5px; }
     }
   </style>
 </head>
@@ -54,34 +70,50 @@
     </nav>
   </div>
 </header>
+
 <main>
   <section class="legal-content">
     <h1>Mentions Légales</h1>
 
-    <h2>1. Identification de l'Éditeur du Site</h2>
+    <h2>1. Identification de l'Éditeur</h2>
     <ul>
-      <li>**Nom de l'entreprise :** [Nom de l'entreprise tel qu'enregistré]</li>
-      <li>**Enseigne :** Ets Van de Wiele</li>
-      <li>**Forme juridique :** [SA, SRL, etc.]</li>
-      <li>**Siège social :** 67 Rue de la Gare, 7910 Frasnes-lez-Anvaing, Belgique</li>
-      <li>**Téléphone :** <a href="tel:069866047">069 86 60 47</a></li>
-      <li>**Email :** ets.vandewiele@gmail.com</li>
-      <li>**Numéro d'entreprise/TVA :** [Votre numéro de TVA belge]</li>
-      <li>**Directeur de la publication :** [Nom du responsable (Exemple : M. Van de Wiele)]</li>
+      <li><strong>Nom Commercial :</strong> Ets Van de Wiele</li>
+      <li><strong>Responsable Juridique :</strong> Eric Van de Wiele</li>
+      <li><strong>Forme Juridique :</strong> Personne Physique (Entreprise Individuelle)</li>
+      <li><strong>Siège Social :</strong> Rue de la Gare 67, 7910 Frasnes-lez-Anvaing</li>
+      <li><strong>Numéro d'entreprise (BCE) :</strong> 0656.365.247</li>
+      <li><strong>Numéro de TVA :</strong> BE 0656.365.247</li>
     </ul>
 
-    <h2>2. Hébergement du Site</h2>
+    <h2>2. Conception & Développement</h2>
+    <p>Ce site internet a été conçu et réalisé par :</p>
     <ul>
-      <li>**Nom de l'hébergeur :** [Nom de la société qui héberge votre site]</li>
-      <li>**Adresse de l'hébergeur :** [Adresse complète de l'hébergeur]</li>
-      <li>**Contact de l'hébergeur :** [Email ou téléphone de l'hébergeur]</li>
+      <li><strong>Développement Web :</strong> Tony Van de Wiele</li>
+      <li><strong>Contact technique :</strong> vandewiele.tonypro@gmail.com</li>
     </ul>
 
-    <h2>3. Propriété Intellectuelle</h2>
-    <p>L'ensemble de ce site, y compris les textes, photographies, logos, structure et autres éléments graphiques, est protégé par les lois belges et internationales relatives au droit d'auteur. Ils sont la propriété exclusive de Ets Van de Wiele, sauf mention contraire (marques et logos partenaires).</p>
+    <h2>3. Hébergement</h2>
+    <p>Le site est hébergé via l'infrastructure mondiale de Cloudflare :</p>
+    <ul>
+      <li><strong>Hébergeur :</strong> Cloudflare, Inc.</li>
+      <li><strong>Siège Social :</strong> 101 Townsend St, San Francisco, CA 94107, USA</li>
+      <li><strong>Site web :</strong> <a href="https://www.cloudflare.com" target="_blank" class="legal-link">www.cloudflare.com</a></li>
+    </ul>
 
-    <h2>4. Limitation de Responsabilité</h2>
-    <p>Ets Van de Wiele s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site, dont elle se réserve le droit de corriger, à tout moment et sans préavis, le contenu. Nous déclinons toute responsabilité pour toute interruption du site, problèmes techniques, ou inexactitudes.</p>
+    <h2>4. Propriété Intellectuelle</h2>
+    <p>L'ensemble de ce site (structure, design, textes, photos originales) est la propriété exclusive de <strong>Eric Van de Wiele</strong>. Toute reproduction totale ou partielle de ce site, sans l'autorisation expresse de l'exploitant, est interdite et constituerait une contrefaçon sanctionnée par le Code de droit économique belge.</p>
+    <p>Les marques citées (STIHL, ISEKI, etc.) sont des marques déposées appartenant à leurs propriétaires respectifs.</p>
+
+    <h2>5. Données Personnelles & Cookies (RGPD)</h2>
+    <p><strong>Absence de collecte de données :</strong> Ce site est un site vitrine. Nous ne collectons aucune donnée personnelle via des formulaires d'inscription ou de création de compte. Aucune donnée n'est vendue ou transmise à des tiers.</p>
+    <p><strong>Absence de Cookies :</strong> Ce site n'utilise aucun cookie publicitaire, aucun traceur de réseaux sociaux et aucun outil d'analyse (type Google Analytics) nécessitant le consentement de l'utilisateur. Vous pouvez naviguer en toute tranquillité sans être suivi.</p>
+    <p><strong>Contact :</strong> Les seules données que nous recevons sont celles que vous choisissez de nous envoyer volontairement par e-mail ou téléphone pour une demande de service. Conformément au RGPD, vous disposez d'un droit d'accès et de suppression de ces échanges sur simple demande.</p>
+
+    <h2>6. Limitation de Responsabilité</h2>
+    <p>Les informations (prix, caractéristiques techniques) figurant sur ce site sont données à titre indicatif et sont susceptibles d'évoluer. Ets Van de Wiele ne pourra être tenu responsable des omissions, des inexactitudes et des carences dans la mise à jour. Les photos sont non contractuelles. Nous invitons les clients à vérifier les disponibilités et prix exacts en magasin.</p>
+
+    <h2>7. Droit Applicable et Juridiction</h2>
+    <p>Tout litige en relation avec l'utilisation du site est soumis au droit belge. En cas de litige, et à défaut d'accord amiable, la compétence exclusive est attribuée aux tribunaux de l'arrondissement judiciaire du Hainaut, division Tournai.</p>
 
   </section>
 </main>
@@ -90,9 +122,12 @@
   <div class="container">
     <h3>VAN DE WIELE ETS</h3>
     <div class="social-links">
-      <a href="https://www.facebook.com/p/Van-de-Wiele-Ets-100057390913959/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.facebook.com/VandeWieleEts/" target="_blank"><i class="fab fa-facebook"></i></a>
     </div>
-    <p>© 2025 Ets Van de Wiele. Tous droits réservés. | <a href="mentions-legales.html">Mentions Légales</a></p>
+    <p>© 2025 Ets Van de Wiele. Tous droits réservés.</p>
+    <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">
+      Site réalisé avec passion par <span style="color: var(--accent-orange);">Tony Van de Wiele</span> | <a href="#">Mentions Légales</a>
+    </p>
   </div>
 </footer>
 

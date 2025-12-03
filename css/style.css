@@ -135,16 +135,68 @@ header.scrolled {
   box-shadow: var(--shadow-soft);
 }
 nav { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.6rem; font-weight: 900; color: var(--white); transition: color 0.4s; }
-header.scrolled .logo { color: var(--primary-green); }
-.logo span { color: var(--accent-orange); }
+
+/* ========================================================================= */
+/* --- LOGO COMPOSÉ (IMAGE + TEXTE) - VERSION CLEAN & AJUSTÉE --- */
+/* ========================================================================= */
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+}
+
+/* 1. L'IMAGE (Logo) */
+.nav-logo-img {
+  height: 40px; /* Taille réduite (était 50px) */
+  width: auto;
+  transition: all 0.3s ease;
+
+  /* Rend l'image entièrement blanche sur le fond vert */
+  filter: brightness(0) invert(1);
+}
+
+.logo-wrapper:hover .nav-logo-img {
+  transform: scale(1.05);
+}
+
+/* 2. LE TEXTE */
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+  transition: color 0.4s;
+}
+
+.logo-text span {
+  color: var(--accent-orange);
+}
+
+/* --- GESTION DU SCROLL (FOND BLANC) --- */
+
+/* Quand le menu devient blanc, le texte devient vert */
+header.scrolled .logo-text {
+  color: var(--primary-green);
+}
+
+/* Quand le menu devient blanc, on remet les couleurs originales du logo */
+header.scrolled .nav-logo-img {
+  filter: none;
+}
 
 .nav-links { display: flex; gap: 30px; }
-.nav-links a {
-  font-weight: 600; font-size: 0.95rem;
+.nav-links a:not(.nav-fb) {
+  font-weight: 600;
+  font-size: 0.95rem;
   text-transform: capitalize;
   color: var(--white);
   position: relative;
+  /* Ajout d'un padding pour aligner verticalement avec l'icône */
+  padding: 5px 0;
+  display: inline-block;
 }
 header.scrolled .nav-links a { color: var(--text-dark); }
 .nav-links li:nth-child(3) a {
@@ -161,6 +213,58 @@ header.scrolled .nav-links li:nth-child(3) a {
 .nav-links a:hover::after { width: 100%; }
 .hamburger { display: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 header.scrolled .hamburger { color: var(--primary-green); }
+
+/* --- STYLE DU LOGO FACEBOOK AVEC LIGNE ORANGE --- */
+.nav-fb {
+  position: relative; /* INDISPENSABLE : Empêche la ligne de partir n'importe où */
+  display: inline-flex; /* S'assure que la boite fait juste la taille de l'icone */
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.4rem;
+  padding: 5px; /* Un peu d'espace pour que la ligne ne colle pas trop */
+  transition: color 0.3s ease;
+}
+
+.nav-fb::after {
+  content: '';
+  position: absolute; /* Se place par rapport au .nav-fb (grâce au relative au-dessus) */
+  bottom: 0;          /* Tout en bas de l'icône */
+  left: 0;
+  width: 0%;          /* Invisible au départ */
+  height: 3px;        /* Épaisseur */
+  background: var(--accent-orange);
+  transition: width 0.3s ease; /* Animation fluide */
+}
+
+/* Au survol : La ligne grandit */
+.nav-fb:hover::after {
+  width: 100%; /* Prend 100% de la taille de l'icône, pas de la page */
+}
+
+/* Au survol : L'icône devient bleue */
+.nav-fb:hover {
+  color: #1877F2 !important;
+}
+
+/* Header Scrollé (Fond blanc) : L'icône devient verte par défaut */
+header.scrolled .nav-fb {
+  color: var(--primary-green);
+}
+
+/* MOBILE : Ajustement pour le menu hamburger */
+@media (max-width: 992px) {
+  .nav-fb {
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    width: 100%; /* Sur mobile, on prend toute la largeur */
+  }
+
+  /* Sur mobile, on cache la ligne orange car c'est moins joli dans le menu vert */
+  .nav-fb::after {
+    display: none;
+  }
+}
 
 /* ========================================================================= */
 /* --- 4. HERO SECTION --- */
@@ -895,18 +999,113 @@ header.scrolled .hamburger { color: var(--primary-green); }
 
 
 /* ========================================================================= */
-/* --- 10. FOOTER SECTION --- */
+/* --- 10. FOOTER SECTION (DESIGN PRO & CRÉDITS VISIBLES) --- */
 /* ========================================================================= */
 footer {
-  background: var(--dark-green); color: #888; padding: 60px 0; text-align: center;
+  background: var(--dark-green);
+  color: #a0a0a0;
+  padding: 40px 0 40px 0; /* Plus d'espace en haut, un peu moins en bas */
+  text-align: center;
+  position: relative;
 }
-footer h3 { color: var(--white); margin-bottom: 20px; font-weight: 800; }
-.social-links { margin-bottom: 20px; }
+
+footer h3 {
+  color: var(--white);
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.social-links {
+  margin-bottom: 20px;
+}
+
 .social-links a {
-  color: #b0b0b0; font-size: 1.5rem; margin: 0 10px;
-  transition: color 0.3s;
+  color: #b0b0b0;
+  font-size: 1.8rem;
+  margin: 0 15px;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
-.social-links a:hover { color: var(--accent-orange); }
+
+.social-links a:hover {
+  color: var(--accent-orange);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* --- NOUVELLE ZONE DE CRÉDITS --- */
+.footer-credits {
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ligne de séparation subtile */
+  padding-top: 30px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Style de votre nom "Conception" */
+.credit-text {
+  font-size: 1.1rem; /* Texte plus grand */
+  color: #ddd;
+}
+
+.creator-name {
+  color: var(--accent-orange); /* Votre nom en orange */
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin-left: 5px;
+}
+
+/* Le bouton Mentions Légales */
+.legal-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Bordure visible */
+  border-radius: 50px;
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.legal-btn i {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  transition: transform 0.3s;
+}
+
+/* Effet au survol du bouton */
+.legal-btn:hover {
+  background: var(--white);
+  color: var(--dark-green); /* Le texte devient vert foncé */
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+.legal-btn:hover i {
+  transform: translateX(4px); /* La petite flèche bouge */
+}
+
+/* Responsive : Sur grand écran, on met les crédits côte à côte */
+@media (min-width: 768px) {
+  .footer-credits {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px; /* Espace entre votre nom et le bouton */
+  }
+}
 
 /* ========================================================================= */
 /* --- 10.5 BACK TO TOP BUTTON --- */
