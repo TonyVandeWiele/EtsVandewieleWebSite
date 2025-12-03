@@ -190,9 +190,158 @@ header.scrolled .hamburger { color: var(--primary-green); }
 .hero-actions { margin-top: 30px; }
 
 /* ========================================================================= */
+/* --- 4.5 SECTION HISTOIRE & TIMELINE (CORRIGÉ) --- */
+/* ========================================================================= */
+.history {
+  padding: 120px 0 30px 0;
+  background-color: var(--light-bg);
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 50px auto 0;
+  padding: 20px 0;
+}
+
+/* La ligne verticale centrale */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #e0e0e0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* Positionnement Gauche / Droite */
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+
+/* Le point sur la ligne */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -10px; /* Pour ceux de gauche */
+  background-color: var(--white);
+  border: 4px solid var(--primary-green); /* UTILISATION DE VOTRE VERT */
+  top: 25px;
+  border-radius: 50%;
+  z-index: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 4px rgba(21, 101, 62, 0.1);
+}
+
+.timeline-item.right::after { left: -10px; } /* Pour ceux de droite */
+
+/* Effet au survol du point */
+.timeline-item:hover::after {
+  background-color: var(--primary-green);
+  transform: scale(1.2);
+  border-color: var(--accent-orange); /* Touche d'orange au survol */
+}
+
+/* Boite de contenu */
+.timeline-content {
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: var(--border-radius-soft);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  transition: transform 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-bottom: 3px solid var(--accent-orange);
+}
+
+/* La Date */
+.timeline-date {
+  position: absolute;
+  top: 30px;
+  width: 80px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--primary-green);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.timeline-item.left .timeline-date { right: -140px; }
+.timeline-item.right .timeline-date { left: -140px; }
+
+/* Petite icône dans la boite */
+.icon-box-small {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: var(--accent-orange); /* Icône en orange */
+  margin-bottom: 15px;
+}
+
+.timeline-content h3 {
+  margin: 0 0 10px 0;
+  color: var(--text-dark);
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* --- Responsive (Mobile) --- */
+@media screen and (max-width: 768px) {
+  .timeline::after { left: 31px; }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .timeline-item.left, .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline-item.left::after, .timeline-item.right::after {
+    left: 21px;
+  }
+
+  .timeline-date {
+    position: relative;
+    top: 0;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: left;
+    margin-bottom: 5px;
+    display: block;
+    color: var(--accent-orange); /* Date en orange sur mobile pour bien la voir */
+  }
+}
+
+/* ========================================================================= */
 /* --- 5. SERVICES CARDS --- */
 /* ========================================================================= */
-.services { padding: 120px 0 25px 0; background: var(--light-bg); }
+.services { padding: 120px 0 30px 0; background: var(--light-bg); }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 .service-card {
   background: var(--white); padding: 60px 30px; border-radius: var(--border-radius-soft);
@@ -220,7 +369,7 @@ header.scrolled .hamburger { color: var(--primary-green); }
 /* --- 6. TÉMOIGNAGES CAROUSEL (CORRECTION DÉFINITIVE) --- */
 /* ========================================================================= */
 .testimonials {
-  padding: 120px 0; background: var(--white); position: relative; overflow: hidden;
+  padding: 120px 0 30px 0; background: var(--white); position: relative; overflow: hidden;
 }
 .testimonials::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0;
@@ -322,6 +471,122 @@ header.scrolled .hamburger { color: var(--primary-green); }
 .center-cta { text-align: center; }
 .testimonials .btn-outline { border-color: var(--accent-orange); color: var(--accent-orange); background: transparent; }
 .testimonials .btn-outline:hover { background: var(--accent-orange); color: var(--white); }
+
+/* ========================================================================= */
+/* --- 6.5 SECTION CATALOGUE PRODUITS --- */
+/* ========================================================================= */
+.products-section {
+  padding: 120px 0 60px 0;
+  background-color: var(--white);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive auto */
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.category-card {
+  background: var(--light-bg);
+  border: 1px solid #eee;
+  border-radius: var(--border-radius-soft);
+  padding: 35px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de survol sur la carte */
+.category-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-green);
+  background: white;
+}
+
+/* Icône ronde au dessus */
+.category-card .cat-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  background: var(--primary-green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  transition: 0.4s;
+}
+
+.category-card:hover .cat-icon {
+  background: var(--accent-orange);
+  transform: rotateY(180deg);
+}
+
+.category-card h3 {
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.category-card p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* Zone des liens marques */
+.brand-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cat-link {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  border: 1px solid var(--primary-green);
+  border-radius: 20px;
+  text-transform: uppercase;
+  transition: 0.3s;
+  background: transparent;
+}
+
+.cat-link:hover {
+  background: var(--primary-green);
+  color: white;
+  text-decoration: none;
+}
+
+.cat-link.stihl-btn {
+  background-color: #F27E00; /* Orange STIHL */
+  border-color: #F27E00;
+  color: white;
+}
+
+.cat-link.stihl-btn:hover {
+  background-color: #d66e00;
+  transform: translateY(-2px);
+}
+
+/* Pour que les boutons prennent toute la largeur sur mobile si besoin */
+@media (max-width: 480px) {
+  .brand-links {
+    flex-direction: column;
+  }
+  .cat-link {
+    width: 100%;
+  }
+}
 
 
 /* ========================================================================= */
