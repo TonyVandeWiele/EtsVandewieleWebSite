@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Introuvable | Ets Van de Wiele</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF8800' rx='20'/><text x='50' y='75' font-size='70' font-family='Arial, sans-serif' font-weight='900' text-anchor='middle' fill='%23ffffff'>V</text></svg>">
+
+  <style>
+    /* Styles spécifiques pour centrer la page 404 */
+    body {
+      background-color: var(--light-bg);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .error-container {
+      max-width: 600px;
+      padding: 40px;
+      background: white;
+      border-radius: var(--border-radius-soft);
+      box-shadow: var(--shadow-soft);
+      border-top: 5px solid var(--accent-orange);
+      animation: reveal-up 0.8s ease;
+    }
+
+    .error-code {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8rem;
+      font-weight: 900;
+      color: var(--primary-green);
+      line-height: 1;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Petite animation du tracteur sur le 404 */
+    .tractor-icon {
+      font-size: 3rem;
+      color: var(--accent-orange);
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      transform: rotate(15deg);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    h2 {
+      color: var(--text-dark);
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    /* Animation simple */
+    @keyframes reveal-up {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: rotate(15deg) translateY(0); }
+      50% { transform: rotate(15deg) translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="error-container">
+  <div class="error-code">
+    404
+    <i class="fas fa-tractor tractor-icon"></i>
+  </div>
+
+  <h2>Oups ! Vous êtes hors-piste.</h2>
+
+  <p>
+    Il semblerait que cette page ait été tondue par erreur ou n'existe plus.<br>
+    Ne restez pas en friche, retournez vite en terrain sûr !
+  </p>
+
+  <a href="index.html" class="btn btn-primary">
+    <i class="fas fa-home"></i> Retour à l'Accueil
+  </a>
+</div>
+
+</body>
+</html>
