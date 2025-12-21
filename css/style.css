@@ -2314,19 +2314,41 @@ footer h3 {
   }
 }
 
-/* Responsive : On centre en bas sur mobile */
+/* Responsive : On centre en bas sur mobile et on réduit la largeur */
 @media (max-width: 600px) {
   .promo-toast {
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    width: 95%;
-    /* Légèrement plus large pour profiter de l'espace */
-    max-width: 380px;
-    justify-content: space-between;
+    width: auto;
+    /* Prend la largeur de son contenu */
+    max-width: 90%;
+    /* Évite de toucher les bords */
+    padding: 8px 15px;
+    gap: 10px;
+    justify-content: center;
   }
 
   .promo-toast.show {
     transform: translateX(-50%) translateY(0);
+  }
+
+  .toast-icon-box {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .toast-label {
+    font-size: 0.8rem;
+  }
+
+  .toast-sub {
+    font-size: 0.7rem;
+  }
+
+  .toast-action {
+    padding: 5px 12px;
+    font-size: 0.7rem;
   }
 }
 
@@ -3261,7 +3283,5 @@ footer h3 {
   }
 
   /* Supprimer les effets de coté alternés (odd/even) s'il y en a */
-  .timeline-row:nth-child(even) .timeline-content {
-    /* Reset si necessaire */
-  }
+  /* On peut ajouter d'autres corrections ici si besoin */
 }
