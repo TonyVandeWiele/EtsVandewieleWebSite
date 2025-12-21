@@ -2098,6 +2098,7 @@ footer h3 {
     min-height: 100vh;
     padding-top: 100px;
     padding-bottom: 50px;
+    background-attachment: scroll !important;
   }
 
   .hero h1 {
