@@ -2319,8 +2319,9 @@ footer h3 {
   .promo-toast {
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    width: 90%;
-    max-width: 350px;
+    width: 95%;
+    /* Légèrement plus large pour profiter de l'espace */
+    max-width: 380px;
     justify-content: space-between;
   }
 
