@@ -11,9 +11,135 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap"
     rel="stylesheet">
+  <link rel="preload" as="image" href="images/accueil-image.avif" type="image/avif">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --primary-green: #268C36;
+      --dark-green: #114227;
+      --accent-orange: #FF8800;
+      --bright-orange: #FF6600;
+      --text-dark: #333333;
+      --text-light: #f5f5f5;
+      --white: #ffffff;
+      --light-bg: #fdfdfd;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.65;
+      background-color: var(--light-bg);
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 25px;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      background: transparent;
+      padding: 25px 0;
+    }
+
+    .hero {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background-color: #051e10;
+    }
+
+    /* 1. L'IMAGE (Base) : On la remonte au niveau 0 */
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      /* CHANGÉ de -1 à 0 */
+    }
+
+    /* 2. LE DÉGRADÉ (Filtre) : On le met juste au-dessus (niveau 1) */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* J'ai légèrement réduit l'opacité pour qu'on voie mieux l'image */
+      background: linear-gradient(135deg, rgba(5, 30, 16, 0.80), rgba(10, 60, 35, 0.70));
+      z-index: 1;
+      /* CHANGÉ de 0 à 1 */
+    }
+
+    /* 3. LE TEXTE (Contenu) : Tout au-dessus (niveau 2) */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      /* Reste à 2, c'est parfait */
+      color: var(--white);
+      padding: 0 20px;
+      animation: fadeUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin-bottom: 20px;
+      font-weight: 800;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent-orange);
+      color: var(--white);
+    }
+  </style>
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="css/style.css">
+  </noscript>
 
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF8800' rx='20'/><text x='50' y='75' font-size='70' font-family='Arial, sans-serif' font-weight='900' text-anchor='middle' fill='%23ffffff'>V</text></svg>">
@@ -24,7 +150,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Ets Van de Wiele",
-    "image": "images/logo-vdw.jpg",
+    "image": "images/logo-vdw.webp",
     "@id": "",
     "url": "https://vdw-ets.be",
     "telephone": "069866047",
@@ -53,7 +179,7 @@
     <div class="container">
       <nav>
         <a href="#" class="logo-wrapper">
-          <img src="images/logo-vdw.jpg" alt="Logo Van de Wiele" class="nav-logo-img">
+          <img src="images/logo-vdw.webp" alt="Logo Van de Wiele" class="nav-logo-img">
 
           <div class="logo-text">
             VAN DE WIELE <span>ETS</span>
@@ -82,6 +208,13 @@
 
   <main>
     <section id="accueil" class="hero">
+      <picture>
+        <source srcset="images/accueil-image.avif" type="image/avif">
+
+        <img
+          src="https://images.unsplash.com/photo-1558904541-efa843a96f01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+          alt="Expert Jardin Van de Wiele" class="hero-bg-img" fetchpriority="high">
+      </picture>
       <div class="hero-content">
         <span class="hero-badge">Passion & Expertise depuis 1994</span>
         <h1>Votre Partenaire Jardin<br>à <span>Frasnes-lez-Anvaing</span></h1>
@@ -118,7 +251,19 @@
           </div>
 
           <div class="timeline-row">
-            <div class="timeline-time">2012</div>
+            <div class="timeline-time">2001</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content reveal-up delay-100">
+              <div class="icon-box-small"><i class="fas fa-certificate"></i></div>
+              <h3>Concessionnaire STIHL</h3>
+              <p>Une étape majeure pour l'entreprise : nous devenons concessionnaire officiel STIHL.
+                L'assurance pour nos clients de bénéficier de produits de haute qualité et d'un service d'excellence.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">2008</div>
             <div class="timeline-dot"></div>
             <div class="timeline-content reveal-up delay-200">
               <div class="icon-box-small"><i class="fas fa-warehouse"></i></div>
@@ -131,7 +276,7 @@
           <div class="timeline-row">
             <div class="timeline-time">2018</div>
             <div class="timeline-dot"></div>
-            <div class="timeline-content reveal-up delay-100">
+            <div class="timeline-content reveal-up delay-200">
               <div class="icon-box-small"><i class="fas fa-handshake"></i></div>
               <h3>Père & Fils</h3>
               <p>Une nouvelle étape clé : le fils rejoint l'entreprise. Deux générations, deux visions, mais une seule
@@ -142,7 +287,7 @@
           <div class="timeline-row">
             <div class="timeline-time">2024</div>
             <div class="timeline-dot"></div>
-            <div class="timeline-content reveal-up delay-200">
+            <div class="timeline-content reveal-up delay-100">
               <div class="icon-box-small"><i class="fas fa-heart"></i></div>
               <h3>Aujourd'hui</h3>
               <p>Rénovation du showroom, Robots connectés... On évolue avec notre temps, mais on garde notre esprit de
@@ -745,7 +890,7 @@
           <div class="category-card reveal-up delay-100">
             <div class="cat-icon"><i class="fas fa-tree"></i></div>
             <h3>Tronçonneuses & Élagueuses</h3>
-            <p>Abattage, ébranchage et bois de chauffage. La référence mondiale STIHL et les alternatives Anova.</p>
+            <p>Abattage, ébranchage et bois de chauffage. La référence mondiale STIHL.</p>
             <div class="brand-links">
               <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn">
                 <i class="fas fa-external-link-alt"></i> Tronçonneuses STIHL
@@ -1057,7 +1202,7 @@
                   <div class="news-info">
                     <span class="news-date">Anticipation</span>
                     <h4>Révision Hiver</h4>
-                    <p>Prenez rendez-vous dès maintenant pour éviter la foule.</p>
+                    <p>Prenez rendez-vous dès maintenant pour éviter l'affluence.</p>
                   </div>
                 </div>
               </div>
@@ -1072,22 +1217,21 @@
         <p>Nos partenaires officiels de confiance</p>
         <div class="logo-carousel-container reveal-up">
           <div class="brands-list logo-carousel-track">
-            <img src="images/logo-stihl.png" alt="Logo STIHL" class="brand-logo">
-            <img src="images/logo-iseki.png" alt="Logo ISEKI" class="brand-logo">
-            <img src="images/logo-sunseeker.png" alt="Logo SUNSEEKER" class="brand-logo">
-            <img src="images/logo-ferris.png" alt="Logo FERRIS" class="brand-logo">
-            <img src="images/logo-snapper.png" alt="Logo SNAPPER" class="brand-logo">
-            <img src="images/logo-stihl-imow.png" alt="Logo IMOW" class="brand-logo">
-            <img src="images/logo-solo.png" alt="Logo SOLO" class="brand-logo">
-            <img src="images/logo-anova.png" alt="Logo ANOVA" class="brand-logo">
-            <img src="images/logo-stihl.png" alt="Logo STIHL" class="brand-logo">
-            <img src="images/logo-iseki.png" alt="Logo ISEKI" class="brand-logo">
-            <img src="images/logo-sunseeker.png" alt="Logo SUNSEEKER" class="brand-logo">
-            <img src="images/logo-ferris.png" alt="Logo FERRIS" class="brand-logo">
-            <img src="images/logo-snapper.png" alt="Logo SNAPPER" class="brand-logo">
-            <img src="images/logo-stihl-imow.png" alt="Logo IMOW" class="brand-logo">
-            <img src="images/logo-solo.png" alt="Logo SOLO" class="brand-logo">
-            <img src="images/logo-anova.png" alt="Logo ANOVA" class="brand-logo">
+            <img src="images/logo-stihl.webp" alt="Logo STIHL" class="brand-logo" loading="lazy">
+            <img src="images/logo-iseki.webp" alt="Logo ISEKI" class="brand-logo" loading="lazy">
+            <img src="images/logo-sunseeker.webp" alt="Logo SUNSEEKER" class="brand-logo" loading="lazy">
+            <img src="images/logo-ferris.webp" alt="Logo FERRIS" class="brand-logo" loading="lazy">
+            <img src="images/logo-snapper.webp" alt="Logo SNAPPER" class="brand-logo" loading="lazy">
+            <img src="images/logo-solo.webp" alt="Logo SOLO" class="brand-logo" loading="lazy">
+            <img src="images/logo-anova.webp" alt="Logo ANOVA" class="brand-logo" loading="lazy">
+            <img src="images/logo-stihl.webp" alt="Logo STIHL" class="brand-logo" loading="lazy">
+            <img src="images/logo-iseki.webp" alt="Logo ISEKI" class="brand-logo" loading="lazy">
+            <img src="images/logo-sunseeker.webp" alt="Logo SUNSEEKER" class="brand-logo" loading="lazy">
+            <img src="images/logo-ferris.webp" alt="Logo FERRIS" class="brand-logo" loading="lazy">
+            <img src="images/logo-snapper.webp" alt="Logo SNAPPER" class="brand-logo" loading="lazy">
+            <img src="images/logo-stihl-imow.webp" alt="Logo IMOW" class="brand-logo" loading="lazy">
+            <img src="images/logo-solo.webp" alt="Logo SOLO" class="brand-logo" loading="lazy">
+            <img src="images/logo-anova.webp" alt="Logo ANOVA" class="brand-logo" loading="lazy">
           </div>
         </div>
       </div>
