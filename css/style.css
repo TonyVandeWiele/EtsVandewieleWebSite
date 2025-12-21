@@ -3306,3 +3306,18 @@ footer h3 {
   /* Supprimer les effets de coté alternés (odd/even) s'il y en a */
   /* On peut ajouter d'autres corrections ici si besoin */
 }
+
+/* FAQ LIST STYLING */
+.faq-list {
+  padding: 0 30px 20px 40px;
+  list-style-type: disc;
+  margin-top: -10px;
+  color: #555;
+}
+
+.faq-list li {
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  line-height: 1.6;
+  font-family: 'Open Sans', sans-serif;
+}
