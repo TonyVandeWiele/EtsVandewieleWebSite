@@ -105,34 +105,41 @@ document.addEventListener('DOMContentLoaded', () => {
   // =======================================================
 
   const promoToast = document.getElementById('promoToast');
-  const closeToastBtn = document.getElementById('closeToast');
   const promoSection = document.getElementById('actu');
+  const promoAction = promoToast ? promoToast.querySelector('.toast-action') : null;
 
   if (promoToast && promoSection) {
-    setTimeout(() => {
-      if (!sessionStorage.getItem('toastClosed')) {
-        promoToast.classList.add('show');
-      }
-    }, 4000);
-
-    if (closeToastBtn) {
-      closeToastBtn.addEventListener('click', () => {
-        promoToast.classList.remove('show');
-        sessionStorage.setItem('toastClosed', 'true');
-      });
-    }
-
-    const toastObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          promoToast.classList.remove('show');
-        } else if (!sessionStorage.getItem('toastClosed') && window.scrollY > 100) {
+    // Ne rien faire si déjà vu
+    if (sessionStorage.getItem('promoSeen')) {
+      promoToast.style.display = 'none';
+    } else {
+      setTimeout(() => {
+        if (!sessionStorage.getItem('promoSeen')) {
           promoToast.classList.add('show');
         }
-      });
-    }, { threshold: 0.3 });
+      }, 4000);
 
-    toastObserver.observe(promoSection);
+      if (promoAction) {
+        promoAction.addEventListener('click', () => {
+          sessionStorage.setItem('promoSeen', 'true');
+          promoToast.classList.remove('show');
+        });
+      }
+
+      const toastObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (sessionStorage.getItem('promoSeen')) return;
+
+          if (entry.isIntersecting) {
+            promoToast.classList.remove('show');
+          } else if (window.scrollY > 100) {
+            promoToast.classList.add('show');
+          }
+        });
+      }, { threshold: 0.3 });
+
+      toastObserver.observe(promoSection);
+    }
   }
 
 
