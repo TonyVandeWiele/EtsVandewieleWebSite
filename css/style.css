@@ -1950,11 +1950,12 @@ footer h3 {
 }
 
 .creator-name {
-  color: var(--accent-orange);
-  /* Votre nom en orange */
-  font-weight: 800;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  /* Couleur discrète */
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: none;
+  font-size: 0.95rem;
   margin-left: 5px;
 }
 
