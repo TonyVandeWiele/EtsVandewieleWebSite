@@ -187,13 +187,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const statusText = statusContainer.querySelector('.status-text');
       statusContainer.classList.toggle('open', isOpen);
       statusContainer.classList.toggle('closed', !isOpen);
-      statusText.textContent = isOpen ? "Magasin Ouvert actuellement" : "Magasin Fermé actuellement";
+      statusText.textContent = isOpen ? "Magasin actuellement ouvert" : "Magasin actuellement fermé";
     }
 
-    
+
     const badge = document.getElementById('shop-status-badge');
     if (badge) {
-      badge.textContent = isOpen ? "OUVERT" : "FERMÉ";
+      badge.textContent = isOpen ? "ouvert" : "fermé";
       badge.className = isOpen ? "status-badge open" : "status-badge closed";
     }
 

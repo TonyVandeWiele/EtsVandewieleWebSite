@@ -4,7 +4,8 @@
 :root {
   /* Couleurs améliorées */
   --primary-green: #268C36;
-  --dark-green: #0A361F;
+  --dark-green: #114227;
+  /* Légèrement plus clair que #0A361F */
   --accent-orange: #FF8800;
   --bright-orange: #FF6600;
 
@@ -2092,6 +2093,13 @@ footer h3 {
   }
 
   /* Général */
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+
   .hero h1 {
     font-size: 3rem;
   }
@@ -3198,8 +3206,7 @@ footer h3 {
 }
 
 /* Reduire l'espace AVANT le contact */
-#contact,
-.contact-wrapper {
+#contact {
   margin-top: 0 !important;
   padding-top: 20px !important;
 }
