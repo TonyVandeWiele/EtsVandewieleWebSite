@@ -2333,13 +2333,15 @@ footer h3 {
   .promo-toast {
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    width: auto;
-    /* Prend la largeur de son contenu */
-    max-width: 90%;
-    /* Évite de toucher les bords */
-    padding: 8px 15px;
-    gap: 10px;
-    justify-content: center;
+    width: 90%;
+    /* Fixe la largeur pour éviter l'écrasement */
+    max-width: 400px;
+    padding: 12px 20px;
+    /* Plus d'espace vertical */
+    gap: 15px;
+    /* Plus d'espace entre les éléments */
+    justify-content: space-between;
+    /* Espacement homogène */
   }
 
   .promo-toast.show {
@@ -2347,9 +2349,11 @@ footer h3 {
   }
 
   .toast-icon-box {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     font-size: 0.9rem;
+    flex-shrink: 0;
+    /* Empêche le rétrécissement */
   }
 
   .toast-label {
@@ -2361,8 +2365,10 @@ footer h3 {
   }
 
   .toast-action {
-    padding: 5px 12px;
-    font-size: 0.7rem;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    /* Empêche le rétrécissement */
   }
 }
 
