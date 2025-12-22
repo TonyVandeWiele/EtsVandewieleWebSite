@@ -208,6 +208,18 @@
     .hidden-overflow {
       overflow: hidden;
     }
+
+    /* Product Button Hover Animation */
+    .cat-link {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      /* Ensure spacing/transform works */
+    }
+
+    .cat-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
   </style>
 
   <link rel="stylesheet" href="css/style.css">
@@ -302,9 +314,8 @@
       </picture>
       <div class="hero-content">
         <span class="hero-badge">Passion & Expertise depuis 1994</span>
-        <h1>Votre Partenaire Jardin<br>à <span>Frasnes-lez-Anvaing</span></h1>
-        <p>Une entreprise familiale dédiée aux professionnels et particuliers.<br><strong>Vente, Entretien & Service
-            Après-Vente.</strong></p>
+        <h1>Votre spécialiste en motoculture<br>à <span>Frasnes-lez-Anvaing</span></h1>
+        <p>Vente, entretien et réparation de tondeuses, robots, tronçonneuses, débroussailleuses et taille-haies.</p>
         <div class="hero-actions">
           <a href="#actu" class="btn btn-primary"><i class="fas fa-certificate"></i> Offres STIHL & iMOW</a>
           <a href="#services" class="btn btn-outline">Nos Services</a>
@@ -369,7 +380,7 @@
           </div>
 
           <div class="timeline-row">
-            <div class="timeline-time">2024</div>
+            <div class="timeline-time">2026</div>
             <div class="timeline-dot"></div>
             <div class="timeline-content reveal-up delay-100">
               <div class="icon-box-small"><i class="fas fa-heart"></i></div>
@@ -394,20 +405,20 @@
           <div class="service-card reveal-up delay-100">
             <div class="icon-box"><i class="fas fa-certificate"></i></div>
             <h3>Vente Conseil</h3>
-            <p>Distributeur officiel des plus grandes marques. Nous vous guidons vers le matériel parfaitement adapté à
-              votre terrain.</p>
+            <p>Distributeur officiel des grandes marques. Nous vous guidons vers le matériel le plus adapté à vos
+              besoins, avec l'expertise d'un spécialiste établi à Frasnes-lez-Anvaing.</p>
           </div>
           <div class="service-card reveal-up delay-200">
             <div class="icon-box"><i class="fas fa-tools"></i></div>
             <h3>Atelier SAV Pro</h3>
-            <p>Service après-vente rapide et efficace. Entretien, hivernage et réparation dans nos ateliers spécialisés.
-            </p>
+            <p>Un service mécanique complet : révision annuelle, affûtage et dépannage toutes marques. Une expertise
+              technique reconnue dans le Pays des Collines, la région de Tournai, Leuze et Ath.</p>
           </div>
           <div class="service-card reveal-up delay-300">
             <div class="icon-box"><i class="fas fa-robot"></i></div>
             <h3>Expertise Robotique</h3>
-            <p>Installation de votre robot de tonte sur-mesure. Étude de terrain, mise en route (filaire ou sans fil) et
-              programmation : profitez d'une pelouse parfaite en toute sérénité.</p>
+            <p>Installation certifiée à domicile, programmation et mise en route de votre robot tondeuse. Nous nous
+              déplaçons à Saint-Sauveur, Arc-Ainières, Anvaing et dans les environs.</p>
           </div>
         </div>
       </div>
@@ -936,11 +947,13 @@
             <h3>Robots de Tonte</h3>
             <p>L'avenir de la pelouse. Du légendaire iMOW® aux technologies sans fil Sunseeker.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn">
-                <i class="fas fa-external-link-alt"></i> Gamme iMOW
+              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
+                style="background-color: #F47C00; border: none; color: white;">
+                <i class="fas fa-external-link-alt"></i> STIHL
               </a>
-              <a href="https://sunseekerelite.be/" target="_blank" class="cat-link">
-                Sunseeker Elite
+              <a href="https://sunseekerelite.be/" target="_blank" class="cat-link"
+                style="background-color: #e35205; border: none; color: white;">
+                Sunseeker
               </a>
             </div>
           </div>
@@ -950,12 +963,16 @@
             <h3>Tracteurs & Riders</h3>
             <p>Pour les grandes surfaces. De la nouvelle gamme STIHL aux tracteurs diesel ISEKI et Zéro-Turn FERRIS.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn">
-                <i class="fas fa-external-link-alt"></i> Tracteurs STIHL
+              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
+                style="background-color: #F47C00; border: none; color: white;">
+                <i class="fas fa-external-link-alt"></i> STIHL
               </a>
-              <a href="https://www.hh-garden.be/nl/brands/iseki/" target="_blank" class="cat-link">ISEKI</a>
-              <a href="https://www.hh-garden.be/nl/brands/ferris/" target="_blank" class="cat-link">Ferris</a>
-              <a href="https://www.hh-garden.be/fr/brands/snapper/" target="_blank" class="cat-link">Snapper</a>
+              <a href="https://www.hh-garden.be/nl/brands/iseki/" target="_blank" class="cat-link"
+                style="background-color: #005DAA; border: none; color: white;">ISEKI</a>
+              <a href="https://www.hh-garden.be/nl/brands/ferris/" target="_blank" class="cat-link"
+                style="background-color: #B41F24; border: none; color: white;">Ferris</a>
+              <a href="https://www.hh-garden.be/fr/brands/snapper/" target="_blank" class="cat-link"
+                style="background-color: #E2231A; border: none; color: white;">Snapper</a>
             </div>
           </div>
 
@@ -964,10 +981,14 @@
             <h3>Tondeuses à Gazon</h3>
             <p>Tondeuses poussées ou tractées. Gammes complètes pour jardins de toutes tailles.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn">
-                <i class="fas fa-external-link-alt"></i> Tondeuses STIHL
+              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
+                style="background-color: #F47C00; border: none; color: white;">
+                <i class="fas fa-external-link-alt"></i> STIHL
               </a>
-              <a href="https://www.hh-garden.be/fr/brands/snapper/" target="_blank" class="cat-link">Snapper</a>
+              <a href="https://www.hh-garden.be/nl/brands/iseki/" target="_blank" class="cat-link"
+                style="background-color: #005DAA; border: none; color: white;">ISEKI</a>
+              <a href="https://www.hh-garden.be/fr/brands/snapper/" target="_blank" class="cat-link"
+                style="background-color: #E2231A; border: none; color: white;">Snapper</a>
             </div>
           </div>
 
@@ -976,8 +997,9 @@
             <h3>Tronçonneuses & Élagueuses</h3>
             <p>Abattage, ébranchage et bois de chauffage. La référence mondiale STIHL.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn">
-                <i class="fas fa-external-link-alt"></i> Tronçonneuses STIHL
+              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
+                style="background-color: #F47C00; border: none; color: white;">
+                <i class="fas fa-external-link-alt"></i> STIHL
               </a>
             </div>
           </div>
@@ -987,10 +1009,12 @@
             <h3>Taille-Haies & Débroussailleuses</h3>
             <p>Domptez la végétation. Outils performants pour les finitions et les ronciers.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn">
+              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
+                style="background-color: #F47C00; border: none; color: white;">
                 <i class="fas fa-external-link-alt"></i> Taille-Haies
               </a>
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn">
+              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
+                style="background-color: #F47C00; border: none; color: white;">
                 <i class="fas fa-external-link-alt"></i> Débroussailleuses
               </a>
             </div>
@@ -1001,10 +1025,12 @@
             <h3>Souffleurs & Nettoyage</h3>
             <p>Souffleurs, nettoyeurs haute-pression et atomiseurs pour un extérieur impeccable.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn">
-                <i class="fas fa-external-link-alt"></i> Souffleurs STIHL
+              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
+                style="background-color: #F47C00; border: none; color: white;">
+                <i class="fas fa-external-link-alt"></i> STIHL
               </a>
-              <a href="https://www.hh-garden.be/nl/brands/solo/" target="_blank" class="cat-link">Solo</a>
+              <a href="https://www.hh-garden.be/nl/brands/solo/" target="_blank" class="cat-link"
+                style="background-color: #CC0000; border: none; color: white;">Solo</a>
             </div>
           </div>
 
@@ -1207,28 +1233,6 @@
             </article>
 
             <aside class="actu-sidebar">
-              <h3 class="sidebar-title">Conseil Pro</h3>
-              <div class="news-list">
-                <div class="news-item">
-                  <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i
-                      class="fas fa-tint"></i></div>
-                  <div class="news-info">
-                    <span class="news-date">Astuce</span>
-                    <h4>Mulching</h4>
-                    <p>Nourrissez votre sol naturellement.</p>
-                  </div>
-                </div>
-
-                <div class="news-item">
-                  <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i
-                      class="fas fa-clock"></i></div>
-                  <div class="news-info">
-                    <span class="news-date">Réglementation</span>
-                    <h4>Horaires de Tonte</h4>
-                    <p>Respectez vos voisins : évitez le dimanche après-midi.</p>
-                  </div>
-                </div>
-              </div>
             </aside>
           </div>
         </div>
@@ -1362,6 +1366,7 @@
                 <li>Vidange de l'huile moteur (recyclage inclus).</li>
                 <li>Affûtage et équilibrage de la lame.</li>
                 <li>Remplacement de la bougie et du filtre à air.</li>
+                <li>Contrôle et graissage de la transmission.</li>
                 <li>Nettoyage du carter de coupe et contrôle des câbles/sécurités.</li>
               </ul>
             </div>
@@ -1569,6 +1574,24 @@
       </div>
     </section>
 
+    <section id="about-seo" class="about-seo" style="background-color: #f9f9f9; padding: 60px 0;">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <h2>À propos</h2>
+          <div class="separator" style="margin-bottom: 40px;"></div>
+          <p style="max-width: 900px; margin: 0 auto; text-align: justify; font-size: 1.1rem; line-height: 1.8;">
+            Depuis 1994, l'établissement Van De Wiele est la référence en motoculture dans le Pays des Collines. Basé à
+            Anvaing, notre magasin familial propose un vaste choix de machines pour l'entretien de vos espaces verts.
+            Au-delà de la vente, nous nous distinguons par un atelier mécanique de proximité, idéalement situé pour les
+            habitants de Frasnes-lez-Anvaing et ses villages voisins (Pecq, Ellezelles, Flobecq, Leuze, Moustier,
+            Œudeghien, Cordes, Forest, Saint-Sauveur, Celles...). Que vous soyez un particulier cherchant un robot
+            tondeuse installé clé en main, ou un pro de la région de Tournai ou d'Ath cherchant un SAV réactif, nous
+            sommes là pour vous.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -1584,8 +1607,9 @@
       <p class="copyright">© 2025 Ets Van de Wiele. Tous droits réservés.</p>
 
       <div class="footer-credits">
-        <div class="credit-text">
-          Site réalisé par <span class="creator-name">Tony Van de Wiele</span>
+        <div class="credit-text" style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+          <span>Site réalisé par</span>
+          <span class="creator-name" style="color: #777777; font-weight: 500;">Tony Van de Wiele</span>
         </div>
         <a href="html/mentions-legales.html" class="legal-btn">
           Mentions Légales <i class="fas fa-arrow-right"></i>
