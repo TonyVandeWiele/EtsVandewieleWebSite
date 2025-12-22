@@ -139,16 +139,25 @@
       background: var(--accent-orange);
       color: var(--white);
     }
+
+    .btn-outline {
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .no-padding {
+      padding: 0 !important;
+    }
+
+    .hidden-overflow {
+      overflow: hidden;
+    }
   </style>
 
   <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="css/style.css">
   </noscript>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
     onload="this.media='all'">
@@ -227,10 +236,8 @@
     <section id="accueil" class="hero">
       <picture>
         <source srcset="images/accueil-image.avif" type="image/avif">
-
-        <img
-          src="https://images.unsplash.com/photo-1558904541-efa843a96f01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-          alt="Expert Jardin Van de Wiele" class="hero-bg-img" fetchpriority="high">
+        <img src="images/accueil-image.jpg" width="1950" height="1097" alt="Expert Jardin Van de Wiele"
+          class="hero-bg-img" fetchpriority="high">
       </picture>
       <div class="hero-content">
         <span class="hero-badge">Passion & Expertise depuis 1994</span>
@@ -239,9 +246,7 @@
             Après-Vente.</strong></p>
         <div class="hero-actions">
           <a href="#actu" class="btn btn-primary"><i class="fas fa-certificate"></i> Offres STIHL & iMOW</a>
-          <a href="#services" class="btn btn-outline"
-            style="border: 2px solid white; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;">Nos
-            Services</a>
+          <a href="#services" class="btn btn-outline">Nos Services</a>
         </div>
       </div>
     </section>
@@ -348,7 +353,7 @@
     </section>
 
     <section id="temoignages" class="testimonials">
-      <div class="container-fluid" style="overflow:hidden; padding:0;">
+      <div class="container-fluid no-padding hidden-overflow">
 
         <!-- HEADER -->
         <div class="container">

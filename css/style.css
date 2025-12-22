@@ -3316,9 +3316,27 @@ footer h3 {
   color: #555;
 }
 
-.faq-list li {
-  font-size: 0.95rem;
-  margin-bottom: 5px;
-  line-height: 1.6;
-  font-family: 'Open Sans', sans-serif;
+/* .btn-outline (moved from inline) */
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--primary-green);
+}
+
+/* Utilities (moved from inline) */
+.no-padding {
+  padding: 0 !important;
+}
+
+.hidden-overflow {
+  overflow: hidden;
 }
