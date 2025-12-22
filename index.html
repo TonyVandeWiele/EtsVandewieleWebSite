@@ -229,7 +229,6 @@
       z-index: 2;
       color: var(--white);
       padding: 0 20px;
-      animation: fadeUp 1s ease-out;
     }
 
     .hero h1 {
@@ -282,7 +281,11 @@
   </noscript>
 
 
-  <link rel="preload" as="image" href="images/accueil-image.avif" fetchpriority="high">
+  <!-- Preload Responsive Hero Image -->
+  <link rel="preload" as="image" href="images/accueil-mobile-image.avif" media="(max-width: 768px)"
+    fetchpriority="high">
+  <link rel="preload" as="image" href="images/accueil-desktop-image.avif" media="(min-width: 769px)"
+    fetchpriority="high">
 
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF8800' rx='20'/><text x='50' y='75' font-size='70' font-family='Arial, sans-serif' font-weight='900' text-anchor='middle' fill='%23ffffff'>V</text></svg>">
@@ -351,7 +354,11 @@
   <main>
     <section id="accueil" class="hero">
       <picture>
-        <source srcset="images/accueil-image.avif" type="image/avif">
+        <!-- Mobile Image -->
+        <source srcset="images/accueil-mobile-image.avif" media="(max-width: 768px)" type="image/avif">
+        <!-- Desktop Image -->
+        <source srcset="images/accueil-desktop-image.avif" media="(min-width: 769px)" type="image/avif">
+        <!-- Fallback -->
         <img src="images/accueil-image.jpg" width="1950" height="1097" alt="Expert Jardin Van de Wiele"
           class="hero-bg-img" fetchpriority="high">
       </picture>

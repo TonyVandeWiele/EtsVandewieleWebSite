@@ -431,7 +431,6 @@ header.scrolled .nav-fb {
   z-index: 2;
   color: var(--white);
   padding: 0 20px;
-  animation: fadeUp 1s ease-out;
 }
 
 @keyframes fadeUp {
