@@ -3299,12 +3299,12 @@ footer h3 {
 
 #temoignages {
   padding-top: 50px !important;
-  padding-bottom: 50px !important;
+  padding-bottom: 10px !important;
 }
 
 /* 2. Entre FAQ et Contact & Accès */
 #faq-section {
-  padding-top: 50px !important;
+  padding-top: 10px !important;
   padding-bottom: 50px !important;
 }
 
@@ -3328,6 +3328,11 @@ footer h3 {
 @media screen and (max-width: 768px) {
 
   /* --- 1. AJUSTEMENT DU TITRE ACCUEIL (HERO) --- */
+  .hero::after {
+    background: linear-gradient(135deg, rgba(5, 30, 16, 0.92), rgba(10, 60, 35, 0.85)) !important;
+    /* Assombrit l'image de fond sur mobile */
+  }
+
   .hero h1 {
     font-size: 1.8rem !important;
     /* Beaucoup plus petit pour mobile */
