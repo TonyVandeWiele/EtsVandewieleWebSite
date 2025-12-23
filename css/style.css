@@ -513,7 +513,7 @@ header.scrolled .nav-fb {
 /* --- 4.5 HISTOIRE & TIMELINE (VERSION FINALE : PULSE + FLIP + LISIBLE) --- */
 /* ========================================================================= */
 .history {
-  padding: 120px 0 30px 0;
+  padding: 80px 0;
   background-color: var(--light-bg);
   overflow: hidden;
 }
@@ -777,7 +777,7 @@ header.scrolled .nav-fb {
 /* --- 5. SERVICES CARDS --- */
 /* ========================================================================= */
 .services {
-  padding: 40px 0 30px 0;
+  padding: 80px 0;
   background: var(--light-bg);
 }
 
@@ -1026,7 +1026,7 @@ header.scrolled .nav-fb {
 /* --- 6.5 SECTION CATALOGUE PRODUITS --- */
 /* ========================================================================= */
 .products-section {
-  padding: 120px 0 60px 0;
+  padding: 80px 0;
   background-color: var(--white);
 }
 
@@ -1146,7 +1146,7 @@ header.scrolled .nav-fb {
 /* --- 7. ACTU & PROMO SECTION (NEW HUB) --- */
 /* ========================================================================= */
 .promo {
-  padding: 40px 0 100px 0;
+  padding: 80px 0;
   background: #383736;
   color: var(--white);
   overflow: hidden;
@@ -1623,7 +1623,7 @@ header.scrolled .nav-fb {
 /* --- 8. BRAND SECTION (CORRIGÉ MOBILE) --- */
 /* ========================================================================= */
 .brands {
-  padding: 60px 0;
+  padding: 80px 0;
   background: var(--white);
   overflow: hidden;
   /* Masque ce qui dépasse */
@@ -1737,7 +1737,7 @@ header.scrolled .nav-fb {
 /* --- 9. CONTACT SECTION (Grille 2 colonnes & Correction Map) --- */
 /* ========================================================================= */
 .contact {
-  padding: 50px 0;
+  padding: 80px 0;
   background: var(--light-bg);
 }
 
@@ -1799,6 +1799,14 @@ header.scrolled .nav-fb {
   /* Texte Rouge */
   border: 2px solid #dc3545;
   /* Bordure Rouge */
+}
+
+/* ========================================================================= */
+/* --- 10. ABOUT SEO SECTION --- */
+/* ========================================================================= */
+.about-seo {
+  padding: 80px 0;
+  background-color: var(--light-bg);
 }
 
 .status-dot {
@@ -2989,10 +2997,7 @@ footer h3 {
   /* Reduce bottom padding of services */
 }
 
-.testimonials {
-  padding-top: 20px !important;
-  /* Reduce top padding of testimonials */
-}
+
 
 /* Note: The marquee already has padding/margin, ensuring it's not too tight but closer than before. */
 
@@ -3056,39 +3061,7 @@ footer h3 {
   }
 }
 
-/* AJUSTEMENT ESPACES (User Request) */
 
-/* 1. PLUS d'espace entre Expertise (Services) et Avis */
-.services {
-  padding-bottom: 100px !important;
-  /* Augmenté */
-}
-
-.testimonials {
-  padding-top: 50px !important;
-  /* Augmenté aussi si besoin */
-  margin-top: 0 !important;
-}
-
-/* 2. MOINS d'espace entre Avis et Produits (Section suivante) */
-.testimonials {
-  padding-bottom: 20px !important;
-  /* Réduit au minimum */
-  margin-bottom: 0 !important;
-}
-
-/* Cibler la section qui suit immédiatement testimonials pour réduire son top */
-.testimonials+section {
-  padding-top: 20px !important;
-  /* Réduit l'espace avant Produits */
-  margin-top: 0 !important;
-}
-
-/* Ajustement spécifique pour le bouton Google Reviews qui a un margin-bottom */
-.testimonials .container>div:last-child {
-  margin-bottom: 10px !important;
-  /* Réduit le dernier margin du bouton */
-}
 
 /* FIX HOVER BOUTON HERO (User Request) */
 /* Le bouton "Nos Services" a des styles inline qui forcent la couleur blanche.
@@ -3104,10 +3077,7 @@ footer h3 {
 /* COMPACTAGE SECTION HISTOIRE (User Request) */
 
 /* Réduction du padding général de la section (était 120px) */
-.history {
-  padding-top: 60px !important;
-  padding-bottom: 30px !important;
-}
+
 
 /* Réduction de l'espace entre chaque événement (était 60px) */
 .timeline-row {
@@ -3143,18 +3113,7 @@ footer h3 {
   font-size: 1.8rem !important;
 }
 
-/* AJUSTEMENT ESPACE AVIS / PRODUITS (V2 - User Request "Un peu plus d'espace") */
 
-.testimonials {
-  padding-bottom: 50px !important;
-  /* Augmenté de 20px à 50px */
-}
-
-/* On laisse un peu plus d'air aussi sur la section suivante */
-.testimonials+section {
-  padding-top: 40px !important;
-  /* Augmenté de 20px à 40px */
-}
 
 /* FIX MENU MOBILE VISIBILITE (User Request "Top du Top") */
 
@@ -3245,26 +3204,7 @@ footer h3 {
   color: white;
 }
 
-/* FIX ESPACE FAQ / CONTACT (User Request "Reduire l'espace") */
-.min-gap-contact {
-  padding-bottom: 20px !important;
-}
 
-/* On suppose que la section FAQ a une classe ou ID. 
-   Comme on ne peut pas cibler facilement l'ID exact sans le voir,
-   On va cibler generiquement le padding bottom.
-*/
-
-#faq-section {
-  padding-bottom: 30px !important;
-  /* Reduit l'espace apres la FAQ */
-}
-
-/* Reduire l'espace AVANT le contact */
-#contact {
-  margin-top: 0 !important;
-  padding-top: 20px !important;
-}
 
 /* FIX TIMELINE MOBILE (User Request "Superposition") */
 
@@ -3348,4 +3288,36 @@ footer h3 {
 
 .hidden-overflow {
   overflow: hidden;
+}
+
+/* AJUSTEMENT ESPACES DEMANDÉS (Réduction ~30%) */
+
+/* 1. Entre Histoire et Confiance Client (Testimonials) */
+#histoire {
+  padding-bottom: 50px !important;
+}
+
+#temoignages {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+/* 2. Entre FAQ et Contact & Accès */
+#faq-section {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
+#contact {
+  padding-top: 50px !important;
+}
+
+/* 3. Entre Contact & Accès et À propos */
+#contact {
+  padding-bottom: 50px !important;
+}
+
+.about-seo {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
 }
