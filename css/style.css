@@ -3371,46 +3371,49 @@ footer h3 {
 
   /* L'état "Visible" */
   /* --- 2. POP-UP PROMO (VERSION COMPACTE & CENTRÉE) --- */
+  /* --- 2. POP-UP PROMO (COLLÉ À GAUCHE) --- */
   .promo-toast {
-    /* 1. Positionnement : Centré en bas */
+    /* 1. Positionnement : GAUCHE */
     position: fixed !important;
-    left: 30% !important;
-    /* On part du milieu */
+    left: 20px !important;
+    /* Marge fixe à gauche */
     bottom: 25px !important;
-    transform: translateX(-50%) translateY(150%) !important;
-    /* Centrage exact + Caché en bas */
+    right: auto !important;
+    /* Sécurité */
 
-    /* 2. Taille : S'adapte au contenu (plus joli) */
+    /* Animation : On cache juste vers le bas (plus de translateX) */
+    transform: translateY(150%) !important;
+
+    /* 2. Taille : S'adapte au contenu */
     width: fit-content !important;
-    max-width: 90% !important;
-    /* Sécurité pour ne pas dépasser l'écran */
-    min-width: 280px;
-    /* Une largeur mini pour que ça fasse pas "tout petit" */
+    max-width: 85% !important;
+    /* On évite qu'il touche le bord droit */
+    min-width: auto !important;
+    /* On laisse le contenu décider */
 
     /* 3. Design & Flexbox */
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    /* On centre le contenu */
+    justify-content: flex-start !important;
+    /* Alignement au début */
     gap: 12px !important;
-    /* ICI : C'est ton espace FIXE entre les éléments */
+    /* Espace FIXE maintenu */
 
     background: rgba(17, 66, 39, 0.95) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px !important;
-    /* Plus arrondi pour faire "pilule" */
     padding: 10px 20px !important;
-    /* Un peu plus de padding sur les côtés */
-    z-index: 9999;
+    z-index: 10000;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
-  /* L'état "Visible" */
+  /* ATTENTION : Il faut aussi corriger l'état "Visible" */
   .promo-toast.show {
-    transform: translateX(-50%) translateY(0) !important;
-    /* On garde le centrage X */
+    /* On remonte juste l'élément (pas de déplacement horizontal) */
+    transform: translateY(0) !important;
   }
 
   /* TEXTE */
