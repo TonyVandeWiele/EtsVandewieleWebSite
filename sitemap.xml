@@ -5,15 +5,16 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+
 <url>
-  <loc>https://etsvandewielewebsite.pages.dev/</loc>
-  <lastmod>2025-12-04T21:55:02+00:00</lastmod>
+  <loc>https://vandewiele-motoculture.be/</loc>
+  <lastmod>2025-12-23T20:29:10+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://etsvandewielewebsite.pages.dev/html/mentions-legales</loc>
-  <lastmod>2025-12-04T21:55:02+00:00</lastmod>
-  <priority>0.30</priority>
+  <loc>https://vandewiele-motoculture.be/html/mentions-legales</loc>
+  <lastmod>2025-12-23T20:29:10+00:00</lastmod>
+  <priority>0.50</priority>
 </url>
 
 

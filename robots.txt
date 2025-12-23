@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://etsvandewielewebsite.pages.dev/sitemap.xml
+Sitemap: https://vandewiele-motoculture.be/sitemap.xml

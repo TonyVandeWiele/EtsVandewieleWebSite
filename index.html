@@ -4,74 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ets Van de Wiele | Spécialiste Espaces Verts | Frasnes-lez-Anvaing</title>
+
+  <title>Van de Wiele Ets | Spécialiste Espaces Verts & Motoculture | Frasnes-lez-Anvaing</title>
   <meta name="description"
-    content="Votre revendeur spécialiste en machines de jardin à Frasnes-lez-Anvaing. Vente et service après-vente PRO. Distributeur officiel STIHL et iMOW.">
+    content="Votre revendeur spécialiste en machines de jardin à Frasnes-lez-Anvaing. Vente, réparation et service après-vente PRO. Distributeur officiel STIHL.">
 
   <link rel="preload" href="fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2" as="font" type="font/woff2"
     crossorigin>
 
+  <link rel="preload" as="image" href="images/accueil-mobile-image.avif" media="(max-width: 768px)"
+    fetchpriority="high">
+  <link rel="preload" as="image" href="images/accueil-desktop-image.avif" media="(min-width: 769px)"
+    fetchpriority="high">
+
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF8800' rx='20'/><text x='50' y='75' font-size='70' font-family='Arial, sans-serif' font-weight='900' text-anchor='middle' fill='%23ffffff'>V</text></svg>">
+
   <style>
-    /* Montserrat Bold (Pour les titres H1) */
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 800;
-      font-display: swap;
-      src: url(fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
-    }
-
-    /* Open Sans Regular (Pour le texte intro) */
-    @font-face {
-      font-family: 'Open Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(fonts/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
-    }
-
-    /* CRITICAL CSS (HERO LCP) */
-    .hero {
-      height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      background-color: #051e10
-    }
-
-    .hero-bg-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      aspect-ratio: 16/9
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: #fff;
-      padding: 0 20px
-    }
-
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      color: #fff;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      margin-bottom: 20px
-    }
-
-    /* VARIABLES */
+    /* 1. VARIABLES (Définies en premier) */
     :root {
       --primary-green: #268C36;
       --dark-green: #114227;
@@ -84,7 +37,24 @@
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* RESET & BASE */
+    /* 2. FONTS */
+    @font-face {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url(fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
+    }
+
+    /* 3. RESET & BASE */
     * {
       margin: 0;
       padding: 0;
@@ -113,7 +83,7 @@
       padding: 0 25px;
     }
 
-    /* HEADER */
+    /* 4. HEADER */
     header {
       position: fixed;
       width: 100%;
@@ -124,7 +94,7 @@
       padding: 25px 0;
     }
 
-    /* HERO SECTION (Optimisé LCP & CLS) */
+    /* 5. HERO SECTION (Code fusionné et nettoyé) */
     .hero {
       height: 100vh;
       position: relative;
@@ -134,6 +104,19 @@
       text-align: center;
       overflow: hidden;
       background-color: #051e10;
+      /* Fallback color */
+    }
+
+    /* L'overlay sombre pour la lisibilité du texte */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(5, 30, 16, 0.80), rgba(10, 60, 35, 0.70));
+      z-index: 1;
     }
 
     .hero-bg-img {
@@ -147,17 +130,6 @@
       aspect-ratio: 16/9;
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(5, 30, 16, 0.80), rgba(10, 60, 35, 0.70));
-      z-index: 1;
-    }
-
     .hero-content {
       position: relative;
       z-index: 2;
@@ -166,13 +138,15 @@
     }
 
     .hero h1 {
+      font-family: 'Montserrat', sans-serif;
       font-size: clamp(2.5rem, 5vw, 4.5rem);
       margin-bottom: 20px;
       font-weight: 800;
+      color: var(--white);
       text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
-    /* BOUTONS */
+    /* 6. UI ELEMENTS */
     .btn {
       display: inline-block;
       padding: 16px 40px;
@@ -194,15 +168,7 @@
       color: var(--white);
     }
 
-    .no-padding {
-      padding: 0 !important;
-    }
-
-    .hidden-overflow {
-      overflow: hidden;
-    }
-
-    /* Product Button Hover Animation */
+    /* Animations */
     .cat-link {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: inline-block;
@@ -222,23 +188,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </noscript>
 
-
-  <link rel="preload" as="image" href="images/accueil-mobile-image.avif" media="(max-width: 768px)"
-    fetchpriority="high">
-  <link rel="preload" as="image" href="images/accueil-desktop-image.avif" media="(min-width: 769px)"
-    fetchpriority="high">
-
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF8800' rx='20'/><text x='50' y='75' font-size='70' font-family='Arial, sans-serif' font-weight='900' text-anchor='middle' fill='%23ffffff'>V</text></svg>">
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Ets Van de Wiele",
-    "image": "images/logo-vdw.avif",
-    "@id": "",
-    "url": "https://vdw-ets.be",
+    "@id": "https://www.vandewiele-motoculture.be", 
+    "url": "https://www.vandewiele-motoculture.be", 
+    "image": "https://www.vandewiele-motoculture.be/images/logo-vdw.avif",
     "telephone": "069866047",
     "address": {
       "@type": "PostalAddress",

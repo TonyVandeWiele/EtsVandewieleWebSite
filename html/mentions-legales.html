@@ -1,138 +1,365 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mentions Légales | Ets Van de Wiele</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF8800' rx='20'/><text x='50' y='75' font-size='70' font-family='Arial, sans-serif' font-weight='900' text-anchor='middle' fill='%23ffffff'>V</text></svg>">
+
+  <link rel="preload" href="../fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2" as="font" type="font/woff2"
+    crossorigin>
+
   <link rel="stylesheet" href="../css/style.css">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF8800' rx='20'/><text x='50' y='75' font-size='70' font-family='Arial, sans-serif' font-weight='900' text-anchor='middle' fill='%23ffffff'>V</text></svg>">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { background-color: #fdfdfd; color: #333; }
+    /* --- RÉGLAGES GLOBAUX --- */
+    :root {
+      --primary-green: #268C36;
+      --dark-green: #114227;
+      --accent-orange: #FF8800;
+      --text-dark: #333333;
+      --white: #ffffff;
+    }
+
+    body {
+      background-color: #fdfdfd;
+      color: var(--text-dark);
+      margin: 0;
+      padding-top: 80px;
+      /* Compensation pour le header fixe */
+    }
+
+    /* --- HEADER SPÉCIFIQUE PAGES INTERNES --- */
+    /* On force le style "scrolled" ou "colored" directement */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: #051e10;
+      /* Le vert foncé de ton Hero */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 25px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--accent-orange);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links li a {
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: var(--accent-orange);
+    }
+
+    /* Hamburger Menu pour Mobile */
+    .hamburger {
+      display: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* --- CONTENU LÉGAL --- */
     .legal-content {
-      padding: 150px 25px 80px 25px;
+      padding: 60px 25px 80px 25px;
       max-width: 800px;
       margin: 0 auto;
       min-height: 60vh;
     }
+
     .legal-content h1 {
       font-family: 'Montserrat', sans-serif;
       font-size: 2.5rem;
-      color: #15653E;
+      color: var(--dark-green);
       margin-bottom: 50px;
       text-align: center;
-      position: relative;
     }
+
     .legal-content h1::after {
-      content: ''; display: block; width: 60px; height: 4px;
-      background: #FF8800; margin: 15px auto 0; border-radius: 2px;
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-orange);
+      margin: 15px auto 0;
+      border-radius: 2px;
     }
+
     .legal-content h2 {
       font-family: 'Montserrat', sans-serif;
       font-size: 1.4rem;
-      color: #333;
-      margin-top: 40px; margin-bottom: 20px;
-      border-left: 4px solid #FF8800; padding-left: 15px;
+      color: var(--text-dark);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--accent-orange);
+      padding-left: 15px;
     }
-    .legal-content ul {
-      list-style-type: none; padding-left: 0; margin-bottom: 20px;
-      background: white; padding: 25px; border-radius: 8px;
-      border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-    }
-    .legal-content li {
-      margin-bottom: 12px; line-height: 1.6; font-family: 'Open Sans', sans-serif;
-    }
-    .legal-content li strong { color: #15653E; display: inline-block; width: 240px; }
-    .legal-content p { line-height: 1.8; color: #555; text-align: justify; margin-bottom: 15px;}
-    .legal-link { color: #FF8800; font-weight: 600; text-decoration: none; }
-    .legal-link:hover { text-decoration: underline; }
 
-    @media (max-width: 600px) {
-      .legal-content li strong { display: block; width: 100%; margin-bottom: 5px; }
+    .legal-content ul {
+      list-style-type: none;
+      padding: 0;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .legal-content li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .legal-content li strong {
+      color: var(--primary-green);
+      display: inline-block;
+      width: 240px;
+    }
+
+    .legal-content p {
+      line-height: 1.8;
+      color: #555;
+      text-align: justify;
+      margin-bottom: 15px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    /* --- FOOTER (Simplifié pour correspondre au style global) --- */
+    footer {
+      background-color: #111;
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    footer h3 {
+      color: var(--accent-orange);
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--white);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        right: 0px;
+        top: 70px;
+        background-color: #051e10;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in;
+        padding: 20px 0;
+      }
+
+      /* Classe ajoutée par JS pour ouvrir le menu */
+      .nav-active {
+        transform: translateX(0%);
+      }
+
+      .legal-content li strong {
+        display: block;
+        width: 100%;
+      }
+
+      .legal-content h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<header id="header" class="header-colored">
-  <div class="container">
-    <nav>
-      <a href="../index.html" class="logo">VAN DE WIELE <span>ETS</span></a>
-      <ul class="nav-links">
-        <li><a href="../index.html#accueil">Accueil</a></li>
-        <li><a href="../index.html#services">Services Pro</a></li>
-        <li><a href="../index.html#promo">Promos Noël</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
-      </ul>
-      <div class="hamburger"><i class="fas fa-bars"></i></div>
-    </nav>
-  </div>
-</header>
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="../index.html" class="logo-wrapper">
+          <img src="../images/logo-vdw.avif" width="160" height="40" alt="Logo Van de Wiele" class="nav-logo-img">
 
-<main>
-  <section class="legal-content">
-    <h1>Mentions Légales</h1>
+          <div class="logo-text">
+            VAN DE WIELE <span>ETS</span>
+          </div>
+        </a>
 
-    <h2>1. Identification de l'Éditeur</h2>
-    <ul>
-      <li><strong>Nom Commercial :</strong> Ets Van de Wiele</li>
-      <li><strong>Responsable Juridique :</strong> Eric Van de Wiele</li>
-      <li><strong>Forme Juridique :</strong> Personne Physique (Entreprise Individuelle)</li>
-      <li><strong>Siège Social :</strong> Rue de la Gare 67, 7910 Frasnes-lez-Anvaing</li>
-      <li><strong>Numéro d'entreprise (BCE) :</strong> 0656.365.247</li>
-      <li><strong>Numéro de TVA :</strong> BE 0656.365.247</li>
-    </ul>
+        <ul class="nav-links">
+          <li><a href="../index.html#accueil">Accueil</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#produits">Produits</a></li>
+          <li><a href="../index.html#actu">Actu</a></li>
+          <li><a href="../index.html#faq-section">FAQ</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+          <li class="nav-item-badge"><span id="shop-status-badge" class="status-badge closed">FERMÉ</span></li>
+          <li>
+            <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" class="nav-fb" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+        </ul>
 
-    <h2>2. Conception & Développement</h2>
-    <p>Ce site internet a été conçu et réalisé par :</p>
-    <ul>
-      <li><strong>Développement Web :</strong> Tony Van de Wiele</li>
-      <li><strong>Contact technique :</strong> vandewiele.tonypro@gmail.com</li>
-    </ul>
-
-    <h2>3. Hébergement</h2>
-    <p>Le site est hébergé via l'infrastructure mondiale de Cloudflare :</p>
-    <ul>
-      <li><strong>Hébergeur :</strong> Cloudflare, Inc.</li>
-      <li><strong>Siège Social :</strong> 101 Townsend St, San Francisco, CA 94107, USA</li>
-      <li><strong>Site web :</strong> <a href="https://www.cloudflare.com" target="_blank" class="legal-link">www.cloudflare.com</a></li>
-    </ul>
-
-    <h2>4. Propriété Intellectuelle</h2>
-    <p>L'ensemble de ce site (structure, design, textes, photos originales) est la propriété exclusive de <strong>Eric Van de Wiele</strong>. Toute reproduction totale ou partielle de ce site, sans l'autorisation expresse de l'exploitant, est interdite et constituerait une contrefaçon sanctionnée par le Code de droit économique belge.</p>
-    <p>Les marques citées (STIHL, ISEKI, etc.) sont des marques déposées appartenant à leurs propriétaires respectifs.</p>
-
-    <h2>5. Données Personnelles & Cookies (RGPD)</h2>
-    <p><strong>Absence de collecte de données :</strong> Ce site est un site vitrine. Nous ne collectons aucune donnée personnelle via des formulaires d'inscription ou de création de compte. Aucune donnée n'est vendue ou transmise à des tiers.</p>
-    <p><strong>Absence de Cookies :</strong> Ce site n'utilise aucun cookie publicitaire, aucun traceur de réseaux sociaux et aucun outil d'analyse (type Google Analytics) nécessitant le consentement de l'utilisateur. Vous pouvez naviguer en toute tranquillité sans être suivi.</p>
-    <p><strong>Contact :</strong> Les seules données que nous recevons sont celles que vous choisissez de nous envoyer volontairement par e-mail ou téléphone pour une demande de service. Conformément au RGPD, vous disposez d'un droit d'accès et de suppression de ces échanges sur simple demande.</p>
-
-    <h2>6. Limitation de Responsabilité</h2>
-    <p>Les informations (prix, caractéristiques techniques) figurant sur ce site sont données à titre indicatif et sont susceptibles d'évoluer. Ets Van de Wiele ne pourra être tenu responsable des omissions, des inexactitudes et des carences dans la mise à jour. Les photos sont non contractuelles. Nous invitons les clients à vérifier les disponibilités et prix exacts en magasin.</p>
-
-    <h2>7. Droit Applicable et Juridiction</h2>
-    <p>Tout litige en relation avec l'utilisation du site est soumis au droit belge. En cas de litige, et à défaut d'accord amiable, la compétence exclusive est attribuée aux tribunaux de l'arrondissement judiciaire du Hainaut, division Tournai.</p>
-
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    <h3>VAN DE WIELE ETS</h3>
-    <div class="social-links">
-      <a href="https://www.facebook.com/VandeWieleEts/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+      </nav>
     </div>
-    <p>© 2025 Ets Van de Wiele. Tous droits réservés.</p>
-    <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">
-      Site réalisé avec passion par <span style="color: var(--accent-orange);">Tony Van de Wiele</span> | <a href="#">Mentions Légales</a>
-    </p>
-  </div>
-</footer>
+  </header>
 
-<script src="../js/script.js"></script>
+  <main>
+    <section class="legal-content">
+      <h1>Mentions Légales</h1>
+
+      <h2>1. Identification de l'Éditeur</h2>
+      <ul>
+        <li><strong>Nom Commercial :</strong> Ets Van de Wiele</li>
+        <li><strong>Responsable Juridique :</strong> Eric Van de Wiele</li>
+        <li><strong>Forme Juridique :</strong> Personne Physique (Entreprise Individuelle)</li>
+        <li><strong>Siège Social :</strong> Rue de la Gare 67, 7910 Frasnes-lez-Anvaing</li>
+        <li><strong>Numéro d'entreprise (BCE) :</strong> 0656.365.247</li>
+        <li><strong>Numéro de TVA :</strong> BE 0656.365.247</li>
+      </ul>
+
+      <h2>2. Conception & Développement</h2>
+      <p>Ce site internet a été conçu et réalisé par :</p>
+      <ul>
+        <li><strong>Développement Web :</strong> Tony Van de Wiele</li>
+        <li><strong>Contact technique :</strong> vandewiele.tonypro@gmail.com</li>
+      </ul>
+
+      <h2>3. Hébergement</h2>
+      <p>Le site est hébergé via l'infrastructure mondiale de Cloudflare :</p>
+      <ul>
+        <li><strong>Hébergeur :</strong> Cloudflare, Inc.</li>
+        <li><strong>Siège Social :</strong> 101 Townsend St, San Francisco, CA 94107, USA</li>
+        <li><strong>Site web :</strong> <a href="https://www.cloudflare.com" target="_blank"
+            style="color: var(--accent-orange);">www.cloudflare.com</a></li>
+      </ul>
+
+      <h2>4. Propriété Intellectuelle</h2>
+      <p>L'ensemble de ce site (structure, design, textes, photos originales) est la propriété exclusive de <strong>Eric
+          Van de Wiele</strong>. Toute reproduction totale ou partielle de ce site, sans l'autorisation expresse de
+        l'exploitant, est interdite et constituerait une contrefaçon sanctionnée par le Code de droit économique belge.
+      </p>
+      <p>Les marques citées (STIHL, ISEKI, etc.) sont des marques déposées appartenant à leurs propriétaires respectifs.
+      </p>
+
+      <h2>5. Données Personnelles & Cookies (RGPD)</h2>
+      <p>
+        <strong>Absence de collecte commerciale :</strong> Ce site est un site vitrine. Nous ne collectons aucune donnée
+        personnelle via des formulaires d'inscription ou de création de compte. Aucune donnée n'est vendue ou transmise
+        à des tiers.
+      </p>
+      <p>
+        <strong>Cookies & Infrastructure technique :</strong> Ce site n'utilise aucun cookie publicitaire, aucun traceur
+        de réseaux sociaux et aucun outil de tracking commercial (type Google Analytics).
+        Toutefois, pour assurer la sécurité et la performance du site, notre infrastructure (Cloudflare) peut être
+        amenée à déposer des cookies techniques strictement nécessaires (ex: protection contre les robots). Conformément
+        au RGPD, ces éléments vitaux au fonctionnement du site sont exemptés de consentement préalable.
+      </p>
+      <p>
+        <strong>Contact :</strong> Les seules données que nous recevons sont celles que vous choisissez de nous envoyer
+        volontairement par e-mail ou téléphone pour une demande de service. Conformément au RGPD, vous disposez d'un
+        droit d'accès et de suppression de ces échanges sur simple demande.
+      </p>
+
+      <h2>6. Limitation de Responsabilité</h2>
+      <p>Les informations (prix, caractéristiques techniques) figurant sur ce site sont données à titre indicatif et
+        sont susceptibles d'évoluer. Ets Van de Wiele ne pourra être tenu responsable des omissions, des inexactitudes
+        et des carences dans la mise à jour. Les photos sont non contractuelles. Nous invitons les clients à vérifier
+        les disponibilités et prix exacts en magasin.</p>
+
+      <h2>7. Droit Applicable et Juridiction</h2>
+      <p>Tout litige en relation avec l'utilisation du site est soumis au droit belge. En cas de litige, et à défaut
+        d'accord amiable, la compétence exclusive est attribuée aux tribunaux de l'arrondissement judiciaire du Hainaut,
+        division Tournai.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <h3>VAN DE WIELE ETS</h3>
+      <div class="social-links" style="margin-bottom: 20px;">
+        <a href="https://www.facebook.com/VandeWieleEts/" target="_blank"
+          style="font-size: 1.5rem; color: var(--white);"><i class="fab fa-facebook"></i></a>
+      </div>
+      <p>© 2025 Ets Van de Wiele. Tous droits réservés.</p>
+      <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">
+        Site réalisé avec passion par <span style="color: var(--accent-orange);">Tony Van de Wiele</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-active');
+      });
+    }
+  </script>
+
 </body>
+
 </html>
