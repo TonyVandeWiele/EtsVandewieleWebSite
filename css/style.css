@@ -3323,105 +3323,172 @@ footer h3 {
 }
 
 /* ========================================================================= */
-/* --- 10. OPTIMISATION MOBILE GLOBALE (Écrans < 768px) --- */
+/* --- OPTIMISATION MOBILE GLOBALE (Écrans < 768px) --- */
 /* ========================================================================= */
 @media screen and (max-width: 768px) {
 
-  /* 1. ESPACEMENTS & LARGEUR */
+  /* --- 1. AJUSTEMENT DU TITRE ACCUEIL (HERO) --- */
+  .hero h1 {
+    font-size: 1.8rem !important;
+    /* Beaucoup plus petit pour mobile */
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 1rem !important;
+    padding: 0 10px;
+  }
+
+  /* --- 2. POP-UP PROMO (CORRECTION LISIBILITÉ & TAILLE) --- */
+  .promo-toast {
+    /* Positionnement : on laisse de l'espace sur les cotés */
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 25px !important;
+    width: auto !important;
+    /* S'adapte à l'espace disponible */
+    transform: translateY(150%) !important;
+    /* Caché vers le bas par défaut */
+
+    /* Design : Fond Vert Foncé + Texte Blanc */
+    background: rgba(17, 66, 39, 0.95) !important;
+    /* Vert très foncé */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Pour iPhone */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Bordure fine blanche */
+    border-radius: 16px !important;
+    padding: 15px !important;
+
+    /* Flexbox pour aligner l'icone, le texte et le bouton */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 15px !important;
+  }
+
+  /* L'état "Visible" */
+  /* --- 2. POP-UP PROMO (VERSION COMPACTE & CENTRÉE) --- */
+  .promo-toast {
+    /* 1. Positionnement : Centré en bas */
+    position: fixed !important;
+    left: 30% !important;
+    /* On part du milieu */
+    bottom: 25px !important;
+    transform: translateX(-50%) translateY(150%) !important;
+    /* Centrage exact + Caché en bas */
+
+    /* 2. Taille : S'adapte au contenu (plus joli) */
+    width: fit-content !important;
+    max-width: 90% !important;
+    /* Sécurité pour ne pas dépasser l'écran */
+    min-width: 280px;
+    /* Une largeur mini pour que ça fasse pas "tout petit" */
+
+    /* 3. Design & Flexbox */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    /* On centre le contenu */
+    gap: 12px !important;
+    /* ICI : C'est ton espace FIXE entre les éléments */
+
+    background: rgba(17, 66, 39, 0.95) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px !important;
+    /* Plus arrondi pour faire "pilule" */
+    padding: 10px 20px !important;
+    /* Un peu plus de padding sur les côtés */
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* L'état "Visible" */
+  .promo-toast.show {
+    transform: translateX(-50%) translateY(0) !important;
+    /* On garde le centrage X */
+  }
+
+  /* TEXTE */
+  .promo-toast .toast-content {
+    text-align: left;
+    /* Le texte reste aligné à gauche */
+    flex: 1;
+    /* Prend la place dispo si besoin */
+  }
+
+  .promo-toast .toast-label {
+    color: #ffffff !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    /* Force le titre sur une ligne si possible */
+  }
+
+  .promo-toast .toast-sub {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.7rem !important;
+    display: block;
+    /* Force le sous-titre en dessous */
+  }
+
+  /* BOUTON */
+  .promo-toast .toast-action {
+    background: #ffffff !important;
+    color: var(--primary-green) !important;
+    font-weight: 800;
+    font-size: 0.75rem !important;
+    padding: 8px 18px !important;
+    border-radius: 20px;
+    flex-shrink: 0;
+    /* Le bouton ne s'écrase jamais */
+    margin-left: 0 !important;
+    /* Pas de marge auto, c'est le gap qui gère */
+  }
+
+  /* ICONE */
+  .toast-icon-box {
+    flex-shrink: 0;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* --- 3. AUTRES AJUSTEMENTS --- */
   section {
-    padding: 45px 0 !important;
-    /* Moins de scroll infini */
+    padding: 40px 0 !important;
   }
 
   .container {
-    padding: 0 18px !important;
-    /* Gagner de la place pour le contenu */
-  }
-
-  /* 2. TYPOGRAPHIE RESPONSIVE */
-  .section-header {
-    margin-bottom: 40px !important;
+    padding: 0 20px !important;
   }
 
   .section-header h2 {
-    font-size: 2.1rem !important;
-    /* Titres mieux proportionnés */
-    line-height: 1.1;
+    font-size: 2rem !important;
   }
 
-  .section-header p,
-  .contact-intro,
-  .about-seo p {
-    text-align: left !important;
-    /* Lisibilité accrue sur mobile */
-    font-size: 16px !important;
+  /* Timeline mobile plus propre */
+  .timeline::before {
+    left: 20px !important;
   }
 
-  /* 3. HEADER & NAVIGATION MOBILE */
-  header {
-    padding: 10px 0 !important;
+  .timeline-dot {
+    left: 20px !important;
   }
 
-  header.scrolled {
-    padding: 5px 0 !important;
-    /* Header ultra-compact au scroll */
+  .timeline-content {
+    width: calc(100% - 50px) !important;
+    margin-left: 50px !important;
   }
 
-  .hamburger {
-    width: 44px !important;
-    height: 44px !important;
-    /* Zone tactile optimisée */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* 4. CARTES & GRILLES (Services, Produits) */
-  .services-grid,
-  .products-grid,
-  .faq-grid {
-    grid-template-columns: 1fr !important;
-    /* Force 1 colonne */
-    gap: 20px !important;
-  }
-
-  .service-card,
-  .product-card,
-  .carousel-card {
-    padding: 20px !important;
-    /* Plus compact */
-  }
-
-  /* 5. ÉLÉMENTS FLOTTANTS (Promo Toast) */
-  .promo-toast {
-    max-height: 100px !important;
-    /* Max 12-15% écran */
-    width: calc(100% - 20px) !important;
-    left: 10px !important;
-    bottom: 15px !important;
-    padding: 12px !important;
-    background: rgba(17, 66, 39, 0.95) !important;
-    /* Transparence légère */
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .toast-icon-box {
-    width: 40px !important;
-    height: 40px !important;
-  }
-
-  /* 6. BOUTONS MOBILES */
-  .btn {
-    width: 100% !important;
-    /* Boutons pleine largeur pour le pouce */
-    text-align: center;
-    padding: 14px 20px !important;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  /* Boutons pleine largeur */
+  .hero-actions .btn {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
