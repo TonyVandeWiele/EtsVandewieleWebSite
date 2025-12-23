@@ -3321,3 +3321,107 @@ footer h3 {
   padding-top: 50px !important;
   padding-bottom: 50px !important;
 }
+
+/* ========================================================================= */
+/* --- 10. OPTIMISATION MOBILE GLOBALE (Écrans < 768px) --- */
+/* ========================================================================= */
+@media screen and (max-width: 768px) {
+
+  /* 1. ESPACEMENTS & LARGEUR */
+  section {
+    padding: 45px 0 !important;
+    /* Moins de scroll infini */
+  }
+
+  .container {
+    padding: 0 18px !important;
+    /* Gagner de la place pour le contenu */
+  }
+
+  /* 2. TYPOGRAPHIE RESPONSIVE */
+  .section-header {
+    margin-bottom: 40px !important;
+  }
+
+  .section-header h2 {
+    font-size: 2.1rem !important;
+    /* Titres mieux proportionnés */
+    line-height: 1.1;
+  }
+
+  .section-header p,
+  .contact-intro,
+  .about-seo p {
+    text-align: left !important;
+    /* Lisibilité accrue sur mobile */
+    font-size: 16px !important;
+  }
+
+  /* 3. HEADER & NAVIGATION MOBILE */
+  header {
+    padding: 10px 0 !important;
+  }
+
+  header.scrolled {
+    padding: 5px 0 !important;
+    /* Header ultra-compact au scroll */
+  }
+
+  .hamburger {
+    width: 44px !important;
+    height: 44px !important;
+    /* Zone tactile optimisée */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 4. CARTES & GRILLES (Services, Produits) */
+  .services-grid,
+  .products-grid,
+  .faq-grid {
+    grid-template-columns: 1fr !important;
+    /* Force 1 colonne */
+    gap: 20px !important;
+  }
+
+  .service-card,
+  .product-card,
+  .carousel-card {
+    padding: 20px !important;
+    /* Plus compact */
+  }
+
+  /* 5. ÉLÉMENTS FLOTTANTS (Promo Toast) */
+  .promo-toast {
+    max-height: 100px !important;
+    /* Max 12-15% écran */
+    width: calc(100% - 20px) !important;
+    left: 10px !important;
+    bottom: 15px !important;
+    padding: 12px !important;
+    background: rgba(17, 66, 39, 0.95) !important;
+    /* Transparence légère */
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .toast-icon-box {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* 6. BOUTONS MOBILES */
+  .btn {
+    width: 100% !important;
+    /* Boutons pleine largeur pour le pouce */
+    text-align: center;
+    padding: 14px 20px !important;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
