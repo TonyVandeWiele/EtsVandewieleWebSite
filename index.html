@@ -22,8 +22,7 @@
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF8800' rx='20'/><text x='50' y='75' font-size='70' font-family='Arial, sans-serif' font-weight='900' text-anchor='middle' fill='%23ffffff'>V</text></svg>">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
   <style>
     /* 1. VARIABLES (Définies en premier) */
@@ -191,29 +190,49 @@
   </noscript>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Ets Van de Wiele",
-    "@id": "https://www.vandewiele-motoculture.be", 
-    "url": "https://www.vandewiele-motoculture.be", 
-    "image": "https://www.vandewiele-motoculture.be/images/logo-vdw.avif",
-    "telephone": "069866047",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "67 Rue de la Gare",
-      "addressLocality": "Frasnes-lez-Anvaing",
-      "postalCode": "7910",
-      "addressCountry": "BE"
-    },
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "12:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "13:00", "closes": "18:30" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "12:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "13:00", "closes": "16:00" }
-    ],
-    "sameAs": "https://www.facebook.com/VandeWieleEts/"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": ["GardenStore", "HardwareStore", "RepairShop"],
+      "name": "Ets Van de Wiele",
+      "image": [
+        "https://vandewiele-motoculture.be/images/logo-vdw.avif",
+        "https://vandewiele-motoculture.be/images/devanture.jpg"
+      ],
+      "@id": "https://vandewiele-motoculture.be",
+      "url": "https://vandewiele-motoculture.be",
+      "telephone": "+3269866047",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "67 Rue de la Gare",
+        "addressLocality": "Frasnes-lez-Anvaing",
+        "postalCode": "7910",
+        "addressCountry": "BE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.68661365770065, 
+        "longitude": 3.569332491077725
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 50.68661365770065,
+          "longitude": 3.569332491077725
+        },
+        "geoRadius": "35000"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "13:00", "closes": "18:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "13:00", "closes": "16:00" }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/VandeWieleEts/"
+      ]
+    }
   </script>
 </head>
 
@@ -294,7 +313,7 @@
             <div class="icon-box"><i class="fas fa-robot"></i></div>
             <h3>Installation Robots</h3>
             <p>Installation certifiée à domicile, programmation et mise en route de votre robot tondeuse. Nous nous
-              déplaçons à Saint-Sauveur, Arc-Ainières, Anvaing et dans les environs.</p>
+              déplaçons dans la région des collines et environs.</p>
           </div>
         </div>
       </div>
@@ -329,7 +348,7 @@
           <div class="category-card reveal-up delay-200">
             <div class="cat-icon"><i class="fas fa-tractor"></i></div>
             <h3>Tracteurs & Riders</h3>
-            <p>Pour les grandes surfaces. De la nouvelle gamme STIHL aux tracteurs diesel ISEKI et Zéro-Turn FERRIS.</p>
+            <p>Pour les grandes surfaces. De la nouvelle gamme STIHL aux tracteurs ISEKI et Zéro-Turn FERRIS.</p>
             <div class="brand-links">
               <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
                 style="background-color: #F47C00; border: none; color: white;">
@@ -660,14 +679,16 @@
           <div class="brands-list logo-carousel-track">
             <img src="images/logo-stihl.webp" alt="Logo STIHL" class="brand-logo" loading="lazy">
             <img src="images/logo-iseki.webp" alt="Logo ISEKI" class="brand-logo" loading="lazy">
-            <img src="images/logo-sunseeker.webp" alt="Logo SUNSEEKER" class="brand-logo" loading="lazy">
+            <img src="images/logo-sunseeker.webp" alt="Logo SUNSEEKER" class="brand-logo" loading="lazy"
+              style="background-color: #333; padding: 5px; border-radius: 4px;">
             <img src="images/logo-ferris.webp" alt="Logo FERRIS" class="brand-logo" loading="lazy">
             <img src="images/logo-snapper.webp" alt="Logo SNAPPER" class="brand-logo" loading="lazy">
             <img src="images/logo-solo.webp" alt="Logo SOLO" class="brand-logo" loading="lazy">
             <img src="images/logo-anova.webp" alt="Logo ANOVA" class="brand-logo" loading="lazy">
             <img src="images/logo-stihl.webp" alt="Logo STIHL" class="brand-logo" loading="lazy">
             <img src="images/logo-iseki.webp" alt="Logo ISEKI" class="brand-logo" loading="lazy">
-            <img src="images/logo-sunseeker.webp" alt="Logo SUNSEEKER" class="brand-logo" loading="lazy">
+            <img src="images/logo-sunseeker.webp" alt="Logo SUNSEEKER" class="brand-logo" loading="lazy"
+              style="background-color: #333; padding: 5px; border-radius: 4px;">
             <img src="images/logo-ferris.webp" alt="Logo FERRIS" class="brand-logo" loading="lazy">
             <img src="images/logo-snapper.webp" alt="Logo SNAPPER" class="brand-logo" loading="lazy">
             <img src="images/logo-stihl-imow.webp" alt="Logo IMOW" class="brand-logo" loading="lazy">
@@ -729,7 +750,7 @@
             <div class="timeline-content reveal-up delay-200">
               <div class="icon-box-small"><i class="fas fa-handshake"></i></div>
               <h3>Père & Fils</h3>
-              <p>Une nouvelle étape clé : le fils rejoint l'entreprise. Deux générations, deux visions, mais une seule
+              <p>Une nouvelle étape clé : Tanguy rejoint l'entreprise. Deux générations, deux visions, mais une seule
                 priorité : votre satisfaction.</p>
             </div>
           </div>
@@ -1115,7 +1136,7 @@
               <p>Le choix idéal dépend de nombreux facteurs : la surface, mais aussi la pente, les obstacles et votre
                 budget. Chaque jardin est unique !</p>
               <p>Pour être sûr de choisir la machine parfaitement adaptée (électrique, thermique ou robot) et éviter les
-                erreurs, nous vous invitons à passer directement au magasin. Eric et Tanguy analyseront avec vous la
+                erreurs, nous vous invitons à passer directement au magasin. Nous analyserons avec vous la
                 configuration de votre terrain pour vous guider vers le meilleur modèle.</p>
             </div>
           </div>
@@ -1159,7 +1180,7 @@
                 en quelques semaines et finit par boucher le carburateur.</p>
               <p><strong>Solution immédiate :</strong> Une vidange du réservoir et un nettoyage du carburateur sont
                 nécessaires en atelier.</p>
-              <p><strong>Prévention :</strong> Utilisez de l'essence alkylate (Aspen/Motomix) qui se conserve 3 à 5 ans,
+              <p><strong>Prévention :</strong> Utilisez de l'essence alkylate (Motomix) qui se conserve 3 à 5 ans,
                 ou ajoutez un additif stabilisateur à votre essence.</p>
             </div>
           </div>
@@ -1351,7 +1372,8 @@
           <p style="max-width: 900px; margin: 0 auto; text-align: justify; font-size: 1.1rem; line-height: 1.8;">
             Depuis 1994, l'établissement Van De Wiele est la référence en motoculture dans le Pays des Collines. Basé à
             Anvaing, notre magasin familial propose un vaste choix de machines pour l'entretien de vos espaces verts,
-            incluant tracteurs tondeuses, tronçonneuses, débroussailleuses, taille-haies, souffleurs et scarificateurs.
+            incluant tracteurs, tondeuses, robots, tronçonneuses, débroussailleuses, taille haies, souffleurs,
+            scarificateurs, motoculteurs, etc.
             Au-delà de la vente, nous nous distinguons par un atelier mécanique de proximité, idéalement situé pour les
             habitants de Frasnes-lez-Anvaing et ses villages voisins (Pecq, Ellezelles, Flobecq, Leuze, Moustier,
             Œudeghien, Cordes, Forest, Saint-Sauveur, Celles...). Que vous soyez un particulier cherchant un robot
