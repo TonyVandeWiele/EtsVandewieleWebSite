@@ -141,6 +141,15 @@ ul {
   border-radius: 8px;
 }
 
+.btn-disabled {
+  background: #ccc !important;
+  color: #888 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+  pointer-events: none;
+}
+
 .btn-outline:hover {
   background: var(--white);
   color: var(--primary-green);
@@ -1609,13 +1618,68 @@ header.scrolled .nav-fb {
 
   .actu-main-card {
     flex-direction: column-reverse;
-    /* Image au dessus ou en dessous ? */
   }
 
   .actu-visual {
     height: 250px;
     min-height: 250px;
   }
+}
+
+/* Offres Terminées - Design Moderne & Stable */
+.promo-finished {
+  position: relative;
+  pointer-events: none;
+  user-select: none;
+  /* Fix jitter on scroll */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* On applique le filtre sur le contenu, pas sur le conteneur pour garder le badge intact */
+.promo-finished>* {
+  filter: grayscale(1) opacity(0.8);
+}
+
+.promo-finished::before {
+  content: 'OFFRE TERMINÉE';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Utilisation de translate3d pour une meilleure stabilité GPU */
+  transform: translate3d(-50%, -50%, 0) rotate(-12deg);
+  background: var(--dark-green);
+  color: var(--white);
+  padding: 12px 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  border-radius: 4px;
+  z-index: 20;
+  border: 3px solid var(--accent-orange);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  /* Évite les sauts de pixels */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* On cache le tampon par défaut sur les news-items, sauf si on force l'affichage */
+.news-item.promo-finished::before {
+  display: none;
+}
+
+.news-item.promo-finished.promo-show-stamp::before {
+  display: block;
+  font-size: 0.8rem;
+  padding: 5px 15px;
+  border-width: 2px;
+}
+
+.promo-finished .btn {
+  display: none;
 }
 
 
