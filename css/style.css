@@ -167,6 +167,47 @@ ul {
   transform: translateY(-3px);
 }
 
+/* Seasonal Button Variations with Matching Glow */
+.btn-spring {
+  background: #4CAF50 !important;
+  border-color: #4CAF50 !important;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
+}
+.btn-spring:hover {
+  background: #3d8b40 !important;
+  box-shadow: 0 12px 30px rgba(76, 175, 80, 0.6) !important;
+}
+
+.btn-summer {
+  background: #f57c00 !important;
+  border-color: #f57c00 !important;
+  box-shadow: 0 6px 20px rgba(245, 124, 0, 0.4) !important;
+}
+.btn-summer:hover {
+  background: #e65100 !important;
+  box-shadow: 0 12px 30px rgba(245, 124, 0, 0.6) !important;
+}
+
+.btn-autumn {
+  background: #795548 !important;
+  border-color: #795548 !important;
+  box-shadow: 0 6px 20px rgba(121, 85, 72, 0.4) !important;
+}
+.btn-autumn:hover {
+  background: #5d4037 !important;
+  box-shadow: 0 12px 30px rgba(121, 85, 72, 0.6) !important;
+}
+
+.btn-winter {
+  background: #007bb5 !important;
+  border-color: #007bb5 !important;
+  box-shadow: 0 6px 20px rgba(0, 123, 181, 0.4) !important;
+}
+.btn-winter:hover {
+  background: #005f8a !important;
+  box-shadow: 0 12px 30px rgba(0, 123, 181, 0.6) !important;
+}
+
 /* Sections et En-têtes */
 section {
   padding: 80px 0;
@@ -307,6 +348,16 @@ header.scrolled .nav-links a {
   color: var(--accent-orange);
 }
 
+.nav-links a.active {
+  color: var(--accent-orange) !important;
+}
+
+.nav-links a.active::after {
+  transform: scaleX(1) !important;
+}
+
+
+
 header.scrolled .nav-links li:nth-child(3) a {
   color: var(--accent-orange);
 }
@@ -334,6 +385,9 @@ header.scrolled .nav-links li:nth-child(3) a {
   color: var(--white);
   font-size: 1.5rem;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 header.scrolled .hamburger {
@@ -1744,6 +1798,10 @@ header.scrolled .nav-fb {
   transform: translate3d(0, 0, 0);
 }
 
+.logo-carousel-track:hover {
+  animation-play-state: paused;
+}
+
 /* Styles des logos */
 .brand-logo {
   height: 80px;
@@ -1754,7 +1812,7 @@ header.scrolled .nav-fb {
   opacity: 0.6;
   filter: grayscale(100%);
   /* Optionnel: rend les logos gris par défaut */
-  transition: all 0.4s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
   /* Empêche l'écrasement */
 
@@ -1765,8 +1823,8 @@ header.scrolled .nav-fb {
 
 .brand-logo:hover {
   opacity: 1;
-  filter: grayscale(0%);
-  transform: scale(1.1);
+  filter: grayscale(0%) brightness(1.1);
+  transform: scale(1.15);
 }
 
 /* Animation */
@@ -1951,15 +2009,55 @@ header.scrolled .nav-fb {
 .map-container {
   width: 100%;
   min-height: 450px;
-  border-radius: var(--border-radius-soft);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
   position: relative;
   /* NÉCESSAIRE pour le positionnement absolu de l'iframe */
+  transition: all 0.4s ease;
+}
+
+.map-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+}
+
+/* SKELETON LOADER POUR LA CARTE */
+.map-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.shimmer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
 }
 
 .map-container iframe {
-  /* CORRECTION BUG REMPLISSAGE : Remplissage absolu du conteneur parent */
   position: absolute;
   top: 0;
   left: 0;
@@ -1967,7 +2065,6 @@ header.scrolled .nav-fb {
   height: 100%;
   border: 0;
 }
-
 
 /* ========================================================================= */
 /* --- 10. FOOTER SECTION (DESIGN PRO & CRÉDITS VISIBLES) --- */
@@ -2991,7 +3088,43 @@ footer h3 {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
   color: var(--primary-green);
-  /* Petit rappel couleur au survol */
+}
+
+.reviews-cta-container {
+  text-align: center;
+  margin: 40px 0 60px;
+}
+
+.write-review-prompt {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.write-review-prompt a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 5px;
+  transition: all 0.3s;
+}
+
+.write-review-prompt a:hover {
+  text-decoration: underline;
+  color: var(--bright-orange);
+}
+
+.write-review-prompt a i {
+  margin-left: 8px;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.write-review-prompt a:hover i {
+  transform: translateX(5px);
 }
 
 /* CSS MARQUEE INFINI */

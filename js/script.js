@@ -38,6 +38,46 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Initial call
+
+  // =======================================================
+  // 1.5 Scroll Spy (Navigation Active States)
+  // =======================================================
+  const sections = document.querySelectorAll('section[id]');
+  const navLinksList = document.querySelectorAll('.nav-links a');
+
+  const scrollSpyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // On cherche la section qui occupe de la place dans la zone centrale
+      if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+        const id = entry.target.getAttribute('id');
+        
+        // On vérifie si cette section possède un lien correspondant dans le menu
+        const matchingLink = Array.from(navLinksList).find(link => link.getAttribute('href') === `#${id}`);
+        
+        if (matchingLink) {
+          navLinksList.forEach(link => link.classList.remove('active'));
+          matchingLink.classList.add('active');
+        }
+      }
+    });
+  }, {
+    threshold: [0.1, 0.5],
+    rootMargin: "-15% 0px -40% 0px"
+  });
+
+  sections.forEach(section => scrollSpyObserver.observe(section));
+
+  // Gestion spécifique pour le bas de page (Contact)
+  window.addEventListener('scroll', () => {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 20) {
+      const contactLink = Array.from(navLinksList).find(link => link.getAttribute('href') === '#contact');
+      if (contactLink) {
+        navLinksList.forEach(link => link.classList.remove('active'));
+        contactLink.classList.add('active');
+      }
+    }
+  }, { passive: true });
 
 
   // =======================================================
