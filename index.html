@@ -447,17 +447,17 @@
         </div>
 
         <div class="season-tabs reveal-up">
-          <button class="tab-btn active" data-season="spring">
-            <i class="fas fa-leaf"></i> Printemps 2026 <span class="status-dot-pulse"></span>
+          <button class="tab-btn" data-season="spring">
+            <i class="fas fa-leaf"></i> Printemps 2026
           </button>
-          <button class="tab-btn" data-season="summer"><i class="fas fa-sun"></i> Été 2026</button>
+          <button class="tab-btn active" data-season="summer"><i class="fas fa-sun"></i> Été 2026 <span class="status-dot-pulse"></span></button>
           <button class="tab-btn" data-season="autumn"><i class="fas fa-wind"></i> Automne 2026</button>
           <button class="tab-btn" data-season="winter"><i class="fas fa-snowflake"></i> Hiver 2027</button>
         </div>
 
-        <div class="season-content active" id="season-spring">
+        <div class="season-content" id="season-spring">
           <div class="actu-grid">
-            <article class="actu-main-card">
+            <article class="actu-main-card" data-expires="2026-06-30">
               <div class="actu-content">
                 <span class="actu-tag-inline tag-promo" style="background-color: #F47C00;">STIHL DEAL</span>
                 <h3>Action Cashback - Jusqu'à 100€</h3>
@@ -490,7 +490,7 @@
               <h3 class="sidebar-title">Autres Offres de Printemps</h3>
               <div class="news-list">
 
-                <a href="https://www.stihl.be/fr/cashback-tracteurs-tondeuses" target="_blank" rel="noopener noreferrer" class="news-item delay-100">
+                <a href="https://www.stihl.be/fr/cashback-tracteurs-tondeuses" target="_blank" rel="noopener noreferrer" class="news-item delay-100" data-expires="2026-06-30">
                   <div class="news-icon" style="color: #F47C00; background: rgba(244, 124, 0, 0.1);"><i class="fas fa-tractor"></i></div>
                   <div class="news-info">
                     <span class="news-date">Cashback - 30/06/2026</span>
@@ -500,7 +500,7 @@
                   </div>
                 </a>
 
-                <a href="https://www.stihl.be/fr/ap-sets" target="_blank" rel="noopener noreferrer" class="news-item delay-200">
+                <a href="https://www.stihl.be/fr/ap-sets" target="_blank" rel="noopener noreferrer" class="news-item delay-200" data-expires="2026-06-30">
                   <div class="news-icon" style="color: #F47C00; background: rgba(244, 124, 0, 0.1);"><i class="fas fa-battery-half"></i></div>
                   <div class="news-info">
                     <span class="news-date">Stihl Deal - 30/06/2026</span>
@@ -525,62 +525,71 @@
           </div>
         </div>
 
-        <div class="season-content" id="season-summer">
+        <div class="season-content active" id="season-summer">
           <div class="actu-grid">
-            <article class="actu-main-card">
+            <article class="actu-main-card" data-expires="2026-08-31">
               <div class="actu-content">
-                <span class="actu-tag-inline tag-conseil" style="background: #ffb74d;">Entretien</span>
-                <h3>Taille & Arrosage</h3>
-                <p>En été, la gestion de l'eau et la taille des haies sont cruciales. Gardez vos outils de coupe bien
-                  affûtés.</p>
+                <span class="actu-tag-inline tag-promo" style="background-color: #F47C00;">STIHL DEAL</span>
+                <h3>Cashback Système AS - 30€</h3>
+                <p>À l'achat de <strong>deux machines sur batterie participante</strong>, vous pouvez bénéficier d'un <strong>cashback de 30 €</strong>.</p>
 
                 <div class="actu-features">
-                  <div class="feature-item"><i class="fas fa-check" style="color:#f57c00;"></i> Taille de Haies</div>
-                  <div class="feature-item"><i class="fas fa-check" style="color:#f57c00;"></i> Gestion de l'eau</div>
+                  <div class="feature-item"><i class="fas fa-check" style="color:#f57c00;"></i> Machines sur batterie AS</div>
+                  <div class="feature-item"><i class="fas fa-check" style="color:#f57c00;"></i> 30€ remboursés</div>
                 </div>
 
-                <a href="#contact" class="btn btn-primary btn-summer">Entretien
-                  Taille-Haie</a>
+                <div class="actu-price">
+                  <span class="news-date" style="color: var(--accent-orange); font-size: 0.9rem;">
+                    Période de l'action: 01/07/2026 - 31/08/2026
+                  </span>
+                </div>
+
+                <a href="https://www.stihl.be/fr/cashback" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Découvrez l'action</a>
               </div>
 
               <div class="actu-visual" style="background: linear-gradient(135deg, #ffa726, #ef6c00);">
                 <div class="visual-circle">
-                  <span class="visual-amount"><i class="fas fa-sun"></i></span>
-                  <span class="visual-label">SUMMER</span>
+                  <span class="visual-amount">30€</span>
+                  <span class="visual-label">CASHBACK</span>
                 </div>
-                <i class="fas fa-umbrella-beach visual-bg-icon"></i>
+                <i class="fas fa-battery-full visual-bg-icon"></i>
               </div>
             </article>
 
             <aside class="actu-sidebar">
-              <h3 class="sidebar-title">Conseils d'Été</h3>
+              <h3 class="sidebar-title">Autres Offres d'Été</h3>
               <div class="news-list">
-                <div class="news-item">
-                  <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i class="fas fa-leaf"></i></div>
-                  <div class="news-info">
-                    <span class="news-date">Gazon</span>
-                    <h4>Coupe Haute</h4>
-                    <p>En cas de forte chaleur, réglez votre tondeuse plus haut (5-7cm) pour protéger les racines.</p>
-                  </div>
-                </div>
 
-                <div class="news-item">
-                  <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i class="fas fa-shower"></i></div>
+                <a href="https://www.stihl.be/fr/ap-sets" target="_blank" rel="noopener noreferrer" class="news-item delay-100" data-expires="2026-12-31">
+                  <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i class="fas fa-battery-half"></i></div>
                   <div class="news-info">
-                    <span class="news-date">Arrosage</span>
-                    <h4>Tôt le matin</h4>
-                    <p>Arrosez tôt le matin ou tard le soir pour limiter l'évaporation et éviter de brûler les feuilles.</p>
+                    <span class="news-date">Stihl Deal - 31/12/2026</span>
+                    <h4>Sets Avantageux AP 20 / 30</h4>
+                    <p>Profitez jusqu'au 31/12/2026, ou jusqu'à épuisement des stocks, de nos sets avantageux avec les batteries AP 20 et AP 30.</p>
+                    <span class="fake-link" style="font-size: 0.85rem; color: #f57c00; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">En savoir plus &rarr;</span>
                   </div>
-                </div>
+                </a>
 
-                <div class="news-item">
-                  <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i class="fas fa-spray-can"></i></div>
+                <a href="https://www.stihl.be/fr/actualites/offres-et-promotions/articles-a-prix-reduit" target="_blank" rel="noopener noreferrer" class="news-item delay-200">
+                  <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i class="fas fa-tags"></i></div>
                   <div class="news-info">
-                    <span class="news-date">Nettoyage</span>
-                    <h4>Terrasses & Mobilier</h4>
-                    <p>C'est le moment idéal pour redonner de l'éclat à vos extérieurs avec nos nettoyeurs haute-pression.</p>
+                    <span class="news-date">Stihl Deal</span>
+                    <h4>On Coupe les Prix</h4>
+                    <p>Vous pouvez bénéficier de réductions sur de nombreux best-sellers. N'attendez pas trop longtemps !</p>
+                    <span class="fake-link" style="font-size: 0.85rem; color: #f57c00; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">Découvrir les produits &rarr;</span>
                   </div>
-                </div>
+                </a>
+
+                <a href="https://100.stihl.com/" target="_blank" rel="noopener noreferrer" class="news-item delay-300">
+                  <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i class="fas fa-shield-alt"></i></div>
+                  <div class="news-info">
+                    <span class="news-date" style="color: #f57c00; font-weight: bold;">CENTENAIRE</span>
+                    <h4>100 Ans de STIHL</h4>
+                    <p>Célébrez un siècle d'innovation et de passion pour la nature avec le leader mondial de la motoculture.</p>
+                    <span class="fake-link" style="font-size: 0.85rem; color: #f57c00; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">Découvrir l'Expérience &rarr;</span>
+                  </div>
+                </a>
+
               </div>
             </aside>
           </div>
@@ -695,7 +704,7 @@
     <section class="brands">
       <div class="container">
         <p>Nos partenaires officiels de confiance</p>
-        <div class="logo-carousel-container reveal-up">
+        <div class="logo-carousel-container">
           <div class="brands-list logo-carousel-track">
             <img src="images/logo-stihl.webp" alt="Logo STIHL" class="brand-logo" loading="lazy">
             <img src="images/logo-iseki.webp" alt="Logo ISEKI" class="brand-logo" loading="lazy">
@@ -1444,11 +1453,11 @@
 
   <div id="promoToast" class="promo-toast">
     <div class="toast-icon-box">
-      <i class="fas fa-tag"></i>
+      <i class="fas fa-sun"></i>
     </div>
     <div class="toast-content">
-      <span class="toast-label">PROMOS PRINTEMPS</span>
-      <span class="toast-sub">Jusqu'à 100€ remboursés</span>
+      <span class="toast-label">PROMOS ÉTÉ</span>
+      <span class="toast-sub">Cashback 30€ & STIHL Deals</span>
     </div>
     <a href="#actu" class="toast-action">Voir</a>
   </div>
