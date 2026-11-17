@@ -1835,16 +1835,8 @@ header.scrolled .nav-fb {
   width: 100%;
   position: relative;
 
-  /* SYNTAXE ANCIENNE (Pour faire plaisir à VS Code et vieux Safari) */
-  -webkit-mask-image: -webkit-gradient(linear,
-      left top,
-      right top,
-      from(transparent),
-      color-stop(10%, black),
-      color-stop(90%, black),
-      to(transparent));
-
-  /* SYNTAXE MODERNE STANDARD */
+  /* SYNTAXE MODERNE avec préfixe webkit (nécessaire pour iOS Safari) */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
@@ -3389,7 +3381,7 @@ footer h3 {
   .nav-links.active {
     background-color: white !important;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    padding-top: 80px;
+    padding-top: 25px;
     /* Espace pour ne pas coller au logo */
   }
 
@@ -3424,7 +3416,7 @@ footer h3 {
   .nav-links.active {
     background-color: #ffffff !important;
     /* BLANC PUR */
-    padding-top: 80px;
+    padding-top: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   }
 
