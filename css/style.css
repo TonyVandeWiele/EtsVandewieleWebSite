@@ -173,6 +173,7 @@ ul {
   border-color: #4CAF50 !important;
   box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
 }
+
 .btn-spring:hover {
   background: #3d8b40 !important;
   box-shadow: 0 12px 30px rgba(76, 175, 80, 0.6) !important;
@@ -183,19 +184,21 @@ ul {
   border-color: #f57c00 !important;
   box-shadow: 0 6px 20px rgba(245, 124, 0, 0.4) !important;
 }
+
 .btn-summer:hover {
   background: #e65100 !important;
   box-shadow: 0 12px 30px rgba(245, 124, 0, 0.6) !important;
 }
 
 .btn-autumn {
-  background: #795548 !important;
-  border-color: #795548 !important;
-  box-shadow: 0 6px 20px rgba(121, 85, 72, 0.4) !important;
+  background: #b85d19 !important;
+  border-color: #b85d19 !important;
+  box-shadow: 0 6px 20px rgba(184, 93, 25, 0.4) !important;
 }
+
 .btn-autumn:hover {
-  background: #5d4037 !important;
-  box-shadow: 0 12px 30px rgba(121, 85, 72, 0.6) !important;
+  background: #8a340b !important;
+  box-shadow: 0 12px 30px rgba(184, 93, 25, 0.6) !important;
 }
 
 .btn-winter {
@@ -203,6 +206,7 @@ ul {
   border-color: #007bb5 !important;
   box-shadow: 0 6px 20px rgba(0, 123, 181, 0.4) !important;
 }
+
 .btn-winter:hover {
   background: #005f8a !important;
   box-shadow: 0 12px 30px rgba(0, 123, 181, 0.6) !important;
@@ -1411,6 +1415,68 @@ header.scrolled .nav-fb {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Codes couleurs des onglets par saison */
+.tab-btn[data-season="spring"]:hover {
+  background: rgba(76, 175, 80, 0.2);
+  border-color: rgba(76, 175, 80, 0.5);
+}
+
+.tab-btn[data-season="spring"].active {
+  color: #2e7d32;
+  border-color: #4CAF50;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.25);
+}
+
+.tab-btn[data-season="summer"]:hover {
+  background: rgba(245, 124, 0, 0.2);
+  border-color: rgba(245, 124, 0, 0.5);
+}
+
+.tab-btn[data-season="summer"].active {
+  color: #e65100;
+  border-color: #f57c00;
+  box-shadow: 0 5px 15px rgba(245, 124, 0, 0.25);
+}
+
+.tab-btn[data-season="autumn"]:hover {
+  background: rgba(184, 93, 25, 0.2);
+  border-color: rgba(184, 93, 25, 0.5);
+}
+
+.tab-btn[data-season="autumn"].active {
+  color: #b85d19;
+  border-color: #b85d19;
+  box-shadow: 0 5px 15px rgba(184, 93, 25, 0.25);
+}
+
+.tab-btn[data-season="winter"]:hover {
+  background: rgba(0, 123, 181, 0.2);
+  border-color: rgba(0, 123, 181, 0.5);
+}
+
+.tab-btn[data-season="winter"].active {
+  color: #007bb5;
+  border-color: #007bb5;
+  box-shadow: 0 5px 15px rgba(0, 123, 181, 0.25);
+}
+
+/* Couleurs spécifiques aux zones visuelles des saisons */
+#season-spring .visual-amount {
+  color: #2e7d32;
+}
+
+#season-summer .visual-amount {
+  color: #e65100;
+}
+
+#season-autumn .visual-amount {
+  color: #b85d19;
+}
+
+#season-winter .visual-amount {
+  color: #007bb5;
+}
+
 /* Badge Onglets Saisons */
 .tab-badge {
   display: inline-block;
@@ -2042,18 +2108,21 @@ header.scrolled .nav-fb {
 .shimmer {
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%);
   animation: shimmer 1.5s infinite;
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
 }
 
