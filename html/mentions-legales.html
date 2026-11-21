@@ -18,87 +18,24 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* --- RÉGLAGES GLOBAUX --- */
-    :root {
-      --primary-green: #268C36;
-      --dark-green: #114227;
-      --accent-orange: #FF8800;
-      --text-dark: #333333;
-      --white: #ffffff;
+    @font-face {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(../fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 300 800;
+      font-display: swap;
+      src: url(../fonts/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
     }
 
     body {
-      background-color: #fdfdfd;
-      color: var(--text-dark);
-      margin: 0;
-      padding-top: 80px;
-      /* Compensation pour le header fixe */
-    }
-
-    /* --- HEADER SPÉCIFIQUE PAGES INTERNES --- */
-    /* On force le style "scrolled" ou "colored" directement */
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      background-color: #051e10;
-      /* Le vert foncé de ton Hero */
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 15px 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 25px;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.5rem;
-      color: var(--white);
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-
-    .logo span {
-      color: var(--accent-orange);
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-
-    .nav-links li a {
-      color: var(--white);
-      text-decoration: none;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: color 0.3s;
-    }
-
-    .nav-links li a:hover {
-      color: var(--accent-orange);
-    }
-
-    /* Hamburger Menu pour Mobile */
-    .hamburger {
-      display: none;
-      color: var(--white);
-      font-size: 1.5rem;
-      cursor: pointer;
+      padding-top: calc(var(--topbar-h) + var(--nav-h));
     }
 
     /* --- CONTENU LÉGAL --- */
@@ -167,58 +104,8 @@
       font-family: 'Open Sans', sans-serif;
     }
 
-    /* --- FOOTER (Simplifié pour correspondre au style global) --- */
-    footer {
-      background-color: #111;
-      color: #fff;
-      padding: 40px 0;
-      text-align: center;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    footer h3 {
-      color: var(--accent-orange);
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: var(--white);
-    }
-
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      .nav-links {
-        position: absolute;
-        right: 0px;
-        top: 70px;
-        background-color: #051e10;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        transform: translateX(100%);
-        transition: transform 0.4s ease-in;
-        padding: 20px 0;
-      }
-
-      /* Classe ajoutée par JS pour ouvrir le menu */
-      .nav-active {
-        transform: translateX(0%);
-      }
-
       .legal-content li strong {
         display: block;
         width: 100%;
@@ -233,34 +120,59 @@
 
 <body>
 
-  <header id="header">
-    <div class="container">
-      <nav>
-        <a href="../index.html" class="logo-wrapper">
-          <img src="../images/logo-vdw.avif" width="160" height="40" alt="Logo Van de Wiele" class="nav-logo-img">
+  <header id="header" class="site-header is-solid">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <p class="topbar-dealer">
+          <img src="../images/logo-stihl.webp" width="319" height="158" alt="STIHL" class="topbar-stihl">
+          <span>Concessionnaire officiel STIHL<span class="topbar-since"> depuis 2001</span></span>
+        </p>
+        <ul class="topbar-info">
+          <li><span id="shop-status-badge" class="status-badge"><span class="status-word">Horaires</span> <span class="status-detail">mar. – sam.</span></span></li>
+          <li class="topbar-address">
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=67+Rue+de+la+Gare+7910+Frasnes-lez-Anvaing"
+              target="_blank" rel="noopener noreferrer"><i class="fas fa-location-dot" aria-hidden="true"></i>
+              67 Rue de la Gare, Anvaing</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" rel="noopener noreferrer"
+              class="topbar-fb" aria-label="Facebook (nouvel onglet)"><i class="fab fa-facebook"
+                aria-hidden="true"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-          <div class="logo-text">
-            VAN DE WIELE <span>ETS</span>
-          </div>
+    <div class="mainbar">
+    <div class="container">
+      <nav aria-label="Navigation principale">
+        <a href="../index.html#accueil" class="logo-wrapper" aria-label="Van de Wiele Ets, retour à l'accueil">
+          <img src="../images/logo-vdw.avif" width="285" height="73" alt="" class="nav-logo-img">
         </a>
 
-        <ul class="nav-links">
+        <ul class="nav-links" id="menu-principal">
           <li><a href="../index.html#accueil">Accueil</a></li>
           <li><a href="../index.html#services">Services</a></li>
           <li><a href="../index.html#produits">Produits</a></li>
-          <li><a href="../index.html#actu">Actu</a></li>
+          <li><a href="../index.html#actu">Actu &amp; promos</a></li>
           <li><a href="../index.html#faq-section">FAQ</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
-          <li class="nav-item-badge"><span id="shop-status-badge" class="status-badge closed">FERMÉ</span></li>
-          <li>
-            <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" class="nav-fb" aria-label="Facebook">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </li>
         </ul>
 
-        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <a href="tel:+3269866047" class="header-call">
+          <span class="header-call-icon" aria-hidden="true"><i class="fas fa-phone"></i></span>
+          <span class="header-call-text">
+            <span class="header-call-kicker">Appelez-nous</span>
+            <span class="header-call-number">069 86 60 47</span>
+          </span>
+        </a>
+
+        <button class="hamburger" type="button" aria-label="Ouvrir le menu" aria-expanded="false"
+          aria-controls="menu-principal">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
       </nav>
+    </div>
     </div>
   </header>
 
@@ -331,34 +243,69 @@
       <p>Tout litige en relation avec l'utilisation du site est soumis au droit belge. En cas de litige, et à défaut
         d'accord amiable, la compétence exclusive est attribuée aux tribunaux de l'arrondissement judiciaire du Hainaut,
         division Tournai.</p>
+
+      <h2>8. Crédits photos</h2>
+      <p>Les photos de produits et visuels promotionnels STIHL proviennent de STIHL (<a href="https://www.stihl.be/fr"
+          target="_blank" rel="noopener noreferrer" style="color: var(--orange-ink);">stihl.be</a>) et sont
+        utilisés dans le cadre de notre activité de concessionnaire officiel. Les photos d'ambiance (tronçonneuses en
+        action, bois de chauffage, tondeuse) proviennent de <a href="https://www.pexels.com" target="_blank"
+          rel="noopener noreferrer" style="color: var(--orange-ink);">Pexels</a> (licence Pexels).</p>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <h3>VAN DE WIELE ETS</h3>
-      <div class="social-links" style="margin-bottom: 20px;">
-        <a href="https://www.facebook.com/VandeWieleEts/" target="_blank"
-          style="font-size: 1.5rem; color: var(--white);"><i class="fab fa-facebook"></i></a>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Van de Wiele <span>Ets</span></h3>
+          <p>Motoculture, vente et atelier de réparation à Frasnes-lez-Anvaing depuis 1994.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" rel="noopener noreferrer"
+              aria-label="Suivez-nous sur Facebook (nouvel onglet)">
+              <i class="fab fa-facebook" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer-col" aria-label="Plan du site">
+          <h4>Le site</h4>
+          <ul>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="../index.html#produits">Produits</a></li>
+            <li><a href="../index.html#actu">Actu &amp; promos</a></li>
+            <li><a href="../index.html#histoire">Notre histoire</a></li>
+            <li><a href="../index.html#faq-section">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col">
+          <h4>Nous trouver</h4>
+          <ul>
+            <li>67 Rue de la Gare<br>7910 Frasnes-lez-Anvaing</li>
+            <li><a href="tel:+3269866047">069 86 60 47</a></li>
+            <li><a href="mailto:ets.vandewiele@gmail.com">ets.vandewiele@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Horaires</h4>
+          <ul>
+            <li>Mar – ven&nbsp;: 9:00–12:00, 13:00–18:30</li>
+            <li>Samedi&nbsp;: 9:00–12:00, 13:00–16:00</li>
+            <li>Dimanche &amp; lundi&nbsp;: fermé</li>
+          </ul>
+        </div>
       </div>
-      <p>© 2026 Ets Van de Wiele. Tous droits réservés.</p>
-      <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.7;">
-        Site réalisé avec passion par <span style="color: var(--accent-orange);">Tony Van de Wiele</span>
-      </p>
+
+      <div class="footer-credits">
+        <p class="copyright">© 2026 Ets Van de Wiele. Tous droits réservés.</p>
+        <p class="credit-text">Site réalisé par <span class="creator-name">Tony Van de Wiele</span></p>
+        <a href="mentions-legales.html" class="legal-btn" aria-current="page">Mentions légales</a>
+      </div>
     </div>
   </footer>
 
-  <script src="../js/script.js"></script>
-
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    if (hamburger) {
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('nav-active');
-      });
-    }
-  </script>
+  <script src="../js/script.js" defer></script>
 
 </body>
 

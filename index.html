@@ -8,6 +8,7 @@
   <title>Van de Wiele Ets | Spécialiste Espaces Verts & Motoculture | Frasnes-lez-Anvaing</title>
   <meta name="description"
     content="Votre revendeur spécialiste en machines de jardin à Frasnes-lez-Anvaing. Vente, réparation et service après-vente PRO. Distributeur officiel STIHL.">
+  <meta name="theme-color" content="#2B2B2A">
 
   <link rel="canonical" href="https://vandewiele-motoculture.be/">
 
@@ -26,25 +27,23 @@
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="shortcut icon" href="images/favicon.png">
 
+  <script>document.documentElement.classList.add('js');</script>
+
   <style>
-    /* 1. VARIABLES (Définies en premier) */
+    /* CSS critique : tokens, polices, en-tête et hero (le reste est dans css/style.css) */
     :root {
-      --primary-green: #268C36;
-      --dark-green: #114227;
-      --accent-orange: #FF8800;
-      --bright-orange: #FF6600;
-      --text-dark: #333333;
-      --text-light: #f5f5f5;
+      --char: #2B2B2A;
+      --char-deep: #1C1C1B;
+      --orange: #F37A1F;
+      --paper: #F4F4F2;
+      --ink: #1E1E1D;
       --white: #ffffff;
-      --light-bg: #fdfdfd;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* 2. FONTS */
     @font-face {
       font-family: 'Montserrat';
       font-style: normal;
-      font-weight: 800;
+      font-weight: 100 900;
       font-display: swap;
       src: url(fonts/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
     }
@@ -52,134 +51,46 @@
     @font-face {
       font-family: 'Open Sans';
       font-style: normal;
-      font-weight: 400;
+      font-weight: 300 800;
       font-display: swap;
       src: url(fonts/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
     }
 
-    /* 3. RESET & BASE */
-    * {
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Open Sans', sans-serif;
-      color: var(--text-dark);
-      line-height: 1.65;
-      background-color: var(--light-bg);
-      overflow-x: hidden;
+      font-family: 'Open Sans', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
     }
 
-    h1,
-    h2,
-    h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 25px;
-    }
-
-    /* 4. HEADER */
-    header {
+    .site-header {
       position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      transition: all 0.4s ease;
-      background: transparent;
-      padding: 25px 0;
+      inset: 0 0 auto 0;
+      z-index: 100;
     }
 
-    /* 5. HERO SECTION (Code fusionné et nettoyé) */
     .hero {
-      height: 100vh;
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      min-height: 100svh;
+      background: var(--char-deep);
+      color: var(--white);
       overflow: hidden;
-      background-color: #051e10;
-      /* Fallback color */
-    }
-
-    /* L'overlay sombre pour la lisibilité du texte */
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(5, 30, 16, 0.80), rgba(10, 60, 35, 0.70));
-      z-index: 1;
     }
 
     .hero-bg-img {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 0;
-      aspect-ratio: 16/9;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: var(--white);
-      padding: 0 20px;
-    }
-
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      margin-bottom: 20px;
-      font-weight: 800;
-      color: var(--white);
-      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    /* 6. UI ELEMENTS */
-    .btn {
-      display: inline-block;
-      padding: 16px 40px;
-      border-radius: 50px;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.4s ease;
-    }
-
-    .btn-primary {
-      background: var(--accent-orange);
-      color: var(--white);
-    }
-
-    .btn-outline {
-      border: 2px solid var(--white);
-      color: var(--white);
-    }
-
-    /* Animations */
-    .cat-link {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: inline-block;
-    }
-
-    .cat-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
   </style>
 
@@ -214,7 +125,7 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 50.68661365770065, 
+        "latitude": 50.68661365770065,
         "longitude": 3.569332491077725
       },
       "areaServed": {
@@ -240,586 +151,565 @@
 </head>
 
 <body>
-  <div class="scroll-progress" id="scrollProgress"></div>
+  <a href="#contenu" class="skip-link">Aller au contenu</a>
 
-  <header id="header">
+  <header id="header" class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <p class="topbar-dealer">
+          <img src="images/logo-stihl.webp" width="319" height="158" alt="STIHL" class="topbar-stihl">
+          <span>Concessionnaire officiel STIHL<span class="topbar-since"> depuis 2001</span></span>
+        </p>
+        <ul class="topbar-info">
+          <li><span id="shop-status-badge" class="status-badge"><span class="status-word">Horaires</span> <span class="status-detail">mar. – sam.</span></span></li>
+          <li class="topbar-address">
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=67+Rue+de+la+Gare+7910+Frasnes-lez-Anvaing"
+              target="_blank" rel="noopener noreferrer"><i class="fas fa-location-dot" aria-hidden="true"></i>
+              67 Rue de la Gare, Anvaing</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" rel="noopener noreferrer"
+              class="topbar-fb" aria-label="Facebook (nouvel onglet)"><i class="fab fa-facebook"
+                aria-hidden="true"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mainbar">
     <div class="container">
-      <nav>
-        <a href="#" class="logo-wrapper">
-          <img src="images/logo-vdw.avif" width="160" height="40" alt="Logo Van de Wiele" class="nav-logo-img">
-
-          <div class="logo-text">
-            VAN DE WIELE <span>ETS</span>
-          </div>
+      <nav aria-label="Navigation principale">
+        <a href="#accueil" class="logo-wrapper" aria-label="Van de Wiele Ets, retour à l'accueil">
+          <img src="images/logo-vdw.avif" width="285" height="73" alt="" class="nav-logo-img">
         </a>
 
-        <ul class="nav-links">
+        <ul class="nav-links" id="menu-principal">
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#produits">Produits</a></li>
-          <li><a href="#actu">Actu</a></li>
+          <li><a href="#actu">Actu &amp; promos</a></li>
           <li><a href="#faq-section">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li class="nav-item-badge"><span id="shop-status-badge" class="status-badge closed">FERMÉ</span></li>
-          <li>
-            <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" class="nav-fb" aria-label="Facebook">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </li>
         </ul>
 
-        <button class="hamburger" aria-label="Menu principal">
-          <i class="fas fa-bars"></i>
+        <a href="tel:+3269866047" class="header-call">
+          <span class="header-call-icon" aria-hidden="true"><i class="fas fa-phone"></i></span>
+          <span class="header-call-text">
+            <span class="header-call-kicker">Appelez-nous</span>
+            <span class="header-call-number">069 86 60 47</span>
+          </span>
+        </a>
+
+        <button class="hamburger" type="button" aria-label="Ouvrir le menu" aria-expanded="false"
+          aria-controls="menu-principal">
+          <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
       </nav>
     </div>
+    </div>
   </header>
 
-  <main>
+  <main id="contenu">
     <section id="accueil" class="hero">
       <picture>
         <source srcset="images/accueil-mobile-image.avif" media="(max-width: 768px)" type="image/avif">
         <source srcset="images/accueil-desktop-image.avif" media="(min-width: 769px)" type="image/avif">
-        <img src="images/accueil-image.jpg" width="1950" height="1097" alt="Expert Jardin Van de Wiele"
-          class="hero-bg-img" fetchpriority="high">
+        <img src="images/accueil-image.jpg" width="1950" height="1097" alt="" class="hero-bg-img"
+          fetchpriority="high">
       </picture>
-      <div class="hero-content">
-        <span class="hero-badge">Passion & Expertise depuis 1994</span>
-        <h1>Votre spécialiste en motoculture<br>à <span>Frasnes-lez-Anvaing</span></h1>
-        <p>Vente, entretien et réparation de tondeuses, robots, tronçonneuses, débroussailleuses et taille-haies.</p>
-        <div class="hero-actions">
-          <a href="#actu" class="btn btn-primary btn-autumn"><i class="fas fa-certificate"></i> Offres d'Automne
-            STIHL</a>
-          <a href="#services" class="btn btn-outline">Nos Services</a>
+
+      <div class="container hero-inner">
+        <div class="hero-title">
+          <p class="hero-badge">Passion &amp; expertise depuis 1994</p>
+          <h1>Votre spécialiste en motoculture à <span class="nowrap">Frasnes-lez-Anvaing</span></h1>
+        </div>
+        <div class="hero-content">
+          <p class="hero-lead">Vente, entretien et réparation de tondeuses, robots, tronçonneuses,
+            débroussailleuses et taille-haies.</p>
+          <div class="hero-actions">
+            <a href="#actu" class="btn btn-primary"><i class="fas fa-certificate" aria-hidden="true"></i> Voir
+              l'offre STIHL</a>
+            <a href="#services" class="btn btn-outline">Nos services</a>
+          </div>
+        </div>
+
+        <aside class="shop-sign" aria-label="Horaires et accès au magasin">
+          <p class="shop-sign-label" id="hero-day">Nos horaires</p>
+          <p class="shop-sign-state" id="hero-state">Mardi – samedi</p>
+          <p class="shop-sign-detail" id="hero-status-detail">Du mardi au vendredi 9:00–12:00 et 13:00–18:30,
+            le samedi jusqu'à 16:00.</p>
+          <div class="day-bar" id="hero-daybar" hidden aria-hidden="true"></div>
+          <ul class="shop-sign-list">
+            <li>
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <a href="tel:+3269866047">069 86 60 47</a>
+            </li>
+            <li>
+              <i class="fas fa-location-dot" aria-hidden="true"></i>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=67+Rue+de+la+Gare+7910+Frasnes-lez-Anvaing"
+                target="_blank" rel="noopener noreferrer">67 Rue de la Gare, Anvaing <span class="sr-only">(itinéraire,
+                  nouvel onglet)</span></a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services" class="section services">
+      <div class="container">
+        <div class="services-head">
+          <div class="section-head reveal">
+            <h2>Notre expertise pro</h2>
+            <p>Du matériel performant et un suivi de qualité pour particuliers et professionnels.</p>
+          </div>
+          <a href="tel:+3269866047" class="btn btn-dark"><i class="fas fa-phone" aria-hidden="true"></i> Réserver un
+            passage à l'atelier</a>
+        </div>
+
+        <div class="service-cards">
+          <article class="service-card">
+            <img src="images/action-tronconneuse-main.webp" width="1000" height="659"
+              alt="Tronçonneuse thermique STIHL prête à l'emploi" loading="lazy" decoding="async">
+            <div class="service-body">
+              <span class="service-icon" aria-hidden="true"><i class="fas fa-certificate"></i></span>
+              <h3>Conseil &amp; vente</h3>
+              <p>Distributeur officiel des grandes marques. Nous vous guidons vers le matériel le plus adapté à vos
+                besoins, avec l'expertise d'un spécialiste établi à Frasnes-lez-Anvaing.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="images/guide-chaine-stihl.webp" width="1200" height="800"
+              alt="Guide-chaîne STIHL planté dans une bûche" loading="lazy" decoding="async">
+            <div class="service-body">
+              <span class="service-icon" aria-hidden="true"><i class="fas fa-screwdriver-wrench"></i></span>
+              <h3>Atelier &amp; réparation</h3>
+              <p>Révision annuelle, affûtage des chaînes et des lames, dépannage toutes marques. Une expertise reconnue
+                dans le Pays des Collines, la région de Tournai, Leuze et Ath.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="images/stihl-imow-pelouse.webp" width="1100" height="733"
+              alt="Robot tondeuse STIHL iMOW EVO en train de tondre une pelouse" loading="lazy" decoding="async">
+            <div class="service-body">
+              <span class="service-icon" aria-hidden="true"><i class="fas fa-robot"></i></span>
+              <h3>Installation de robots</h3>
+              <p>Installation certifiée à domicile, programmation et mise en route de votre robot tondeuse. Nous nous
+                déplaçons dans la région des Collines et environs.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="services" class="services">
+    <section id="produits" class="section products">
       <div class="container">
-        <div class="section-header reveal-up">
-          <h2>Notre Expertise Pro</h2>
-          <div class="separator"></div>
-          <p>Du matériel performant et un suivi de qualité pour particuliers et professionnels.</p>
-        </div>
-        <div class="services-grid">
-          <div class="service-card reveal-up delay-100">
-            <div class="icon-box"><i class="fas fa-certificate"></i></div>
-            <h3>Conseil & Vente</h3>
-            <p>Distributeur officiel des grandes marques. Nous vous guidons vers le matériel le plus adapté à vos
-              besoins, avec l'expertise d'un spécialiste établi à Frasnes-lez-Anvaing.</p>
-          </div>
-          <div class="service-card reveal-up delay-200">
-            <div class="icon-box"><i class="fas fa-tools"></i></div>
-            <h3>Atelier & Réparation</h3>
-            <p>Un service mécanique complet : révision annuelle, affûtage et dépannage toutes marques. Une expertise
-              technique reconnue dans le Pays des Collines, la région de Tournai, Leuze et Ath.</p>
-          </div>
-          <div class="service-card reveal-up delay-300">
-            <div class="icon-box"><i class="fas fa-robot"></i></div>
-            <h3>Installation Robots</h3>
-            <p>Installation certifiée à domicile, programmation et mise en route de votre robot tondeuse. Nous nous
-              déplaçons dans la région des collines et environs.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="produits" class="products-section">
-      <div class="container">
-        <div class="section-header reveal-up">
-          <h2>Nos Univers Produits</h2>
-          <div class="separator"></div>
+        <div class="section-head reveal">
+          <h2>Nos univers produits</h2>
           <p>Retrouvez toutes les gammes de nos partenaires via leurs catalogues officiels.</p>
         </div>
 
         <div class="category-grid">
 
-          <div class="category-card reveal-up delay-100">
-            <div class="cat-icon"><i class="fas fa-robot"></i></div>
-            <h3>Robots de Tonte</h3>
+          <article class="category-card">
+            <div class="cat-media is-product">
+              <img src="images/robot-imow-studio.webp" width="900" height="600" alt="Robot tondeuse STIHL iMOW" loading="lazy" decoding="async">
+              <span class="cat-icon" aria-hidden="true"><i class="fas fa-robot"></i></span>
+            </div>
+            <h3>Robots de tonte</h3>
             <p>L'avenir de la pelouse. Du légendaire iMOW® aux technologies sans fil Sunseeker.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
-                style="background-color: #F47C00; border: none; color: white;">
-                <i class="fas fa-external-link-alt"></i> STIHL
-              </a>
-              <a href="https://sunseekerelite.be/" target="_blank" class="cat-link"
-                style="background-color: #e35205; border: none; color: white;">
-                Sunseeker
-              </a>
+              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="brand-chip"
+                style="--brand:#F47C00">STIHL</a>
+              <a href="https://sunseekerelite.be/" target="_blank" rel="noopener noreferrer" class="brand-chip"
+                style="--brand:#e35205">Sunseeker</a>
             </div>
-          </div>
+          </article>
 
-          <div class="category-card reveal-up delay-100">
-            <div class="cat-icon"><i class="fas fa-tractor"></i></div>
-            <h3>Tracteurs & Riders</h3>
-            <p>Pour les grandes surfaces. De la nouvelle gamme STIHL aux tracteurs ISEKI et Zéro-Turn FERRIS.</p>
+          <article class="category-card">
+            <div class="cat-media is-product">
+              <img src="images/stihl-rt-5097.webp" width="900" height="660" alt="Tracteur tondeuse STIHL RT 5097" loading="lazy" decoding="async">
+              <span class="cat-icon" aria-hidden="true"><i class="fas fa-tractor"></i></span>
+            </div>
+            <h3>Tracteurs &amp; riders</h3>
+            <p>Pour les grandes surfaces. De la nouvelle gamme STIHL aux tracteurs ISEKI et zéro-turn FERRIS.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
-                style="background-color: #F47C00; border: none; color: white;">
-                <i class="fas fa-external-link-alt"></i> STIHL
-              </a>
-              <a href="https://www.hh-garden.be/nl/brands/iseki/" target="_blank" class="cat-link"
-                style="background-color: #005DAA; border: none; color: white;">ISEKI</a>
-              <a href="https://www.hh-garden.be/nl/brands/ferris/" target="_blank" class="cat-link"
-                style="background-color: #B41F24; border: none; color: white;">Ferris</a>
-              <a href="https://www.hh-garden.be/fr/brands/snapper/" target="_blank" class="cat-link"
-                style="background-color: #E2231A; border: none; color: white;">Snapper</a>
+              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="brand-chip"
+                style="--brand:#F47C00">STIHL</a>
+              <a href="https://www.hh-garden.be/nl/brands/iseki/" target="_blank" rel="noopener noreferrer"
+                class="brand-chip" style="--brand:#005DAA">ISEKI</a>
+              <a href="https://www.hh-garden.be/nl/brands/ferris/" target="_blank" rel="noopener noreferrer"
+                class="brand-chip" style="--brand:#B41F24">Ferris</a>
+              <a href="https://www.hh-garden.be/fr/brands/snapper/" target="_blank" rel="noopener noreferrer"
+                class="brand-chip" style="--brand:#E2231A">Snapper</a>
             </div>
-          </div>
+          </article>
 
-          <div class="category-card reveal-up delay-200">
-            <div class="cat-icon"><i class="fas fa-leaf"></i></div>
-            <h3>Tondeuses à Gazon</h3>
+          <article class="category-card">
+            <div class="cat-media is-product">
+              <img src="images/stihl-rma-448.webp" width="900" height="600" alt="Tondeuse à gazon sur batterie STIHL RMA 448" loading="lazy" decoding="async">
+              <span class="cat-icon" aria-hidden="true"><i class="fas fa-leaf"></i></span>
+            </div>
+            <h3>Tondeuses à gazon</h3>
             <p>Tondeuses poussées ou tractées. Gammes complètes pour jardins de toutes tailles.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
-                style="background-color: #F47C00; border: none; color: white;">
-                <i class="fas fa-external-link-alt"></i> STIHL
-              </a>
-              <a href="https://www.hh-garden.be/nl/brands/iseki/" target="_blank" class="cat-link"
-                style="background-color: #005DAA; border: none; color: white;">ISEKI</a>
-              <a href="https://www.hh-garden.be/fr/brands/snapper/" target="_blank" class="cat-link"
-                style="background-color: #E2231A; border: none; color: white;">Snapper</a>
+              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="brand-chip"
+                style="--brand:#F47C00">STIHL</a>
+              <a href="https://www.hh-garden.be/nl/brands/iseki/" target="_blank" rel="noopener noreferrer"
+                class="brand-chip" style="--brand:#005DAA">ISEKI</a>
+              <a href="https://www.hh-garden.be/fr/brands/snapper/" target="_blank" rel="noopener noreferrer"
+                class="brand-chip" style="--brand:#E2231A">Snapper</a>
             </div>
-          </div>
+          </article>
 
-          <div class="category-card reveal-up delay-300">
-            <div class="cat-icon"><i class="fas fa-tree"></i></div>
-            <h3>Tronçonneuses & Élagueuses</h3>
+          <article class="category-card">
+            <div class="cat-media is-product">
+              <img src="images/stihl-ms-300.webp" width="900" height="600" alt="Tronçonneuse thermique STIHL MS 300" loading="lazy" decoding="async">
+              <span class="cat-icon" aria-hidden="true"><i class="fas fa-tree"></i></span>
+            </div>
+            <h3>Tronçonneuses &amp; élagueuses</h3>
             <p>Abattage, ébranchage et bois de chauffage. La référence mondiale STIHL.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" class="cat-link stihl-btn"
-                style="background-color: #F47C00; border: none; color: white;">
-                <i class="fas fa-external-link-alt"></i> STIHL
-              </a>
+              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="brand-chip"
+                style="--brand:#F47C00">STIHL</a>
             </div>
-          </div>
+          </article>
 
-          <div class="category-card reveal-up delay-100">
-            <div class="cat-icon"><i class="fas fa-cut"></i></div>
-            <h3>Taille-Haies & Débroussailleuses</h3>
+          <article class="category-card">
+            <div class="cat-media is-product">
+              <img src="images/stihl-hsa-60.webp" width="900" height="600" alt="Taille-haie sur batterie STIHL HSA 60" loading="lazy" decoding="async">
+              <span class="cat-icon" aria-hidden="true"><i class="fas fa-scissors"></i></span>
+            </div>
+            <h3>Taille-haies &amp; débroussailleuses</h3>
             <p>Domptez la végétation. Outils performants pour les finitions et les ronciers.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="cat-link stihl-btn"
-                style="background-color: #F47C00; border: none; color: white;">
-                <i class="fas fa-external-link-alt"></i> Taille-Haies
-              </a>
-              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="cat-link stihl-btn"
-                style="background-color: #F47C00; border: none; color: white;">
-                <i class="fas fa-external-link-alt"></i> Débroussailleuses
-              </a>
+              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="brand-chip"
+                style="--brand:#F47C00">Taille-haies STIHL</a>
+              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="brand-chip"
+                style="--brand:#F47C00">Débroussailleuses STIHL</a>
             </div>
-          </div>
+          </article>
 
-          <div class="category-card reveal-up delay-200">
-            <div class="cat-icon"><i class="fas fa-wind"></i></div>
-            <h3>Souffleurs & Nettoyage</h3>
+          <article class="category-card">
+            <div class="cat-media is-product">
+              <img src="images/stihl-bga-200.webp" width="900" height="600" alt="Souffleur sur batterie STIHL BGA 200" loading="lazy" decoding="async">
+              <span class="cat-icon" aria-hidden="true"><i class="fas fa-wind"></i></span>
+            </div>
+            <h3>Souffleurs &amp; nettoyage</h3>
             <p>Souffleurs, nettoyeurs haute-pression et atomiseurs pour un extérieur impeccable.</p>
             <div class="brand-links">
-              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="cat-link stihl-btn"
-                style="background-color: #F47C00; border: none; color: white;">
-                <i class="fas fa-external-link-alt"></i> STIHL
-              </a>
+              <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="brand-chip"
+                style="--brand:#F47C00">STIHL</a>
               <a href="https://www.hh-garden.be/nl/brands/solo/" target="_blank" rel="noopener noreferrer"
-                class="cat-link" style="background-color: #CC0000; border: none; color: white;">Solo</a>
+                class="brand-chip" style="--brand:#CC0000">Solo</a>
             </div>
-          </div>
+          </article>
 
         </div>
 
-        <div style="text-align: center; margin-top: 50px;">
+      </div>
+    </section>
+
+    <section class="action-band" aria-labelledby="band-title">
+      <img class="action-band-img" src="images/action-tronconneuse-buche.webp" width="1600" height="1066"
+        alt="Tronçonneuse STIHL posée sur une bûche fraîchement coupée, dans la sciure" loading="lazy"
+        decoding="async">
+      <div class="container action-band-inner">
+        <h2 id="band-title">Bois de chauffage, élagage, abattage.</h2>
+        <p>Thermique ou sur batterie, venez prendre en main la tronçonneuse STIHL adaptée à vos travaux. On vous
+          conseille, on l'entretient et on affûte la chaîne.</p>
+        <div class="action-band-actions">
+          <a href="#contact" class="btn btn-primary">Passer au magasin</a>
           <a href="https://online.fliphtml5.com/crgfc/lwrb/#p=1" target="_blank" rel="noopener noreferrer"
-            class="btn btn-primary"
-            style="background-color: #F27E00; border: none; box-shadow: 0 5px 15px rgba(242, 126, 0, 0.4);">
-            <i class="fas fa-book-reader" style="margin-right:8px;"></i> Consulter le Catalogue STIHL 2026
-          </a>
+            class="btn btn-outline">Catalogue STIHL 2026</a>
         </div>
       </div>
     </section>
 
-    <section id="actu" class="promo">
+    <section id="actu" class="section promo">
       <div class="container">
-        <div class="section-header promo-header reveal-up">
-
-          <h2>Le Mag' du Jardin</h2>
-          <div class="separator"></div>
-          <p>Les meilleures offres du moment et nos conseils de saison pour un jardin impeccable.</p>
+        <div class="section-head reveal">
+          <h2>Le Mag' du jardin</h2>
+          <p>Les offres STIHL du moment et nos conseils de saison pour un jardin impeccable.</p>
         </div>
 
-        <div class="season-tabs reveal-up">
-          <button class="tab-btn active" data-season="spring">
-            <i class="fas fa-leaf"></i> Printemps 2026 <span class="status-dot-pulse"></span>
+        <div class="season-tabs" role="tablist" aria-label="Saisons">
+          <button class="tab-btn active" role="tab" id="tab-autumn" aria-selected="true" aria-controls="season-autumn"
+            data-season="autumn">
+            <i class="fas fa-leaf" aria-hidden="true"></i> Automne 2026 <span class="status-dot-pulse"
+              aria-hidden="true"></span>
           </button>
-          <button class="tab-btn" data-season="summer"><i class="fas fa-sun"></i> Été 2026</button>
-          <button class="tab-btn" data-season="autumn"><i class="fas fa-wind"></i> Automne 2026</button>
-          <button class="tab-btn" data-season="summer"><i class="fas fa-sun"></i> Été 2026</button>
-          <button class="tab-btn active" data-season="autumn"><i class="fas fa-wind"></i> Automne 2026 <span
-              class="status-dot-pulse"></span></button>
-          <button class="tab-btn" data-season="winter"><i class="fas fa-snowflake"></i> Hiver 2027</button>
+          <button class="tab-btn" role="tab" id="tab-winter" aria-selected="false" aria-controls="season-winter"
+            tabindex="-1" data-season="winter"><i class="fas fa-snowflake" aria-hidden="true"></i> Hiver
+            2027</button>
+          <button class="tab-btn" role="tab" id="tab-spring" aria-selected="false" aria-controls="season-spring"
+            tabindex="-1" data-season="spring"><i class="fas fa-seedling" aria-hidden="true"></i> Printemps
+            2027</button>
+          <button class="tab-btn" role="tab" id="tab-summer" aria-selected="false" aria-controls="season-summer"
+            tabindex="-1" data-season="summer"><i class="fas fa-sun" aria-hidden="true"></i> Été 2027</button>
         </div>
 
-        <div class="season-content active" id="season-spring">
+        <!-- AUTOMNE 2026 : offres STIHL en cours -->
+        <div class="season-content season-autumn active" id="season-autumn" role="tabpanel"
+          aria-labelledby="tab-autumn">
           <div class="actu-grid">
             <article class="actu-main-card">
-              <div class="actu-content">
-                <span class="actu-tag-inline tag-promo" style="background-color: #2e7d32;">STIHL DEAL</span>
-                <h3>Action Cashback - Jusqu'à 100€</h3>
-                <p>À l'achat d'une machine sur batterie participante, vous pouvez bénéficier d'un cashback de jusqu'à
-                  100 €.</p>
-
-                <div class="actu-features">
-                  <div class="feature-item"><i class="fas fa-check" style="color:#2e7d32;"></i> Machines sur batterie
-                  </div>
-                  <div class="feature-item"><i class="fas fa-check" style="color:#2e7d32;"></i> Jusqu'à 100€ remboursés
-                  </div>
-                </div>
-
-                <div class="actu-price">
-                  <span class="news-date" style="color: #2e7d32; font-size: 0.9rem;">
-                    Période de l'action: 01/03/2026 - 30/06/2026
-                  </span>
-                </div>
-
-                <a href="https://www.stihl.be/fr/cashback" target="_blank" rel="noopener noreferrer"
-                  class="btn btn-primary btn-spring">Découvrez l'action</a>
+              <div class="actu-visual is-photo">
+                <img src="images/stihl-promo-batterie-as.webp" width="1000" height="667"
+                  alt="Gamme d'outils sur batterie STIHL AS sur une terrasse de jardin" loading="lazy"
+                  decoding="async">
+                <span class="actu-badge"><i class="fas fa-gift" aria-hidden="true"></i> Batterie offerte</span>
               </div>
+              <div class="actu-content">
+                <span class="actu-tag">STIHL Deal</span>
+                <h3>Batterie AS offerte à l'achat d'un set</h3>
+                <p>Achetez un set AS participant et recevez une batterie supplémentaire, compatible avec toutes les
+                  machines du système AS.</p>
 
-              <div class="actu-visual" style="background: linear-gradient(135deg, #66bb6a, #2e7d32);">
-                <div class="visual-circle">
-                  <span class="visual-amount" style="color: #2e7d32;">100€</span>
-                  <span class="visual-label">CASHBACK</span>
+                <ul class="actu-features">
+                  <li><i class="fas fa-check" aria-hidden="true"></i> Taille-haies, sécateurs, souffleurs,
+                    coupe-bordures…</li>
+                  <li><i class="fas fa-check" aria-hidden="true"></i> 2 batteries offertes avec les sets GTA 30 et
+                    GTA 40</li>
+                </ul>
+
+                <p class="actu-period">Période de l'action&nbsp;: du 01/09/2026 au 31/12/2026</p>
+
+                <div class="actu-actions">
+                  <a href="https://www.stihl.be/fr/batterie-as-offerte" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-primary">Voir les sets participants</a>
+                  <a href="#contact" class="text-link">Essai sans engagement au magasin</a>
                 </div>
-                <i class="fas fa-battery-full visual-bg-icon"></i>
               </div>
             </article>
 
             <aside class="actu-sidebar">
-              <h3 class="sidebar-title">Autres Offres de Printemps</h3>
+              <h3 class="sidebar-title">Autres offres STIHL en cours</h3>
               <div class="news-list">
-
-                <a href="https://www.stihl.be/fr/cashback-tracteurs-tondeuses" target="_blank" rel="noopener noreferrer"
-                  class="news-item delay-100">
-                  <div class="news-icon" style="color: #F47C00; background: rgba(244, 124, 0, 0.1);"><i
-                      class="fas fa-tractor"></i></div>
-                  <a href="https://www.stihl.be/fr/cashback-tracteurs-tondeuses" target="_blank"
-                    rel="noopener noreferrer" class="news-item delay-100">
-                    <div class="news-icon" style="color: #2e7d32; background: rgba(46, 125, 50, 0.1);"><i
-                        class="fas fa-tractor"></i></div>
-                    <div class="news-info">
-                      <span class="news-date">Cashback - 30/06/2026</span>
-                      <h4>Cashback Tracteur 200€</h4>
-                      <p>À l'achat d'un tracteur tondeuse participant, bénéficiez d'un cashback de 200 €.</p>
-                      <span class="fake-link"
-                        style="font-size: 0.85rem; color: #2e7d32; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">En
-                        savoir plus &rarr;</span>
-                    </div>
-                  </a>
-
-                  <a href="https://www.stihl.be/fr/ap-sets" target="_blank" rel="noopener noreferrer"
-                    class="news-item delay-200">
-                    <div class="news-icon" style="color: #F47C00; background: rgba(244, 124, 0, 0.1);"><i
-                        class="fas fa-battery-half"></i></div>
-                    <a href="https://www.stihl.be/fr/ap-sets" target="_blank" rel="noopener noreferrer"
-                      class="news-item delay-200">
-                      <div class="news-icon" style="color: #2e7d32; background: rgba(46, 125, 50, 0.1);"><i
-                          class="fas fa-battery-half"></i></div>
-                      <div class="news-info">
-                        <span class="news-date">Stihl Deal - 30/06/2026</span>
-                        <h4>Sets Avantageux AP 20 / 30</h4>
-                        <p>Profitez de nos sets avantageux avec les batteries AP 20 et AP 30 jusqu'à épuisement des
-                          stocks.
-                        </p>
-                        <span class="fake-link"
-                          style="font-size: 0.85rem; color: #2e7d32; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">En
-                          savoir plus &rarr;</span>
-                      </div>
-                    </a>
-
-                    <a href="https://100.stihl.com/" target="_blank" rel="noopener noreferrer"
-                      class="news-item delay-300">
-                      <div class="news-icon" style="color: #2e7d32; background: rgba(46, 125, 50, 0.1);"><i
-                          class="fas fa-shield-alt"></i></div>
-                      <div class="news-info">
-                        <span class="news-date" style="color: #2e7d32; font-weight: bold;">CENTENAIRE</span>
-                        <h4>100 Ans de STIHL</h4>
-                        <p>Célébrez un siècle d'innovation et de passion pour la nature avec le leader mondial de la
-                          motoculture.</p>
-                        <span class="fake-link"
-                          style="font-size: 0.85rem; color: #2e7d32; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">Découvrir
-                          l'Expérience &rarr;</span>
-                      </div>
-                    </a>
-
-              </div>
-            </aside>
-          </div>
-        </div>
-
-        <div class="season-content" id="season-summer">
-          <div class="actu-grid">
-            <article class="actu-main-card">
-              <div class="actu-content">
-                <span class="actu-tag-inline tag-conseil" style="background: #ffb74d;">Entretien</span>
-                <h3>Taille & Arrosage</h3>
-                <p>En été, la gestion de l'eau et la taille des haies sont cruciales. Gardez vos outils de coupe bien
-                  affûtés.</p>
-                <span class="actu-tag-inline tag-conseil" style="background: #f57c00;">Entretien</span>
-                <h3>Taille & Arrosage</h3>
-                <p>En été, la gestion de l'eau et la taille des haies sont cruciales. Gardez vos outils de coupe bien
-                  affûtés.</p>
-
-                <div class="actu-features">
-                  <div class="feature-item"><i class="fas fa-check" style="color:#f57c00;"></i> Taille de Haies</div>
-                  <div class="feature-item"><i class="fas fa-check" style="color:#f57c00;"></i> Gestion de l'eau</div>
-                  <div class="feature-item"><i class="fas fa-check" style="color:#f57c00;"></i> Machines sur batterie AS
-                  </div>
-                  <div class="feature-item"><i class="fas fa-check" style="color:#f57c00;"></i> 30€ remboursés</div>
-                </div>
-
-                <a href="#contact" class="btn btn-primary btn-summer">Entretien
-                  Taille-Haie</a>
-                <div class="actu-price">
-                  <span class="news-date" style="color: var(--accent-orange); font-size: 0.9rem;">
-                    Période de l'action: 01/07/2026 - 31/08/2026
+                <a href="https://www.stihl.be/fr/campaign/one-time-campaigns/ap-sets" target="_blank"
+                  rel="noopener noreferrer" class="news-item">
+                  <span class="news-thumb"><img src="images/stihl-ap-300.webp" width="700" height="467" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
+                    <span class="news-date">STIHL Deal jusqu'au 31/12/2026</span>
+                    <span class="news-title">Sets avantageux AP 20 et AP 30</span>
+                    <span class="news-text">Ex.&nbsp;: taille-haie HSA 100 + batterie AP 20 à 499&nbsp;€ au lieu de 598&nbsp;€.
+                      Jusqu'à épuisement des stocks.</span>
+                    <span class="news-more">Voir tous les sets</span>
                   </span>
-                </div>
+                </a>
 
-                <a href="https://www.stihl.be/fr/cashback" target="_blank" rel="noopener noreferrer"
-                  class="btn btn-primary">Découvrez l'action</a>
-              </div>
+                <a href="https://www.stihl.be/fr/actualites/offres-et-promotions/articles-a-prix-reduit"
+                  target="_blank" rel="noopener noreferrer" class="news-item">
+                  <span class="news-thumb"><img src="images/stihl-ms-300.webp" width="900" height="600" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
+                    <span class="news-date">Prix spéciaux</span>
+                    <span class="news-title">On coupe les prix</span>
+                    <span class="news-text">Des réductions sur de nombreux best-sellers STIHL. N'attendez pas trop
+                      longtemps&nbsp;!</span>
+                    <span class="news-more">Voir les articles</span>
+                  </span>
+                </a>
 
-              <div class="actu-visual" style="background: linear-gradient(135deg, #ffa726, #ef6c00);">
-                <div class="visual-circle">
-                  <span class="visual-amount"><i class="fas fa-sun"></i></span>
-                  <span class="visual-label">SUMMER</span>
-                  <span class="visual-amount" style="color: #f57c00;"><i class="fas fa-sun"></i></span>
-                  <span class="visual-label">SUMMER</span>
-                </div>
-                <i class="fas fa-umbrella-beach visual-bg-icon"></i>
-              </div>
-            </article>
-
-            <aside class="actu-sidebar">
-              <h3 class="sidebar-title">Conseils d'Été</h3>
-              <div class="news-list">
                 <div class="news-item">
-                  <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i
-                      class="fas fa-leaf"></i></div>
-                  <div class="news-item">
-                    <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i
-                        class="fas fa-leaf"></i></div>
-                    <div class="news-info">
-                      <span class="news-date">Gazon</span>
-                      <h4>Coupe Haute</h4>
-                      <p>En cas de forte chaleur, réglez votre tondeuse plus haut (5-7cm) pour protéger les racines.</p>
-                    </div>
-                  </div>
-
-                  <div class="news-item">
-                    <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i
-                        class="fas fa-shower"></i></div>
-                    <div class="news-info">
-                      <span class="news-date">Gazon</span>
-                      <h4>Coupe Haute</h4>
-                      <p>En cas de forte chaleur, réglez votre tondeuse plus haut (5-7cm) pour protéger les racines.</p>
-                      <span class="news-date">Arrosage</span>
-                      <h4>Tôt le matin</h4>
-                      <p>Arrosez tôt le matin ou tard le soir pour limiter l'évaporation et éviter de brûler les
-                        feuilles.
-                      </p>
-                    </div>
-                  </div>
-                  </a>
-
-                  <div class="news-item">
-                    <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i
-                        class="fas fa-shower"></i></div>
-                    <div class="news-info">
-                      <span class="news-date">Arrosage</span>
-                      <h4>Tôt le matin</h4>
-                      <p>Arrosez tôt le matin ou tard le soir pour limiter l'évaporation et éviter de brûler les
-                        feuilles.</p>
-                    </div>
-                  </div>
-                  <div class="news-item">
-                    <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i
-                        class="fas fa-spray-can"></i></div>
-                    <div class="news-info">
-                      <span class="news-date">Nettoyage</span>
-                      <h4>Terrasses & Mobilier</h4>
-                      <p>C'est le moment idéal pour redonner de l'éclat à vos extérieurs avec nos nettoyeurs
-                        haute-pression.</p>
-                    </div>
-                    </a>
-
-                    <div class="news-item">
-                      <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i
-                          class="fas fa-spray-can"></i></div>
-                      <div class="news-info">
-                        <span class="news-date">Nettoyage</span>
-                        <h4>Terrasses & Mobilier</h4>
-                        <p>C'est le moment idéal pour redonner de l'éclat à vos extérieurs avec nos nettoyeurs
-                          haute-pression.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="https://100.stihl.com/" target="_blank" rel="noopener noreferrer"
-                    class="news-item delay-300">
-                    <div class="news-icon" style="color: #f57c00; background: rgba(245, 124, 0, 0.1);"><i
-                        class="fas fa-shield-alt"></i></div>
-                    <div class="news-info">
-                      <span class="news-date" style="color: #f57c00; font-weight: bold;">CENTENAIRE</span>
-                      <h4>100 Ans de STIHL</h4>
-                      <p>Célébrez un siècle d'innovation et de passion pour la nature avec le leader mondial de la
-                        motoculture.</p>
-                      <span class="fake-link"
-                        style="font-size: 0.85rem; color: #f57c00; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">Découvrir
-                        l'Expérience &rarr;</span>
-                    </div>
-                  </a>
-
-                </div>
-            </aside>
-          </div>
-        </div>
-
-        <div class="season-content active" id="season-autumn">
-          <div class="actu-grid">
-            <article class="actu-main-card">
-              <div class="actu-content">
-                <span class="actu-tag-inline tag-promo" style="background-color: #b85d19;">STIHL DEAL</span>
-                <h3>Batterie AS offerte</h3>
-                <p>Pour l'achat d'un set de la gamme AS participant, recevez une batterie AS supplémentaire gratuite.
-                  Idéal pour vos travaux d'automne !</p>
-
-                <div class="actu-features">
-                  <div class="feature-item"><i class="fas fa-check" style="color:#b85d19;"></i> Sets gamme AS</div>
-                  <div class="feature-item"><i class="fas fa-check" style="color:#b85d19;"></i> Batterie AS offerte
-                  </div>
-                </div>
-
-                <div class="actu-price">
-                  <span class="news-date" style="color: #b85d19; font-size: 0.9rem;">
-                    Période de l'action: 01/09/2026 - 31/12/2026
+                  <span class="news-thumb"><img src="images/stihl-bga-200.webp" width="900" height="600" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
+                    <span class="news-date">Conseil d'automne</span>
+                    <span class="news-title">Feuilles &amp; bois de chauffage</span>
+                    <span class="news-text">Un souffleur sur batterie dégage terrasses et allées en quelques minutes.
+                      Faites aussi affûter votre chaîne avant la saison du bois.</span>
                   </span>
                 </div>
-
-                <a href="https://www.stihl.be/fr/actualites/offres-et-promotions" target="_blank"
-                  rel="noopener noreferrer" class="btn btn-primary btn-autumn">Découvrez l'action</a>
-              </div>
-
-              <div class="actu-visual" style="background: linear-gradient(135deg, #d3733b, #8a340b);">
-                <div class="visual-circle">
-                  <span class="visual-amount" style="color: #b85d19;"><i class="fas fa-battery-full"></i></span>
-                  <span class="visual-label">OFFERTE</span>
-                </div>
-                <i class="fas fa-leaf visual-bg-icon"></i>
-              </div>
-            </article>
-
-            <aside class="actu-sidebar">
-              <h3 class="sidebar-title">Autres Offres d'Automne</h3>
-              <div class="news-list">
-
-                <a href="https://www.stihl.be/fr/actualites/offres-et-promotions" target="_blank"
-                  rel="noopener noreferrer" class="news-item delay-100">
-                  <div class="news-icon" style="color: #b85d19; background: rgba(184, 93, 25, 0.12);"><i
-                      class="fas fa-battery-half"></i></div>
-                  <div class="news-info">
-                    <span class="news-date">Stihl Deal - 31/12/2026</span>
-                    <h4>Sets Avantageux AP 20 / 30</h4>
-                    <p>50% de réduction sur la batterie AP 20 ou AP 30 lors de l'achat d'un set participant.</p>
-                    <span class="fake-link"
-                      style="font-size: 0.85rem; color: #b85d19; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">En
-                      savoir plus &rarr;</span>
-                  </div>
-                </a>
-
-                <a href="https://www.stihl.be/fr/actualites/offres-et-promotions" target="_blank"
-                  rel="noopener noreferrer" class="news-item delay-200">
-                  <div class="news-icon" style="color: #b85d19; background: rgba(184, 93, 25, 0.12);"><i
-                      class="fas fa-tags"></i></div>
-                  <div class="news-info">
-                    <span class="news-date">Stihl Deal - 31/12/2026</span>
-                    <h4>Réductions Best-Sellers</h4>
-                    <p>Prix réduits sur une large sélection de tronçonneuses, souffleurs et outils multifonctions.</p>
-                    <span class="fake-link"
-                      style="font-size: 0.85rem; color: #b85d19; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">En
-                      savoir plus &rarr;</span>
-                  </div>
-                </a>
-
-                <a href="https://100.stihl.com/" target="_blank" rel="noopener noreferrer" class="news-item delay-300">
-                  <div class="news-icon" style="color: #b85d19; background: rgba(184, 93, 25, 0.12);"><i
-                      class="fas fa-shield-alt"></i></div>
-                  <div class="news-info">
-                    <span class="news-date" style="color: #b85d19; font-weight: bold;">CENTENAIRE</span>
-                    <h4>100 Ans de STIHL</h4>
-                    <p>Célébrez un siècle d'innovation et de passion pour la nature avec le leader mondial de la
-                      motoculture.</p>
-                    <span class="fake-link"
-                      style="font-size: 0.85rem; color: #b85d19; text-decoration: none; font-weight: 600; margin-top: 5px; display: inline-block;">Découvrir
-                      l'Expérience &rarr;</span>
-                  </div>
-                </a>
-
               </div>
             </aside>
           </div>
         </div>
-        <div class="season-content" id="season-winter">
+
+        <!-- HIVER 2027 -->
+        <div class="season-content season-winter" id="season-winter" role="tabpanel" aria-labelledby="tab-winter">
           <div class="actu-grid">
             <article class="actu-main-card">
+              <div class="actu-visual is-photo">
+                <img src="images/action-bois-chauffage.webp" width="1000" height="667"
+                  alt="Bûches de bois de chauffage fraîchement coupées" loading="lazy" decoding="async">
+                <span class="actu-badge"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Révision
+                  d'hiver</span>
+              </div>
               <div class="actu-content">
-                <span class="actu-tag-inline tag-conseil" style="background: #007bb5;">Conseil Hiver</span>
-                <h3>Hivernage et Révisions</h3>
+                <span class="actu-tag">Conseil d'hiver</span>
+                <h3>Hivernage et révisions</h3>
                 <p>La saison de tonte est terminée. Profitez de l'hiver pour faire réviser vos machines (tondeuses,
                   robots, tracteurs) et leur assurer une longue vie.</p>
 
-                <div class="actu-features">
-                  <div class="feature-item"><i class="fas fa-check" style="color:#007bb5;"></i> Nettoyage & Graissage
-                  </div>
-                  <div class="feature-item"><i class="fas fa-check" style="color:#007bb5;"></i> Affûtage des lames</div>
-                </div>
+                <ul class="actu-features">
+                  <li><i class="fas fa-check" aria-hidden="true"></i> Nettoyage &amp; graissage</li>
+                  <li><i class="fas fa-check" aria-hidden="true"></i> Affûtage des lames et des chaînes</li>
+                </ul>
 
-                <a href="#contact" class="btn btn-primary btn-winter">Prendre rendez-vous</a>
-              </div>
-
-              <div class="actu-visual" style="background: linear-gradient(135deg, #4fc3f7, #0288d1);">
-                <div class="visual-circle">
-                  <span class="visual-amount" style="color: #007bb5;"><i class="fas fa-snowflake"></i></span>
-                  <span class="visual-label">WINTER</span>
+                <div class="actu-actions">
+                  <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
                 </div>
-                <i class="fas fa-wrench visual-bg-icon"></i>
               </div>
             </article>
 
             <aside class="actu-sidebar">
-              <h3 class="sidebar-title">Conseils Pratiques</h3>
+              <h3 class="sidebar-title">Conseils pratiques</h3>
               <div class="news-list">
-
                 <div class="news-item">
-                  <div class="news-icon" style="color: #007bb5; background: rgba(0, 123, 181, 0.1);"><i
-                      class="fas fa-battery-half"></i></div>
-                  <div class="news-info">
+                  <span class="news-thumb"><img src="images/stihl-ap-300.webp" width="700" height="467" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
                     <span class="news-date">Batteries</span>
-                    <h4>Stockage Batteries</h4>
-                    <p>Stockez vos batteries au sec et à l'abri du gel (idéalement à 50% de charge).</p>
-                  </div>
+                    <span class="news-title">Stockage des batteries</span>
+                    <span class="news-text">Stockez vos batteries au sec et à l'abri du gel (idéalement à 50&nbsp;% de
+                      charge).</span>
+                  </span>
                 </div>
 
                 <div class="news-item">
-                  <div class="news-icon" style="color: #007bb5; background: rgba(0, 123, 181, 0.1);"><i
-                      class="fas fa-robot"></i></div>
-                  <div class="news-info">
+                  <span class="news-thumb"><img src="images/robot-imow-studio.webp" width="900" height="600" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
                     <span class="news-date">Robots</span>
-                    <h4>Hivernage Robot</h4>
-                    <p>Rentrez votre station de charge pour l'hiver afin d'éviter l'oxydation de l'électronique.</p>
-                  </div>
+                    <span class="news-title">Hivernage du robot</span>
+                    <span class="news-text">Rentrez votre station de charge pour l'hiver afin d'éviter l'oxydation de
+                      l'électronique.</span>
+                  </span>
                 </div>
 
+                <div class="news-item">
+                  <span class="news-thumb"><img src="images/stihl-chaine.webp" width="700" height="467" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
+                    <span class="news-date">Atelier</span>
+                    <span class="news-title">Affûtage des chaînes</span>
+                    <span class="news-text">Une chaîne bien affûtée coupe plus vite et fatigue moins la machine. Nous
+                      affûtons chaînes et lames à l'atelier.</span>
+                  </span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- PRINTEMPS 2027 -->
+        <div class="season-content season-spring" id="season-spring" role="tabpanel" aria-labelledby="tab-spring">
+          <div class="actu-grid">
+            <article class="actu-main-card">
+              <div class="actu-visual is-photo">
+                <img src="images/action-tondeuse-herbe.webp" width="1000" height="614"
+                  alt="Tondeuse en action sur une pelouse verte" loading="lazy" decoding="async">
+                <span class="actu-badge"><i class="fas fa-seedling" aria-hidden="true"></i> Remise en route</span>
+              </div>
+              <div class="actu-content">
+                <span class="actu-tag">Conseil de printemps</span>
+                <h3>Préparez la première tonte</h3>
+                <p>Avant de redémarrer la saison, faites contrôler votre tondeuse&nbsp;: une lame affûtée et un moteur
+                  entretenu donnent une coupe nette et évitent les pannes.</p>
+
+                <ul class="actu-features">
+                  <li><i class="fas fa-check" aria-hidden="true"></i> Affûtage et équilibrage de la lame</li>
+                  <li><i class="fas fa-check" aria-hidden="true"></i> Vidange, bougie et filtre à air</li>
+                </ul>
+
+                <div class="actu-actions">
+                  <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
+                </div>
+              </div>
+            </article>
+
+            <aside class="actu-sidebar">
+              <h3 class="sidebar-title">Conseils de printemps</h3>
+              <div class="news-list">
+                <div class="news-item">
+                  <span class="news-thumb"><img src="images/stihl-rma-448.webp" width="900" height="600" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
+                    <span class="news-date">Gazon</span>
+                    <span class="news-title">Première tonte en douceur</span>
+                    <span class="news-text">Pour la première coupe, réglez la tondeuse assez haut, puis descendez
+                      progressivement au fil des semaines.</span>
+                  </span>
+                </div>
+
+                <div class="news-item">
+                  <span class="news-thumb"><img src="images/robot-imow-studio.webp" width="900" height="600" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
+                    <span class="news-date">Robots</span>
+                    <span class="news-title">Remise en service du robot</span>
+                    <span class="news-text">Réinstallez la station, vérifiez les lames et laissez-nous faire la mise à
+                      jour et le contrôle si besoin.</span>
+                  </span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- ÉTÉ 2027 -->
+        <div class="season-content season-summer" id="season-summer" role="tabpanel" aria-labelledby="tab-summer">
+          <div class="actu-grid">
+            <article class="actu-main-card">
+              <div class="actu-visual is-product">
+                <img src="images/stihl-hsa-60.webp" width="900" height="600"
+                  alt="Taille-haie sur batterie STIHL HSA 60" loading="lazy" decoding="async">
+                <span class="actu-badge"><i class="fas fa-sun" aria-hidden="true"></i> Saison des haies</span>
+              </div>
+              <div class="actu-content">
+                <span class="actu-tag">Entretien</span>
+                <h3>Taille &amp; arrosage</h3>
+                <p>En été, la gestion de l'eau et la taille des haies sont cruciales. Gardez vos outils de coupe bien
+                  affûtés.</p>
+
+                <ul class="actu-features">
+                  <li><i class="fas fa-check" aria-hidden="true"></i> Taille de haies</li>
+                  <li><i class="fas fa-check" aria-hidden="true"></i> Gestion de l'eau</li>
+                </ul>
+
+                <div class="actu-actions">
+                  <a href="#contact" class="btn btn-primary">Faire entretenir mon taille-haie</a>
+                </div>
+              </div>
+            </article>
+
+            <aside class="actu-sidebar">
+              <h3 class="sidebar-title">Conseils d'été</h3>
+              <div class="news-list">
+                <div class="news-item">
+                  <span class="news-thumb"><img src="images/stihl-rma-448.webp" width="900" height="600" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
+                    <span class="news-date">Gazon</span>
+                    <span class="news-title">Coupe haute</span>
+                    <span class="news-text">En cas de forte chaleur, réglez votre tondeuse plus haut (5-7 cm) pour
+                      protéger les racines.</span>
+                  </span>
+                </div>
+
+                <div class="news-item">
+                  <span class="news-icon" aria-hidden="true"><i class="fas fa-shower"></i></span>
+                  <span class="news-info">
+                    <span class="news-date">Arrosage</span>
+                    <span class="news-title">Tôt le matin</span>
+                    <span class="news-text">Arrosez tôt le matin ou tard le soir pour limiter l'évaporation et éviter
+                      de brûler les feuilles.</span>
+                  </span>
+                </div>
+
+                <div class="news-item">
+                  <span class="news-thumb"><img src="images/stihl-hsa-60.webp" width="900" height="600" alt=""
+                      loading="lazy" decoding="async"></span>
+                  <span class="news-info">
+                    <span class="news-date">Haies</span>
+                    <span class="news-title">Taille d'été</span>
+                    <span class="news-text">Taillez après la nidification des oiseaux, de préférence par temps
+                      couvert, avec une lame bien affûtée.</span>
+                  </span>
+                </div>
               </div>
             </aside>
           </div>
@@ -828,693 +718,515 @@
       </div>
     </section>
 
-    <section class="brands">
+    <section id="partenaires" class="section brands" aria-labelledby="brands-title">
       <div class="container">
-        <p>Nos partenaires officiels de confiance</p>
-        <div class="logo-carousel-container reveal-up">
-          <div class="brands-list logo-carousel-track">
-            <img src="images/logo-stihl.webp" alt="Logo STIHL" class="brand-logo" loading="lazy">
-            <img src="images/logo-iseki.webp" alt="Logo ISEKI" class="brand-logo" loading="lazy">
-            <img src="images/logo-sunseeker.webp" alt="Logo SUNSEEKER" class="brand-logo" loading="lazy"
-              style="background-color: #333; padding: 5px; border-radius: 4px;">
-            <img src="images/logo-ferris.webp" alt="Logo FERRIS" class="brand-logo" loading="lazy">
-            <img src="images/logo-snapper.webp" alt="Logo SNAPPER" class="brand-logo" loading="lazy">
-            <img src="images/logo-solo.webp" alt="Logo SOLO" class="brand-logo" loading="lazy">
-            <img src="images/logo-anova.webp" alt="Logo ANOVA" class="brand-logo" loading="lazy">
-            <img src="images/logo-stihl.webp" alt="Logo STIHL" class="brand-logo" loading="lazy">
-            <img src="images/logo-iseki.webp" alt="Logo ISEKI" class="brand-logo" loading="lazy">
-            <img src="images/logo-sunseeker.webp" alt="Logo SUNSEEKER" class="brand-logo" loading="lazy"
-              style="background-color: #333; padding: 5px; border-radius: 4px;">
-            <img src="images/logo-ferris.webp" alt="Logo FERRIS" class="brand-logo" loading="lazy">
-            <img src="images/logo-snapper.webp" alt="Logo SNAPPER" class="brand-logo" loading="lazy">
-            <img src="images/logo-stihl-imow.webp" alt="Logo IMOW" class="brand-logo" loading="lazy">
-            <img src="images/logo-solo.webp" alt="Logo SOLO" class="brand-logo" loading="lazy">
-            <img src="images/logo-anova.webp" alt="Logo ANOVA" class="brand-logo" loading="lazy">
-          </div>
+        <div class="section-head reveal">
+          <h2 id="brands-title">Nos partenaires de confiance</h2>
+          <p>Des marques que nous vendons, installons et réparons nous-mêmes à l'atelier.</p>
         </div>
+
+        <article class="stihl-feature">
+          <div class="stihl-feature-media">
+            <img src="images/partenaire-stihl-ms261.webp" width="1300" height="867"
+              alt="Démarrage d'une tronçonneuse thermique STIHL MS 261 sur un tronc" loading="lazy" decoding="async">
+          </div>
+          <div class="stihl-feature-body">
+            <div class="stihl-feature-logos">
+              <img src="images/logo-stihl.webp" width="319" height="158" alt="STIHL" loading="lazy">
+              <img src="images/logo-stihl-imow.webp" width="500" height="250" alt="STIHL iMOW" loading="lazy">
+            </div>
+            <h3>Concessionnaire officiel STIHL depuis 2001</h3>
+            <p>Toute la gamme STIHL en magasin, des robots iMOW aux tronçonneuses professionnelles, avec la mise en
+              service et le service après-vente agréé.</p>
+            <dl class="stihl-facts">
+              <div>
+                <dt>2001</dt>
+                <dd>Concessionnaire officiel</dd>
+              </div>
+              <div>
+                <dt>SAV</dt>
+                <dd>Atelier agréé STIHL</dd>
+              </div>
+              <div>
+                <dt>iMOW</dt>
+                <dd>Installation à domicile</dd>
+              </div>
+            </dl>
+            <a href="https://www.stihl.be/fr" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Découvrir la gamme STIHL <span class="sr-only">(nouvel onglet)</span></a>
+          </div>
+        </article>
+
+        <h3 class="brands-subtitle">Et aussi en magasin</h3>
+        <ul class="partner-grid">
+          <li class="partner-card">
+            <div class="partner-media"><img src="images/partenaire-iseki.webp" width="700" height="448"
+                alt="Tondeuse autoportée ISEKI SXG" loading="lazy" decoding="async"></div>
+            <div class="partner-body">
+              <img class="partner-logo" src="images/logo-iseki.webp" width="888" height="444" alt="ISEKI"
+                loading="lazy">
+              <span>Tracteurs &amp; autoportées</span>
+            </div>
+          </li>
+          <li class="partner-card">
+            <div class="partner-media"><img src="images/partenaire-ferris.webp" width="700" height="448"
+                alt="Tondeuse zéro-turn Ferris ISX 800" loading="lazy" decoding="async"></div>
+            <div class="partner-body">
+              <img class="partner-logo" src="images/logo-ferris.webp" width="500" height="192" alt="Ferris"
+                loading="lazy">
+              <span>Tondeuses zéro-turn</span>
+            </div>
+          </li>
+          <li class="partner-card">
+            <div class="partner-media"><img src="images/partenaire-snapper.webp" width="700" height="448"
+                alt="Tondeuse zéro-turn Snapper ZTX 350" loading="lazy" decoding="async"></div>
+            <div class="partner-body">
+              <img class="partner-logo" src="images/logo-snapper.webp" width="811" height="203" alt="Snapper"
+                loading="lazy">
+              <span>Tracteurs &amp; tondeuses</span>
+            </div>
+          </li>
+          <li class="partner-card">
+            <div class="partner-media is-photo"><img src="images/partenaire-sunseeker.webp" width="700" height="700"
+                alt="Robot tondeuse Sunseeker sur une pelouse, vu du dessus" loading="lazy" decoding="async"></div>
+            <div class="partner-body">
+              <img class="partner-logo" src="images/logo-sunseeker.webp" width="1000" height="300" alt="Sunseeker"
+                loading="lazy">
+              <span>Robots de tonte sans fil</span>
+            </div>
+          </li>
+          <li class="partner-card">
+            <div class="partner-media"><img src="images/partenaire-solo.webp" width="700" height="536"
+                alt="Souffleur à dos Solo 468" loading="lazy" decoding="async"></div>
+            <div class="partner-body">
+              <img class="partner-logo" src="images/logo-solo.webp" width="378" height="134" alt="Solo"
+                loading="lazy">
+              <span>Souffleurs &amp; pulvérisation</span>
+            </div>
+          </li>
+          <li class="partner-card">
+            <div class="partner-media is-logo"><img src="images/logo-anova.webp" width="448" height="112" alt="Anova"
+                loading="lazy"></div>
+            <div class="partner-body">
+              <span class="partner-name">Anova</span>
+              <span>Machines de jardin</span>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section id="histoire" class="history">
-      <div class="container">
-        <div class="section-header reveal-up">
-          <h2>Notre Histoire</h2>
-          <div class="separator"></div>
+    <section id="histoire" class="section history">
+      <div class="container history-layout">
+        <div class="section-head reveal">
+          <h2>Notre histoire</h2>
           <p>Une aventure familiale, de père en fils.</p>
+          <figure class="history-photo">
+            <img src="images/action-coupe-sciure.webp" width="1200" height="802"
+              alt="Tronçonneuse en pleine coupe d'un tronc, la sciure vole" loading="lazy" decoding="async">
+          </figure>
+          <p class="history-stat"><strong>30+</strong> ans de service dans le Pays des Collines</p>
         </div>
 
-        <div class="timeline">
-
-          <div class="timeline-row">
-            <div class="timeline-time">1994</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content reveal-up delay-100">
-              <div class="icon-box-small"><i class="fas fa-hammer"></i></div>
-              <h3>Les Débuts</h3>
+        <ol class="timeline">
+          <li class="timeline-row">
+            <span class="timeline-time">1994</span>
+            <div class="timeline-content">
+              <h3>Les débuts</h3>
               <p>Tout a commencé simplement. Éric lance l'activité avec quelques marques reconnues. C'était le début
-                d'une
-                passion pour le service bien fait.</p>
+                d'une passion pour le service bien fait.</p>
             </div>
-          </div>
+          </li>
 
-          <div class="timeline-row">
-            <div class="timeline-time">2001</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content reveal-up delay-100">
-              <div class="icon-box-small"><i class="fas fa-certificate"></i></div>
+          <li class="timeline-row">
+            <span class="timeline-time">2001</span>
+            <div class="timeline-content">
               <h3>Concessionnaire STIHL</h3>
-              <p>Une étape majeure pour l'entreprise : nous devenons concessionnaire officiel STIHL.
-                L'assurance pour nos clients de bénéficier de produits de haute qualité et d'un service d'excellence.
-              </p>
+              <p>Une étape majeure pour l'entreprise&nbsp;: nous devenons concessionnaire officiel STIHL. L'assurance pour
+                nos clients de bénéficier de produits de haute qualité et d'un service d'excellence.</p>
             </div>
-          </div>
+          </li>
 
-          <div class="timeline-row">
-            <div class="timeline-time">2009</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content reveal-up delay-200">
-              <div class="icon-box-small"><i class="fas fa-warehouse"></i></div>
+          <li class="timeline-row">
+            <span class="timeline-time">2009</span>
+            <div class="timeline-content">
               <h3>On s'agrandit</h3>
-              <p>On s'agrandit, l'atelier devenant trop restreint, construction d'un entrepot pour créer un espace plus
-                grand et mieux équipé pour entretenir votre matériel.</p>
+              <p>L'atelier devenant trop restreint, nous construisons un entrepôt pour créer un espace plus grand et
+                mieux équipé pour entretenir votre matériel.</p>
             </div>
-          </div>
+          </li>
 
-          <div class="timeline-row">
-            <div class="timeline-time">2018</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content reveal-up delay-200">
-              <div class="icon-box-small"><i class="fas fa-handshake"></i></div>
-              <h3>Père & Fils</h3>
-              <p>Une nouvelle étape clé : Tanguy rejoint l'entreprise. Deux générations, deux visions, mais une seule
-                priorité : votre satisfaction.</p>
+          <li class="timeline-row">
+            <span class="timeline-time">2018</span>
+            <div class="timeline-content">
+              <h3>Père &amp; fils</h3>
+              <p>Une nouvelle étape clé&nbsp;: Tanguy rejoint l'entreprise. Deux générations, deux visions, mais une seule
+                priorité&nbsp;: votre satisfaction.</p>
             </div>
-          </div>
+          </li>
 
-          <div class="timeline-row">
-            <div class="timeline-time">2026</div>
-            <div class="timeline-dot"></div>
-            <div class="timeline-content reveal-up delay-100">
-              <div class="icon-box-small"><i class="fas fa-heart"></i></div>
+          <li class="timeline-row">
+            <span class="timeline-time">2026</span>
+            <div class="timeline-content">
               <h3>Aujourd'hui</h3>
-              <p>Réaménagement du showroom, Robots connectés... On évolue avec notre temps, mais on garde notre esprit
-                familial : ici, vous n'êtes pas un numéro.</p>
+              <p>Réaménagement du showroom, robots connectés… On évolue avec notre temps, mais on garde notre esprit
+                familial&nbsp;: ici, vous n'êtes pas un numéro.</p>
             </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="temoignages" class="section testimonials">
+      <div class="container testimonials-head">
+        <div class="section-head reveal">
+          <h2>La confiance de nos clients</h2>
+          <p>Ils nous font confiance pour leur jardin.</p>
+        </div>
+
+        <div class="rating-card">
+          <div class="rating-number">4,8<span>/5</span></div>
+          <div>
+            <div class="big-stars" role="img" aria-label="Note de 4,8 sur 5">
+              <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
+                class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i
+                class="fas fa-star-half-stroke" aria-hidden="true"></i>
+            </div>
+            <p class="rating-label">Note globale sur Google</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee" tabindex="0" aria-label="Avis Google de nos clients">
+        <div class="marquee-track">
+          <ul class="review-list">
+            <li class="review-card">
+              <div class="review-top">
+                <span class="reviewer-avatar" aria-hidden="true">J</span>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Jean-Noël Marques</p>
+                  <p class="review-date">il y a 2 mois</p>
+                </div>
+                <img src="images/google_logo.webp" width="20" height="20" alt="Avis Google" class="google-mark"
+                  loading="lazy">
+              </div>
+              <div class="review-stars" role="img" aria-label="5 étoiles sur 5"><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i></div>
+              <blockquote class="review-text">«&nbsp;Très bon service, très réactif aux demandes des clients. Je recommande
+                vivement&nbsp;!!!&nbsp;»</blockquote>
+            </li>
+            <li class="review-card">
+              <div class="review-top">
+                <span class="reviewer-avatar" aria-hidden="true">P</span>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Patrick Honings</p>
+                  <p class="review-date">il y a 1 mois</p>
+                </div>
+                <img src="images/google_logo.webp" width="20" height="20" alt="Avis Google" class="google-mark"
+                  loading="lazy">
+              </div>
+              <div class="review-stars" role="img" aria-label="5 étoiles sur 5"><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i></div>
+              <blockquote class="review-text">«&nbsp;Boutique efficace à l'ancienne. On y trouve le conseil qu'il manque dans
+                les grandes surfaces.&nbsp;»</blockquote>
+            </li>
+            <li class="review-card">
+              <div class="review-top">
+                <span class="reviewer-avatar" aria-hidden="true">D</span>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Didier Vanzeune</p>
+                  <p class="review-date">il y a 8 mois</p>
+                </div>
+                <img src="images/google_logo.webp" width="20" height="20" alt="Avis Google" class="google-mark"
+                  loading="lazy">
+              </div>
+              <div class="review-stars" role="img" aria-label="5 étoiles sur 5"><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i></div>
+              <blockquote class="review-text">«&nbsp;Prend le temps d'expliquer et de donner quelques astuces d'utilisation.
+                Très sympa.&nbsp;»</blockquote>
+            </li>
+            <li class="review-card">
+              <div class="review-top">
+                <span class="reviewer-avatar" aria-hidden="true">J</span>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Joël Dewaele</p>
+                  <p class="review-date">il y a 5 ans</p>
+                </div>
+                <img src="images/google_logo.webp" width="20" height="20" alt="Avis Google" class="google-mark"
+                  loading="lazy">
+              </div>
+              <div class="review-stars" role="img" aria-label="5 étoiles sur 5"><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i></div>
+              <blockquote class="review-text">«&nbsp;Spécialiste STIHL avec un service clientèle excellent&nbsp;!!!&nbsp;»</blockquote>
+            </li>
+            <li class="review-card">
+              <div class="review-top">
+                <span class="reviewer-avatar" aria-hidden="true">O</span>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Olympe Delbecq</p>
+                  <p class="review-date">il y a 2 ans</p>
+                </div>
+                <img src="images/google_logo.webp" width="20" height="20" alt="Avis Google" class="google-mark"
+                  loading="lazy">
+              </div>
+              <div class="review-stars" role="img" aria-label="5 étoiles sur 5"><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i></div>
+              <blockquote class="review-text">«&nbsp;Très compétent et de bon conseil.&nbsp;»</blockquote>
+            </li>
+            <li class="review-card">
+              <div class="review-top">
+                <span class="reviewer-avatar" aria-hidden="true">G</span>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Guy Vankeirsbilck</p>
+                  <p class="review-date">il y a 2 ans</p>
+                </div>
+                <img src="images/google_logo.webp" width="20" height="20" alt="Avis Google" class="google-mark"
+                  loading="lazy">
+              </div>
+              <div class="review-stars" role="img" aria-label="5 étoiles sur 5"><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i></div>
+              <blockquote class="review-text">«&nbsp;Étant client, service sérieux 👍👋&nbsp;»</blockquote>
+            </li>
+            <li class="review-card">
+              <div class="review-top">
+                <span class="reviewer-avatar" aria-hidden="true">R</span>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Régis Godemont</p>
+                  <p class="review-date">il y a 4 ans</p>
+                </div>
+                <img src="images/google_logo.webp" width="20" height="20" alt="Avis Google" class="google-mark"
+                  loading="lazy">
+              </div>
+              <div class="review-stars" role="img" aria-label="5 étoiles sur 5"><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i></div>
+              <blockquote class="review-text">«&nbsp;Bonne accueil et très bon service.&nbsp;»</blockquote>
+            </li>
+            <li class="review-card">
+              <div class="review-top">
+                <span class="reviewer-avatar" aria-hidden="true">F</span>
+                <div class="reviewer-meta">
+                  <p class="reviewer-name">Fred Haustrate</p>
+                  <p class="review-date">il y a 2 ans</p>
+                </div>
+                <img src="images/google_logo.webp" width="20" height="20" alt="Avis Google" class="google-mark"
+                  loading="lazy">
+              </div>
+              <div class="review-stars" role="img" aria-label="5 étoiles sur 5"><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star"
+                  aria-hidden="true"></i></div>
+              <blockquote class="review-text">«&nbsp;Très bon service&nbsp;»</blockquote>
+            </li>
+          </ul>
+          <!-- Copie pour la boucle infinie du défilement (ignorée par les lecteurs d'écran) -->
+          <ul class="review-list" aria-hidden="true"></ul>
+        </div>
+      </div>
+
+      <div class="container reviews-cta">
+        <a href="https://www.google.com/search?sxsrf=ANbL-n4Da86xDItZlyJt3lmCO6SqH1E5KQ:1776461882862&amp;si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_xxUjozhIcyuU9Ib08f1fICOakVjyLj6-e8apocjhO52RkLgLtgpit5iy2-MJBSwb4-PVw5cJlMUvrPg4K8gIu6nl1M6g&amp;q=Van+De+Wiele+/+Eric+Avis"
+          target="_blank" rel="noopener noreferrer" class="btn btn-light">
+          <img src="images/google_logo.webp" alt="" width="20" height="20" loading="lazy">
+          Voir tous les avis
+        </a>
+        <p class="write-review-prompt">Partagez votre expérience et aidez-nous à nous améliorer&nbsp;:
+          <a href="https://www.google.com/search?sxsrf=ANbL-n4Da86xDItZlyJt3lmCO6SqH1E5KQ:1776461882862&amp;si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_xxUjozhIcyuU9Ib08f1fICOakVjyLj6-e8apocjhO52RkLgLtgpit5iy2-MJBSwb4-PVw5cJlMUvrPg4K8gIu6nl1M6g&amp;q=Van+De+Wiele+/+Eric+Avis"
+            target="_blank" rel="noopener noreferrer">laisser un avis Google</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="faq-section" class="section faq-section">
+      <div class="container faq-layout">
+        <div class="section-head faq-intro reveal">
+          <h2>Questions fréquentes</h2>
+          <p>Vous ne trouvez pas votre réponse&nbsp;? Appelez-nous, on vous répond volontiers.</p>
+          <a href="tel:+3269866047" class="btn btn-primary"><i class="fas fa-phone" aria-hidden="true"></i> 069 86 60
+            47</a>
+        </div>
+
+        <div>
+          <div class="faq-list is-collapsed" id="faq-list">
+            <details class="faq-item" name="faq">
+              <summary class="faq-question">Quelle tondeuse choisir pour la taille de mon terrain&nbsp;?</summary>
+              <div class="faq-answer">
+                <p>Le choix idéal dépend de nombreux facteurs&nbsp;: la surface, mais aussi la pente, les obstacles et votre
+                  budget. Chaque jardin est unique&nbsp;!</p>
+                <p>Pour être sûr de choisir la machine parfaitement adaptée (électrique, thermique ou robot) et éviter
+                  les erreurs, nous vous invitons à passer directement au magasin. Nous analyserons avec vous la
+                  configuration de votre terrain pour vous guider vers le meilleur modèle.</p>
+              </div>
+            </details>
+
+            <details class="faq-item" name="faq">
+              <summary class="faq-question">Proposez-vous l'installation à domicile des robots&nbsp;?</summary>
+              <div class="faq-answer">
+                <p>Absolument. C'est notre spécialité&nbsp;! L'installation comprend l'étude du terrain, l'installation
+                  (guidage GPS ou filaire), la programmation et la mise en route complète.</p>
+              </div>
+            </details>
+
+            <details class="faq-item" name="faq">
+              <summary class="faq-question">Que comprend le forfait entretien annuel&nbsp;?</summary>
+              <div class="faq-answer">
+                <p>Pour garantir la longévité de votre machine, notre entretien annuel inclut&nbsp;:</p>
+                <ul>
+                  <li>Vidange de l'huile moteur (recyclage inclus).</li>
+                  <li>Affûtage et équilibrage de la lame.</li>
+                  <li>Remplacement de la bougie et du filtre à air.</li>
+                  <li>Contrôle et graissage de la transmission.</li>
+                  <li>Nettoyage du carter de coupe et contrôle des câbles/sécurités.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item" name="faq">
+              <summary class="faq-question">Pourquoi ma machine ne démarre pas après l'hiver&nbsp;?</summary>
+              <div class="faq-answer">
+                <p>Dans 90&nbsp;% des cas, c'est un problème de carburant. L'essence sans plomb «&nbsp;moderne&nbsp;» (SP95/E10) se
+                  dégrade en quelques semaines et finit par boucher le carburateur.</p>
+                <p><strong>Solution immédiate&nbsp;:</strong> une vidange du réservoir et un nettoyage du carburateur sont
+                  nécessaires en atelier.</p>
+                <p><strong>Prévention&nbsp;:</strong> utilisez de l'essence alkylate (MotoMix) qui se conserve 3 à 5 ans, ou
+                  ajoutez un additif stabilisateur à votre essence.</p>
+              </div>
+            </details>
+
+            <details class="faq-item" name="faq">
+              <summary class="faq-question">Puis-je utiliser de l'essence classique (E10/E5)&nbsp;?</summary>
+              <div class="faq-answer">
+                <p>Nous le déconseillons fortement pour les moteurs 2 temps et 4 temps de jardinage. L'éthanol présent
+                  dans l'essence de pompe dégrade les membranes des carburateurs lors de l'inactivité. Nous recommandons
+                  le carburant <strong>STIHL MotoMix</strong> (conservation 5 ans) pour garantir la longévité de votre
+                  machine.</p>
+              </div>
+            </details>
+
+            <details class="faq-item" name="faq">
+              <summary class="faq-question">Faites-vous l'entretien des machines d'autres marques&nbsp;?</summary>
+              <div class="faq-answer">
+                <p>N'hésitez pas à nous contacter par téléphone pour vérifier la faisabilité.</p>
+              </div>
+            </details>
+
+            <details class="faq-item" name="faq">
+              <summary class="faq-question">Faites-vous l'affûtage de chaînes et de lames&nbsp;?</summary>
+              <div class="faq-answer">
+                <p>Tout à fait. Nous affûtons les chaînes de tronçonneuse, les lames de tondeuse et les taille-haies
+                  dans notre atelier.</p>
+              </div>
+            </details>
+
+            <details class="faq-item" name="faq">
+              <summary class="faq-question">Acceptez-vous les éco-chèques&nbsp;?</summary>
+              <div class="faq-answer">
+                <p>Non, nous n'acceptons pas les éco-chèques.</p>
+              </div>
+            </details>
+
+            <details class="faq-item" name="faq">
+              <summary class="faq-question">Quelle est la durée de garantie des machines&nbsp;?</summary>
+              <div class="faq-answer">
+                <p>Pour un usage particulier, la garantie légale est de 2 ans (1 an pour les professionnels). En
+                  utilisant exclusivement du carburant MotoMix dès l'achat d'une machine thermique STIHL, vous pouvez
+                  bénéficier d'extensions de garantie (voir conditions en magasin).</p>
+              </div>
+            </details>
           </div>
 
+          <button id="faq-show-more" class="faq-toggle-btn" type="button" aria-controls="faq-list"
+            aria-expanded="false">
+            <span>Voir plus de questions</span> <i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </section>
 
-    <section id="temoignages" class="testimonials">
-      <div class="container-fluid no-padding hidden-overflow">
-
-        <div class="container">
-          <div class="section-header reveal-up">
-            <h2>La Confiance de nos Clients</h2>
-            <div class="separator"></div>
-            <p>Ils nous font confiance pour leur jardin.</p>
-          </div>
-        </div>
-
-        <div class="marquee-wrapper reveal-up">
-          <div class="marquee-track">
-
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#7f8c8d;">F</div>
-                    <div class="reviewer-meta">
-                      <h3>Fred Haustrate</h3>
-                      <span class="review-date">il y a 2 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Très bon service"</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#2980b9;">R</div>
-                    <div class="reviewer-meta">
-                      <h3>Régis Godemont</h3>
-                      <span class="review-date">il y a 4 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Bonne accueil et très bon service."</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#8e44ad;">O</div>
-                    <div class="reviewer-meta">
-                      <h3>Olympe Delbecq</h3>
-                      <span class="review-date">il y a 2 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Très compétent et de bon conseil."</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#d35400;">G</div>
-                    <div class="reviewer-meta">
-                      <h3>Guy Vankeirsbilck</h3>
-                      <span class="review-date">il y a 2 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Étant client, service sérieux 👍👋"</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#e67e22;">J</div>
-                    <div class="reviewer-meta">
-                      <h3>Joël Dewaele</h3>
-                      <span class="review-date">il y a 5 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Spécialiste STIHL avec un service clientèle excellent !!!"</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#27ae60;">J</div>
-                    <div class="reviewer-meta">
-                      <h3>Jean-Noël Marques</h3>
-                      <span class="review-date">il y a 2 mois</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Très bon service, très réactif aux demandes des clients. Je recommande vivement
-                  !!!"</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#3498db;">D</div>
-                    <div class="reviewer-meta">
-                      <h3>Didier Vanzeune</h3>
-                      <span class="review-date">il y a 8 mois</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Prend le temps d'expliquer et de donner quelques astuces d'utilisation. Très
-                  sympa."</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#9b59b6;">P</div>
-                    <div class="reviewer-meta">
-                      <h3>Patrick Honings</h3>
-                      <span class="review-date">il y a 1 mois</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Boutique efficace à l'ancienne. On y trouve le conseil qu'il manque dans les
-                  grandes surfaces."</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#7f8c8d;">F</div>
-                    <div class="reviewer-meta">
-                      <h3>Fred Haustrate</h3>
-                      <span class="review-date">il y a 2 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Très bon service"</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#2980b9;">R</div>
-                    <div class="reviewer-meta">
-                      <h3>Régis Godemont</h3>
-                      <span class="review-date">il y a 4 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Bonne accueil et très bon service."</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#8e44ad;">O</div>
-                    <div class="reviewer-meta">
-                      <h3>Olympe Delbecq</h3>
-                      <span class="review-date">il y a 2 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Très compétent et de bon conseil."</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#d35400;">G</div>
-                    <div class="reviewer-meta">
-                      <h3>Guy Vankeirsbilck</h3>
-                      <span class="review-date">il y a 2 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Étant client, service sérieux 👍👋"</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#e67e22;">J</div>
-                    <div class="reviewer-meta">
-                      <h3>Joël Dewaele</h3>
-                      <span class="review-date">il y a 5 ans</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Spécialiste STIHL avec un service clientèle excellent !!!"</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#27ae60;">J</div>
-                    <div class="reviewer-meta">
-                      <h3>Jean-Noël Marques</h3>
-                      <span class="review-date">il y a 2 mois</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Très bon service, très réactif aux demandes des clients. Je recommande vivement
-                  !!!"</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#3498db;">D</div>
-                    <div class="reviewer-meta">
-                      <h3>Didier Vanzeune</h3>
-                      <span class="review-date">il y a 8 mois</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Prend le temps d'expliquer et de donner quelques astuces d'utilisation. Très
-                  sympa."</p>
-              </div>
-            </div>
-            <div class="carousel-card">
-              <div class="review-card-carousel">
-                <div class="review-top-row">
-                  <div class="reviewer-identity">
-                    <div class="reviewer-avatar" style="background:#9b59b6;">P</div>
-                    <div class="reviewer-meta">
-                      <h3>Patrick Honings</h3>
-                      <span class="review-date">il y a 1 an</span>
-                    </div>
-                  </div>
-                  <img src="images/google_logo.webp" width="24" height="24" alt="Google" class="google-logo-corner">
-                </div>
-                <div class="review-stars">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Boutique efficace à l'ancienne. On y trouve le conseil qu'il manque dans les
-                  grandes surfaces."</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="global-rating-block reveal-up" style="text-align:center; margin: 40px 0 20px;">
-            <div class="big-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-            </div>
-            <div class="rating-number">4.8 / 5</div>
-            <div class="rating-label">Note globale sur Google</div>
-          </div>
-
-          <div class="reviews-cta-container reveal-up">
-            <a href="https://www.google.com/search?sxsrf=ANbL-n4Da86xDItZlyJt3lmCO6SqH1E5KQ:1776461882862&si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_xxUjozhIcyuU9Ib08f1fICOakVjyLj6-e8apocjhO52RkLgLtgpit5iy2-MJBSwb4-PVw5cJlMUvrPg4K8gIu6nl1M6g&q=Van+De+Wiele+/+Eric+Avis"
-              target="_blank" rel="noopener noreferrer" class="btn btn-google-reviews">
-              <img src="images/google_logo.webp" alt="G" width="20" style="vertical-align:middle; margin-right:8px;">
-              Voir tous les avis
-            </a>
-            <p class="write-review-prompt">Partagez votre expérience et aidez-nous à nous améliorer !
-              <a href="https://www.google.com/search?sxsrf=ANbL-n4Da86xDItZlyJt3lmCO6SqH1E5KQ:1776461882862&si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_xxUjozhIcyuU9Ib08f1fICOakVjyLj6-e8apocjhO52RkLgLtgpit5iy2-MJBSwb4-PVw5cJlMUvrPg4K8gIu6nl1M6g&q=Van+De+Wiele+/+Eric+Avis"
-                target="_blank" rel="noopener noreferrer">Laissez un avis Google <i class="fas fa-arrow-right"></i></a>
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="faq-section" class="faq-section">
+    <section id="contact" class="section contact">
       <div class="container">
-        <div class="section-header reveal-up">
-          <h2>Questions Fréquentes</h2>
-          <div class="separator"></div>
+        <div class="section-head reveal">
+          <h2>Contact &amp; accès</h2>
+          <p>Passez au magasin à Anvaing, ou appelez-nous pour un conseil ou un rendez-vous à l'atelier.</p>
         </div>
 
-        <div class="faq-grid reveal-up">
-          <div class="faq-item">
-            <button class="faq-question">
-              Quelle tondeuse choisir pour la taille de mon terrain ?
-              <i class="fas fa-plus"></i>
-            </button>
-            <div class="faq-answer">
-              <p>Le choix idéal dépend de nombreux facteurs : la surface, mais aussi la pente, les obstacles et votre
-                budget. Chaque jardin est unique !</p>
-              <p>Pour être sûr de choisir la machine parfaitement adaptée (électrique, thermique ou robot) et éviter les
-                erreurs, nous vous invitons à passer directement au magasin. Nous analyserons avec vous la
-                configuration de votre terrain pour vous guider vers le meilleur modèle.</p>
-            </div>
-          </div>
+        <div class="contact-wrapper" itemscope itemtype="https://schema.org/LocalBusiness">
 
-          <div class="faq-item">
-            <button class="faq-question">
-              Proposez-vous l'installation à domicile des robots ?
-              <i class="fas fa-plus"></i>
-            </button>
-            <div class="faq-answer">
-              <p>Absolument. C'est notre spécialité ! L'installation comprend l'étude du terrain, l'installation
-                (guidage GPS ou filaire),
-                la programmation et la mise en route complète.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              Que comprend le forfait entretien annuel ?
-              <i class="fas fa-plus"></i>
-            </button>
-            <div class="faq-answer">
-              <p>Pour garantir la longévité de votre machine, notre entretien annuel inclut :</p>
-              <ul class="faq-list">
-                <li>Vidange de l'huile moteur (recyclage inclus).</li>
-                <li>Affûtage et équilibrage de la lame.</li>
-                <li>Remplacement de la bougie et du filtre à air.</li>
-                <li>Contrôle et graissage de la transmission.</li>
-                <li>Nettoyage du carter de coupe et contrôle des câbles/sécurités.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              Pourquoi ma machine ne démarre pas après l'hiver ?
-              <i class="fas fa-plus"></i>
-            </button>
-            <div class="faq-answer">
-              <p>Dans 90% des cas, c'est un problème de carburant. L'essence sans plomb "moderne" (SP95/E10) se dégrade
-                en quelques semaines et finit par boucher le carburateur.</p>
-              <p><strong>Solution immédiate :</strong> Une vidange du réservoir et un nettoyage du carburateur sont
-                nécessaires en atelier.</p>
-              <p><strong>Prévention :</strong> Utilisez de l'essence alkylate (Motomix) qui se conserve 3 à 5 ans,
-                ou ajoutez un additif stabilisateur à votre essence.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              Puis-je utiliser de l'essence classique (E10/E5) ?
-              <i class="fas fa-plus"></i>
-            </button>
-            <div class="faq-answer">
-              <p>Nous le déconseillons fortement pour les moteurs 2 temps et 4 temps de jardinage. L'éthanol présent
-                dans l'essence de pompe dégrade les membranes des carburateurs lors de l'inactivité. Nous recommandons
-                le carburant <strong>STIHL MotoMix</strong> (conservation 5 ans) pour garantir la longévité de votre
-                machine.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              Faites-vous l'entretien des machines d'autres marques ?
-              <i class="fas fa-plus"></i>
-            </button>
-            <div class="faq-answer">
-              <p>N'hésitez pas à nous contacter par téléphone pour vérifier la faisabilité.</p>
-            </div>
-          </div>
-
-
-
-          <div class="faq-item">
-            <button class="faq-question">
-              Faites-vous l'affûtage de chaînes et de lames ?
-              <i class="fas fa-plus"></i>
-            </button>
-            <div class="faq-answer">
-              <p>Tout à fait. Nous affûtons les chaînes de tronçonneuse, les lames de tondeuse et les tailles-haies dans
-                notre atelier.</p>
-            </div>
-          </div>
-
-
-
-          <div class="faq-item">
-            <button class="faq-question">
-              Acceptez-vous les Éco-chèques ?
-              <i class="fas fa-plus"></i>
-            </button>
-            <div class="faq-answer">
-              <p>Non, nous n'acceptons pas les éco-chèques.</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              Quelle est la durée de garantie des machines ?
-              <i class="fas fa-plus"></i>
-            </button>
-            <div class="faq-answer">
-              <p>Pour un usage particulier, la garantie légale est de 2 ans (1 an pour les professionnels). En utilisant
-                exclusivement du carburant
-                MotoMix dès l'achat d'une machine thermique STIHL, vous pouvez bénéficier d'extensions de
-                garantie (voir conditions en magasin).</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align: center;">
-        <button id="faq-show-more" class="faq-toggle-btn">
-          Voir plus de questions <i class="fas fa-chevron-down"></i>
-        </button>
-      </div>
-
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const items = document.querySelectorAll('.faq-item');
-          const btn = document.getElementById('faq-show-more');
-          let isExpanded = false;
-
-          // Hide items > 3 initially (JS fallback if HTML class not present)
-          items.forEach((item, index) => {
-            if (index >= 5) item.classList.add('hidden-faq');
-          });
-
-          if (btn) {
-            btn.addEventListener('click', function () {
-              isExpanded = !isExpanded;
-              items.forEach((item, index) => {
-                if (index >= 5) {
-                  item.style.display = isExpanded ? 'block' : 'none';
-                  // Trigger animation if needed
-                  if (isExpanded) item.style.animation = "revealUp 0.5s ease";
-                }
-              });
-
-              if (isExpanded) {
-                btn.innerHTML = 'Voir moins <i class="fas fa-chevron-up"></i>';
-              } else {
-                btn.innerHTML = 'Voir plus de questions <i class="fas fa-chevron-down"></i>';
-                // Scroll back to top of FAQ? Optional
-              }
-            });
-          }
-        });
-      </script>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container mobile-full-width">
-        <div class="section-header reveal-up">
-          <h2>Contact & Accès</h2>
-          <div class="separator"></div>
-        </div>
-
-        <div class="contact-wrapper reveal-up" itemscope itemtype="https://schema.org/LocalBusiness">
-
-          <div class="contact-card-dark">
-            <div id="shop-status" class="shop-status-badge">
-              <span class="status-dot"></span>
-              <span class="status-text">Chargement...</span>
-            </div>
+          <div class="contact-card">
+            <p id="shop-status" class="status-badge status-badge-lg"><span class="status-word">Horaires</span> <span class="status-detail">ci-dessous</span></p>
 
             <h3 itemprop="name">Ets Van de Wiele</h3>
             <p class="contact-intro">Expert en motoculture depuis plus de 30 ans. Conseil, vente et atelier de
               réparation agréé.</p>
 
-            <div class="contact-actions">
-              <div class="c-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div class="c-text">
-                  <h4>Adresse</h4>
+            <ul class="contact-actions">
+              <li class="c-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <span class="c-icon" aria-hidden="true"><i class="fas fa-location-dot"></i></span>
+                <div>
+                  <p class="c-label">Adresse</p>
                   <p>
                     <span itemprop="streetAddress">67 Rue de la Gare</span><br>
                     <span itemprop="postalCode">7910</span> <span itemprop="addressLocality">Frasnes-lez-Anvaing</span>
                   </p>
                 </div>
-              </div>
+              </li>
 
-              <div class="c-item">
-                <div class="c-icon"><i class="fas fa-phone-alt"></i></div>
-                <div class="c-text">
-                  <h4>Téléphone</h4>
-                  <p><a href="tel:069866047" itemprop="telephone">069 86 60 47</a></p>
+              <li class="c-item">
+                <span class="c-icon" aria-hidden="true"><i class="fas fa-phone"></i></span>
+                <div>
+                  <p class="c-label">Téléphone</p>
+                  <p><a href="tel:+3269866047" itemprop="telephone">069 86 60 47</a></p>
                 </div>
-              </div>
+              </li>
 
-              <div class="c-item">
-                <div class="c-icon"><i class="fas fa-envelope"></i></div>
-                <div class="c-text">
-                  <h4>Email</h4>
+              <li class="c-item">
+                <span class="c-icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+                <div>
+                  <p class="c-label">Email</p>
                   <p><a href="mailto:ets.vandewiele@gmail.com" itemprop="email">ets.vandewiele@gmail.com</a></p>
                 </div>
-              </div>
+              </li>
+            </ul>
+
+            <div class="schedule">
+              <p class="schedule-title"><i class="far fa-clock" aria-hidden="true"></i> Horaires</p>
+              <dl>
+                <div class="schedule-row" data-days="2,3,4,5">
+                  <dt>Mardi – vendredi</dt>
+                  <dd>09:00–12:00 · 13:00–18:30</dd>
+                </div>
+                <div class="schedule-row" data-days="6">
+                  <dt>Samedi</dt>
+                  <dd>09:00–12:00 · 13:00–16:00</dd>
+                </div>
+                <div class="schedule-row" data-days="0,1">
+                  <dt>Dimanche &amp; lundi</dt>
+                  <dd class="schedule-closed">Fermé</dd>
+                </div>
+              </dl>
             </div>
 
-            <div class="mini-schedule">
-              <div class="ms-title"><i class="far fa-clock"></i> Horaires</div>
-              <div class="ms-row">
-                <span class="ms-day">Lun / Dim</span>
-                <span class="ms-hours ms-closed">Fermé</span>
-              </div>
-              <div class="ms-row">
-                <span class="ms-day">Mar - Ven</span>
-                <span class="ms-hours">09:00–12:00 / 13:00–18:30</span>
-              </div>
-              <div class="ms-row">
-                <span class="ms-day">Samedi</span>
-                <span class="ms-hours">09:00–12:00 / 13:00–16:00</span>
-              </div>
-            </div>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=67+Rue+de+la+Gare+7910+Frasnes-lez-Anvaing"
+              target="_blank" rel="noopener noreferrer" class="btn btn-primary contact-route">
+              <i class="fas fa-route" aria-hidden="true"></i> Itinéraire
+            </a>
           </div>
 
-          <div class="map-full" style="position: relative;">
-            <div id="mapSkeleton" class="map-skeleton">
+          <div class="map-full">
+            <div id="mapSkeleton" class="map-skeleton" aria-hidden="true">
               <div class="shimmer"></div>
             </div>
             <iframe title="Carte de localisation du magasin Ets Van de Wiele"
@@ -1528,69 +1240,99 @@
       </div>
     </section>
 
-    <section id="about-seo" class="about-seo">
-      <div class="container">
-        <div class="section-header reveal-up">
+    <section id="about-seo" class="section about-seo">
+      <div class="container about-layout">
+        <div class="about-aside">
           <h2>À propos</h2>
-          <div class="separator" style="margin-bottom: 40px;"></div>
-          <p style="max-width: 900px; margin: 0 auto; text-align: justify; font-size: 1.1rem; line-height: 1.8;">
-            Depuis 1994, l'établissement Van De Wiele est la référence en motoculture dans le Pays des Collines. Basé à
-            Anvaing, notre magasin familial propose un vaste choix de machines pour l'entretien de vos espaces verts,
-            incluant tracteurs, tondeuses, robots, tronçonneuses, débroussailleuses, taille haies, souffleurs,
-            scarificateurs, motoculteurs, etc.
-            Au-delà de la vente, nous nous distinguons par un atelier mécanique de proximité, idéalement situé pour les
-            habitants de Frasnes-lez-Anvaing et ses villages voisins (Pecq, Ellezelles, Flobecq, Leuze, Moustier,
-            Œudeghien, Cordes, Forest, Saint-Sauveur, Celles...). Que vous soyez un particulier cherchant un robot
-            tondeuse installé clé en main, ou un pro de la région de Tournai ou d'Ath cherchant un SAV réactif pour son
-            matériel de jardin, nous sommes là pour vous.
-          </p>
+          <figure class="about-photo">
+            <img src="images/action-tronconneuse-stihl.webp" width="1200" height="675"
+              alt="Tronçonneuse STIHL au travail à côté d'un tronc fraîchement coupé" loading="lazy"
+              decoding="async">
+          </figure>
         </div>
+        <p>
+          Depuis 1994, l'établissement Van De Wiele est la référence en motoculture dans le Pays des Collines. Basé à
+          Anvaing, notre magasin familial propose un vaste choix de machines pour l'entretien de vos espaces verts,
+          incluant tracteurs, tondeuses, robots, tronçonneuses, débroussailleuses, taille-haies, souffleurs,
+          scarificateurs, motoculteurs, etc.
+        </p>
+        <p>
+          Au-delà de la vente, nous nous distinguons par un atelier mécanique de proximité, idéalement situé pour les
+          habitants de Frasnes-lez-Anvaing et ses villages voisins (Pecq, Ellezelles, Flobecq, Leuze, Moustier,
+          Œudeghien, Cordes, Forest, Saint-Sauveur, Celles...). Que vous soyez un particulier cherchant un robot
+          tondeuse installé clé en main, ou un pro de la région de Tournai ou d'Ath cherchant un SAV réactif pour son
+          matériel de jardin, nous sommes là pour vous.
+        </p>
       </div>
     </section>
 
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <h3>VAN DE WIELE ETS</h3>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Van de Wiele <span>Ets</span></h3>
+          <p>Motoculture, vente et atelier de réparation à Frasnes-lez-Anvaing depuis 1994.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" rel="noopener noreferrer"
+              aria-label="Suivez-nous sur Facebook (nouvel onglet)">
+              <i class="fab fa-facebook" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
 
-      <div class="social-links">
-        <a href="https://www.facebook.com/VandeWieleEts/" target="_blank" rel="noopener noreferrer"
-          aria-label="Suivez-nous sur Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
+        <nav class="footer-col" aria-label="Plan du site">
+          <h4>Le site</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#produits">Produits</a></li>
+            <li><a href="#actu">Actu &amp; promos</a></li>
+            <li><a href="#histoire">Notre histoire</a></li>
+            <li><a href="#faq-section">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col">
+          <h4>Nous trouver</h4>
+          <ul>
+            <li>67 Rue de la Gare<br>7910 Frasnes-lez-Anvaing</li>
+            <li><a href="tel:+3269866047">069 86 60 47</a></li>
+            <li><a href="mailto:ets.vandewiele@gmail.com">ets.vandewiele@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Horaires</h4>
+          <ul>
+            <li>Mar – ven&nbsp;: 9:00–12:00, 13:00–18:30</li>
+            <li>Samedi&nbsp;: 9:00–12:00, 13:00–16:00</li>
+            <li>Dimanche &amp; lundi&nbsp;: fermé</li>
+          </ul>
+        </div>
       </div>
-
-      <p class="copyright">© 2026 Ets Van de Wiele. Tous droits réservés.</p>
 
       <div class="footer-credits">
-        <div class="credit-text" style="display: flex; align-items: center; justify-content: center; gap: 5px;">
-          <span>Site réalisé par</span>
-          <span class="creator-name" style="color: #777777; font-weight: 500;">Tony Van de Wiele</span>
-        </div>
-        <a href="html/mentions-legales.html" class="legal-btn">
-          Mentions Légales <i class="fas fa-arrow-right"></i>
-        </a>
+        <p class="copyright">© 2026 Ets Van de Wiele. Tous droits réservés.</p>
+        <p class="credit-text">Site réalisé par <span class="creator-name">Tony Van de Wiele</span></p>
+        <a href="html/mentions-legales.html" class="legal-btn">Mentions légales</a>
       </div>
-
     </div>
   </footer>
 
   <a href="#accueil" id="backToTopBtn" class="back-to-top" aria-label="Retour en haut de page">
-    <i class="fas fa-chevron-up"></i>
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
   </a>
 
-  <div id="promoToast" class="promo-toast">
-    <div class="toast-icon-box">
-      <i class="fas fa-tag"></i>
-    </div>
-    <div class="toast-content">
-      <span class="toast-label">PROMOS PRINTEMPS</span>
-      <span class="toast-sub">Jusqu'à 100€ remboursés</span>
-      <span class="toast-label">PROMOS AUTOMNE</span>
-      <span class="toast-sub">Batterie AS offerte !</span>
-    </div>
+  <div id="promoToast" class="promo-toast" role="status" aria-live="polite">
+    <span class="toast-icon-box" aria-hidden="true"><i class="fas fa-tag"></i></span>
+    <span class="toast-content">
+      <span class="toast-label">Promos STIHL d'automne</span>
+      <span class="toast-sub">Batterie AS offerte jusqu'au 31/12</span>
+    </span>
     <a href="#actu" class="toast-action">Voir</a>
+    <button type="button" class="toast-close" aria-label="Fermer la notification"><i class="fas fa-xmark"
+        aria-hidden="true"></i></button>
   </div>
 
   <script src="js/script.js" defer></script>

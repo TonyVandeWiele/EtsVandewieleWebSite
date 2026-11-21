@@ -1,312 +1,349 @@
-// Exécute le code uniquement lorsque le DOM est entièrement chargé
+// Ets Van de Wiele — interactions du site
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Force Scroll Top on Reload (Fix User Request)
+  // Toujours repartir du haut au rechargement (comportement souhaité)
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
+  if (!location.hash) {
+    setTimeout(() => window.scrollTo(0, 0), 10);
+  }
 
-  // Timeout nécessaire pour contrer le comportement natif du navigateur sur les ancres
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-  }, 10);
-
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // =======================================================
-  // 1. Navbar Scroll Effect & Barre de progression
+  // 1. En-tête au scroll + bouton retour en haut
   // =======================================================
-
   const header = document.getElementById('header');
-  const scrollProgress = document.getElementById("scrollProgress");
-  const backToTopBtn = document.getElementById("backToTopBtn");
+  const backToTopBtn = document.getElementById('backToTopBtn');
 
   const handleScroll = () => {
-    if (header) {
-      header.classList.toggle('scrolled', window.scrollY > 50);
-    }
-
-    if (backToTopBtn) {
-      backToTopBtn.classList.toggle('show', window.scrollY > 300);
-    }
-
-    if (scrollProgress) {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      scrollProgress.style.width = scrolled + "%";
-    }
+    const y = window.scrollY;
+    if (header) header.classList.toggle('scrolled', y > 40);
+    if (backToTopBtn) backToTopBtn.classList.toggle('show', y > 600);
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // Initial call
+  handleScroll();
 
   // =======================================================
-  // 1.5 Scroll Spy (Navigation Active States)
+  // 2. Menu actif selon la section visible
   // =======================================================
-  const sections = document.querySelectorAll('section[id]');
-  const navLinksList = document.querySelectorAll('.nav-links a');
+  const navLinksList = document.querySelectorAll('.nav-links a[href^="#"]');
+  const setActiveLink = (id) => {
+    navLinksList.forEach(link => {
+      const isActive = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
 
-  const scrollSpyObserver = new IntersectionObserver((entries) => {
+  const spyObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      // On cherche la section qui occupe de la place dans la zone centrale
-      if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
-        const id = entry.target.getAttribute('id');
-        
-        // On vérifie si cette section possède un lien correspondant dans le menu
-        const matchingLink = Array.from(navLinksList).find(link => link.getAttribute('href') === `#${id}`);
-        
-        if (matchingLink) {
-          navLinksList.forEach(link => link.classList.remove('active'));
-          matchingLink.classList.add('active');
-        }
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      if (Array.from(navLinksList).some(l => l.getAttribute('href') === `#${id}`)) {
+        setActiveLink(id);
       }
     });
-  }, {
-    threshold: [0.1, 0.5],
-    rootMargin: "-15% 0px -40% 0px"
-  });
+  }, { rootMargin: '-45% 0px -50% 0px' });
 
-  sections.forEach(section => scrollSpyObserver.observe(section));
-
-  // Gestion spécifique pour le bas de page (Contact)
-  window.addEventListener('scroll', () => {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 20) {
-      const contactLink = Array.from(navLinksList).find(link => link.getAttribute('href') === '#contact');
-      if (contactLink) {
-        navLinksList.forEach(link => link.classList.remove('active'));
-        contactLink.classList.add('active');
-      }
-    }
-  }, { passive: true });
-
+  document.querySelectorAll('main section[id]').forEach(s => spyObserver.observe(s));
 
   // =======================================================
-  // 2. Menu Mobile (Hamburger Menu)
+  // 3. Menu mobile
   // =======================================================
-
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
 
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+    const icon = hamburger.querySelector('i');
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        setTimeout(() => {
-          navLinks.classList.remove('active');
-        }, 100);
-      });
-    });
-  }
-
-  // =======================================================
-  // 3. Animation Reveal (IntersectionObserver - Performance)
-  // =======================================================
-
-  const revealElements = document.querySelectorAll('.reveal-up');
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        el.classList.add('active');
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-        revealObserver.unobserve(el); // On arrête d'observer une fois animé
-      }
-    });
-  }, { threshold: 0.15 });
-
-  revealElements.forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "all 0.8s cubic-bezier(0.2, 1, 0.3, 1)";
-
-    // Gestion des délais
-    const delays = { 'delay-100': '0.1s', 'delay-200': '0.2s', 'delay-300': '0.3s' };
-    Object.keys(delays).forEach(d => {
-      if (el.classList.contains(d)) el.style.transitionDelay = delays[d];
-    });
-
-    revealObserver.observe(el);
-  });
-
-
-  // =======================================================
-  // 4. Carrousel Témoignages (Maintenant Géré en CSS Puro 'Marquee')
-  // =======================================================
-  // L'ancien code JS a été retiré pour laisser place à l'animation CSS fluide.
-
-
-  // =======================================================
-  // 5. Smart Promo Toast
-  // =======================================================
-
-  const promoToast = document.getElementById('promoToast');
-  const promoSection = document.getElementById('actu');
-  const promoAction = promoToast ? promoToast.querySelector('.toast-action') : null;
-
-  if (promoToast && promoSection) {
-    // Ne rien faire si déjà vu
-    if (sessionStorage.getItem('promoSeen')) {
-      promoToast.style.display = 'none';
-    } else {
-      setTimeout(() => {
-        if (!sessionStorage.getItem('promoSeen')) {
-          promoToast.classList.add('show');
-        }
-      }, 4000);
-
-      if (promoAction) {
-        promoAction.addEventListener('click', () => {
-          sessionStorage.setItem('promoSeen', 'true');
-          promoToast.classList.remove('show');
-        });
-      }
-
-      const toastObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (sessionStorage.getItem('promoSeen')) return;
-
-          if (entry.isIntersecting) {
-            promoToast.classList.remove('show');
-          } else if (window.scrollY > 100) {
-            promoToast.classList.add('show');
-          }
-        });
-      }, { threshold: 0.3 });
-
-      toastObserver.observe(promoSection);
-    }
-  }
-
-
-  // =======================================================
-  // 6. Accordéon FAQ
-  // =======================================================
-
-  const faqQuestions = document.querySelectorAll('.faq-question');
-
-  faqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-      const currentActive = document.querySelector('.faq-question.active');
-      if (currentActive && currentActive !== question) {
-        currentActive.classList.remove('active');
-        currentActive.nextElementSibling.style.maxHeight = null;
-      }
-
-      question.classList.toggle('active');
-      const answer = question.nextElementSibling;
-      answer.style.maxHeight = question.classList.contains('active') ? answer.scrollHeight + "px" : null;
-    });
-  });
-
-
-  // =======================================================
-  // 7. Logique Horaires (Ouvert / Fermé)
-  // =======================================================
-
-  function updateShopStatus() {
-    const statusContainer = document.getElementById('shop-status');
-    const headerDot = document.getElementById('header-status-dot');
-    if (!statusContainer && !headerDot) return;
-
-    const now = new Date();
-    const day = now.getDay();
-    const currentTime = now.getHours() * 60 + now.getMinutes();
-
-    const schedule = {
-      1: [], // Lundi
-      2: [{ start: 540, end: 720 }, { start: 780, end: 1110 }],
-      3: [{ start: 540, end: 720 }, { start: 780, end: 1110 }],
-      4: [{ start: 540, end: 720 }, { start: 780, end: 1110 }],
-      5: [{ start: 540, end: 720 }, { start: 780, end: 1110 }],
-      6: [{ start: 540, end: 720 }, { start: 780, end: 960 }],
-      0: [] // Dimanche
+    const setMenu = (open) => {
+      navLinks.classList.toggle('active', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      if (icon) icon.className = open ? 'fas fa-xmark' : 'fas fa-bars';
+      if (header) header.classList.toggle('menu-open', open);
     };
 
-    const todaySchedule = schedule[day];
-    const isOpen = todaySchedule.length > 0 && todaySchedule.some(slot => currentTime >= slot.start && currentTime < slot.end);
-
-    if (statusContainer) {
-      const statusText = statusContainer.querySelector('.status-text');
-      statusContainer.classList.toggle('open', isOpen);
-      statusContainer.classList.toggle('closed', !isOpen);
-      statusText.textContent = isOpen ? "Magasin actuellement ouvert" : "Magasin actuellement fermé";
-    }
-
-
-    const badge = document.getElementById('shop-status-badge');
-    if (badge) {
-      badge.textContent = isOpen ? "ouvert" : "fermé";
-      badge.className = isOpen ? "status-badge open" : "status-badge closed";
-    }
-
-  }
-
-  updateShopStatus();
-  // Mise à jour toutes les minutes
-  setInterval(updateShopStatus, 60000);
-
-  // --------------------------------------------------------------------------
-  // 8. HERO 3D PARALLAX EFFECT
-  // --------------------------------------------------------------------------
-  const heroSection = document.querySelector('.hero-3d-section');
-  const heroCard = document.getElementById('heroCard3D');
-
-  if (heroSection && heroCard) {
-    heroSection.addEventListener('mousemove', (e) => {
-      const xAxis = (window.innerWidth / 2 - e.pageX) / 25; // Rotation X
-      const yAxis = (window.innerHeight / 2 - e.pageY) / 25; // Rotation Y
-
-      heroCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    hamburger.addEventListener('click', () => {
+      setMenu(hamburger.getAttribute('aria-expanded') !== 'true');
     });
 
-    // Reset à la sortie de la souris pour fluidité
-    heroSection.addEventListener('mouseleave', () => {
-      heroCard.style.transform = `rotateY(0deg) rotateX(0deg)`;
-      heroCard.style.transition = 'all 0.5s ease';
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMenu(false));
     });
 
-    // Retirer la transition lors du mouvement pour éviter le lag
-    heroSection.addEventListener('mouseenter', () => {
-      heroCard.style.transition = 'none';
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        setMenu(false);
+        hamburger.focus();
+      }
+    });
+
+    window.matchMedia('(min-width: 1081px)').addEventListener('change', (e) => {
+      if (e.matches) setMenu(false);
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 9. GESTION DES ONGLETS SAISONS (EXISTANT)
-  // --------------------------------------------------------------------------
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const seasonContents = document.querySelectorAll('.season-content');
-
-  // SUPPRIME CETTE LIGNE :
-  // setTimeout(reveal, 100); 
-
-  if (tabBtns.length > 0) {
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const season = btn.getAttribute('data-season');
-
-        // 1. Mise à jour visuelle des boutons
-        tabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        // 2. Gestion du contenu
-        seasonContents.forEach(c => {
-          c.classList.remove('active');
-        });
-
-        const targetContent = document.getElementById(`season-${season}`);
-        if (targetContent) {
-          targetContent.classList.add('active');
-          // SUPPRIME CETTE LIGNE AUSSI :
-          // reveal(); 
+  // =======================================================
+  // 4. Apparition discrète des titres de section
+  // =======================================================
+  const revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
         }
       });
+    }, { threshold: 0.2 });
+    revealEls.forEach(el => revealObserver.observe(el));
+  }
+
+  // =======================================================
+  // 5. Avis : copie de la liste pour une boucle continue
+  // =======================================================
+  const reviewLists = document.querySelectorAll('.marquee .review-list');
+  if (reviewLists.length === 2 && !reduceMotion) {
+    reviewLists[1].innerHTML = reviewLists[0].innerHTML;
+    reviewLists[1].querySelectorAll('img').forEach(img => img.setAttribute('alt', ''));
+  }
+
+  // =======================================================
+  // 6. Notification promo
+  // =======================================================
+  const promoToast = document.getElementById('promoToast');
+  const promoSection = document.getElementById('actu');
+
+  const storage = {
+    get(key) { try { return sessionStorage.getItem(key); } catch { return null; } },
+    set(key, val) { try { sessionStorage.setItem(key, val); } catch { /* stockage indisponible */ } }
+  };
+
+  if (promoToast && promoSection) {
+    const dismiss = () => {
+      storage.set('promoSeen', 'true');
+      promoToast.classList.remove('show');
+    };
+
+    if (storage.get('promoSeen')) {
+      promoToast.hidden = true;
+    } else {
+      // La notification n'apparaît qu'après le hero (pour ne pas masquer les boutons)
+      // et disparaît quand la section promo est à l'écran.
+      let promoInView = false;
+      const updateToast = () => {
+        if (storage.get('promoSeen')) return;
+        const pastHero = window.scrollY > window.innerHeight * 0.7;
+        promoToast.classList.toggle('show', pastHero && !promoInView);
+      };
+
+      promoToast.querySelector('.toast-action')?.addEventListener('click', dismiss);
+      promoToast.querySelector('.toast-close')?.addEventListener('click', dismiss);
+
+      new IntersectionObserver((entries) => {
+        entries.forEach(entry => { promoInView = entry.isIntersecting; });
+        updateToast();
+      }, { threshold: 0.2 }).observe(promoSection);
+
+      window.addEventListener('scroll', updateToast, { passive: true });
+    }
+  }
+
+  // =======================================================
+  // 7. FAQ : afficher plus de questions
+  // =======================================================
+  const faqList = document.getElementById('faq-list');
+  const faqBtn = document.getElementById('faq-show-more');
+
+  if (faqList && faqBtn) {
+    const total = faqList.querySelectorAll('.faq-item').length;
+    if (total <= 5) {
+      faqBtn.hidden = true;
+      faqList.classList.remove('is-collapsed');
+    }
+
+    faqBtn.addEventListener('click', () => {
+      const expanded = faqList.classList.toggle('is-collapsed') === false;
+      faqBtn.setAttribute('aria-expanded', String(expanded));
+      faqBtn.querySelector('span').textContent = expanded ? 'Voir moins de questions' : 'Voir plus de questions';
+      if (!expanded) {
+        faqList.querySelectorAll('.faq-item:nth-child(n + 6)').forEach(d => d.removeAttribute('open'));
+      }
     });
   }
 
+  // =======================================================
+  // 8. Statut du magasin en direct (ouvert / fermé)
+  // =======================================================
+  // Minutes depuis minuit. 0 = dimanche … 6 = samedi.
+  const SCHEDULE = {
+    0: [],
+    1: [],
+    2: [[540, 720], [780, 1110]],
+    3: [[540, 720], [780, 1110]],
+    4: [[540, 720], [780, 1110]],
+    5: [[540, 720], [780, 1110]],
+    6: [[540, 720], [780, 960]]
+  };
+  const DAY_NAMES = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+
+  const fmt = (min) => `${Math.floor(min / 60)}:${String(min % 60).padStart(2, '0')}`;
+
+  // Heure belge, quel que soit le fuseau du visiteur
+  const belgianNow = () => {
+    try {
+      const parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Brussels', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+      }).formatToParts(new Date());
+      const get = (t) => parts.find(p => p.type === t).value;
+      const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+      return { day, minutes: parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10) };
+    } catch {
+      const d = new Date();
+      return { day: d.getDay(), minutes: d.getHours() * 60 + d.getMinutes() };
+    }
+  };
+
+  const computeStatus = () => {
+    const { day, minutes } = belgianNow();
+    const today = SCHEDULE[day];
+    const slot = today.find(([s, e]) => minutes >= s && minutes < e);
+    const base = { day, minutes, today };
+
+    if (slot) {
+      return { ...base, open: true, short: `jusqu'à ${fmt(slot[1])}` };
+    }
+
+    const laterToday = today.find(([s]) => s > minutes);
+    if (laterToday) {
+      return { ...base, open: false, short: `rouvre à ${fmt(laterToday[0])}` };
+    }
+
+    for (let i = 1; i <= 7; i++) {
+      const d = (day + i) % 7;
+      if (SCHEDULE[d].length) {
+        const when = i === 1 ? 'demain' : DAY_NAMES[d];
+        return { ...base, open: false, short: `rouvre ${when} à ${fmt(SCHEDULE[d][0][0])}` };
+      }
+    }
+    return { ...base, open: false, short: '' };
+  };
+
+  // Remplit un indicateur « mot + détail » (barre du haut, carte contact)
+  const fillBadge = (el, status) => {
+    if (!el) return;
+    el.classList.toggle('is-open', status.open);
+    el.classList.toggle('is-closed', !status.open);
+    el.querySelector('.status-word').textContent = status.open ? 'Ouvert' : 'Fermé';
+    el.querySelector('.status-detail').textContent = status.short;
+  };
+
+  // Frise de la journée : plages d'ouverture + repère « maintenant » (de 8:00 à 19:30)
+  const DAY_START = 480;
+  const DAY_END = 1170;
+  const pct = (min) => `${((min - DAY_START) / (DAY_END - DAY_START)) * 100}%`;
+
+  const renderDayBar = (bar, status) => {
+    if (!bar) return;
+    bar.hidden = false;
+    bar.replaceChildren();
+
+    if (!status.today.length) {
+      const off = document.createElement('p');
+      off.className = 'day-bar-off';
+      off.textContent = 'Fermé toute la journée';
+      bar.appendChild(off);
+      return;
+    }
+
+    const track = document.createElement('div');
+    track.className = 'day-bar-track';
+    status.today.forEach(([s, e]) => {
+      const seg = document.createElement('span');
+      seg.className = 'day-bar-slot';
+      if (status.minutes >= e) seg.classList.add('is-past');
+      seg.style.left = pct(s);
+      seg.style.width = `calc(${pct(e)} - ${pct(s)})`;
+      track.appendChild(seg);
+    });
+    if (status.minutes > DAY_START && status.minutes < DAY_END) {
+      const now = document.createElement('span');
+      now.className = 'day-bar-now';
+      now.style.left = pct(status.minutes);
+      track.appendChild(now);
+    }
+    bar.appendChild(track);
+
+    const labels = document.createElement('p');
+    labels.className = 'day-bar-labels';
+    labels.textContent = status.today.map(([s, e]) => `${fmt(s)}–${fmt(e)}`).join('  ·  ');
+    bar.appendChild(labels);
+  };
+
+  const updateShopStatus = () => {
+    const status = computeStatus();
+    const dayName = DAY_NAMES[status.day];
+
+    // Pancarte du hero
+    const sign = document.querySelector('.shop-sign');
+    if (sign) {
+      sign.classList.toggle('is-open', status.open);
+      sign.classList.toggle('is-closed', !status.open);
+      document.getElementById('hero-day').textContent = `Aujourd'hui, ${dayName}`;
+      document.getElementById('hero-state').textContent = status.open ? 'Ouvert' : 'Fermé';
+      const detail = document.getElementById('hero-status-detail');
+      if (detail) detail.textContent = status.short ? `${status.short.charAt(0).toUpperCase()}${status.short.slice(1)}` : '';
+      renderDayBar(document.getElementById('hero-daybar'), status);
+    }
+
+    fillBadge(document.getElementById('shop-status-badge'), status);
+    fillBadge(document.getElementById('shop-status'), status);
+
+    // Ligne du jour dans les horaires
+    document.querySelectorAll('.schedule-row').forEach(row => {
+      const days = (row.dataset.days || '').split(',').map(Number);
+      row.classList.toggle('is-today', days.includes(status.day));
+    });
+  };
+  updateShopStatus();
+  setInterval(updateShopStatus, 60000);
+
+  // =======================================================
+  // 9. Onglets des saisons (souris + clavier)
+  // =======================================================
+  const tabs = Array.from(document.querySelectorAll('.season-tabs .tab-btn'));
+
+  const activateTab = (tab, focus = false) => {
+    tabs.forEach(t => {
+      const selected = t === tab;
+      t.classList.toggle('active', selected);
+      t.setAttribute('aria-selected', String(selected));
+      t.tabIndex = selected ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.classList.toggle('active', selected);
+    });
+    if (focus) tab.focus();
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', (e) => {
+      let next = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') next = tabs[0];
+      if (e.key === 'End') next = tabs[tabs.length - 1];
+      if (next) {
+        e.preventDefault();
+        activateTab(next, true);
+      }
+    });
+  });
 });
