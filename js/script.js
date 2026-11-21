@@ -308,27 +308,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-  // --------------------------------------------------------------------------
-  // 10. AUTO-EXPIRATION DES PROMOS (data-expires)
-  // --------------------------------------------------------------------------
-  // Applique automatiquement la classe "promo-finished" aux promos expirées.
-  // Format attendu : data-expires="YYYY-MM-DD"
-  const today = new Date();
-  today.setHours(0, 0, 0, 0); // Comparer uniquement la date, pas l'heure
-
-  document.querySelectorAll('[data-expires]').forEach(el => {
-    const expiresStr = el.getAttribute('data-expires');
-    if (!expiresStr) return;
-
-    const expiresDate = new Date(expiresStr + 'T23:59:59');
-    if (today > expiresDate) {
-      el.classList.add('promo-finished');
-
-      // Pour les news-items (sidebar), on affiche aussi le tampon
-      if (el.classList.contains('news-item')) {
-        el.classList.add('promo-show-stamp');
-      }
-    }
-  });
 
 });
