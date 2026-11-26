@@ -128,17 +128,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =======================================================
+  // 5b. Offres datées : masquées automatiquement hors période
+  //     (attributs data-from / data-until au format AAAA-MM-JJ, bornes incluses)
+  // =======================================================
+  // Date du jour à l'heure belge, au format AAAA-MM-JJ
+  const todayISO = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Brussels' });
+  const isActive = (el) => {
+    const { from, until } = el.dataset;
+    return (!from || todayISO >= from) && (!until || todayISO <= until);
+  };
+
+  document.querySelectorAll('[data-offer]').forEach(el => {
+    if (!isActive(el)) el.remove();
+  });
+
+  const offersBlock = document.getElementById('promo-offers');
+  if (offersBlock) {
+    offersBlock.querySelectorAll('.actu-sidebar').forEach(aside => {
+      if (!aside.querySelector('[data-offer]')) aside.remove();
+    });
+    if (!offersBlock.querySelector('[data-offer]')) {
+      offersBlock.querySelector('.actu-grid')?.remove();
+      const empty = document.getElementById('offer-empty');
+      if (empty) empty.hidden = false;
+    }
+  }
+
+  // =======================================================
   // 6. Notification promo
   // =======================================================
   const promoToast = document.getElementById('promoToast');
   const promoSection = document.getElementById('actu');
+  const toastActive = promoToast ? isActive(promoToast) : false;
+  if (promoToast && !toastActive) promoToast.hidden = true;
 
   const storage = {
     get(key) { try { return sessionStorage.getItem(key); } catch { return null; } },
     set(key, val) { try { sessionStorage.setItem(key, val); } catch { /* stockage indisponible */ } }
   };
 
-  if (promoToast && promoSection) {
+  if (promoToast && promoSection && toastActive) {
     const dismiss = () => {
       storage.set('promoSeen', 'true');
       promoToast.classList.remove('show');
@@ -328,8 +357,30 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateShopStatus, 60000);
 
   // =======================================================
-  // 9. Onglets des saisons (souris + clavier)
+  // 9. Conseils de saison : saison du jour ouverte d'office,
+  //    puis onglets (souris + clavier)
   // =======================================================
+  const tabList = document.querySelector('.season-tabs');
+  const SEASONS = ['spring', 'summer', 'autumn', 'winter'];
+  const month = Number(todayISO.slice(5, 7));
+  const currentSeason = month === 12 || month <= 2 ? 'winter'
+    : month <= 5 ? 'spring'
+      : month <= 8 ? 'summer'
+        : 'autumn';
+
+  if (tabList) {
+    // Ordre : saison en cours d'abord, puis les suivantes
+    const start = SEASONS.indexOf(currentSeason);
+    SEASONS.slice(start).concat(SEASONS.slice(0, start)).forEach(season => {
+      const btn = tabList.querySelector(`.tab-btn[data-season="${season}"]`);
+      if (btn) tabList.appendChild(btn);
+    });
+    // Pastille « En ce moment » sur la bonne saison
+    const nowBadge = tabList.querySelector('.tab-now');
+    const currentBtn = tabList.querySelector(`.tab-btn[data-season="${currentSeason}"]`);
+    if (nowBadge && currentBtn) currentBtn.appendChild(nowBadge);
+  }
+
   const tabs = Array.from(document.querySelectorAll('.season-tabs .tab-btn'));
 
   const activateTab = (tab, focus = false) => {
@@ -365,4 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  const initialTab = tabs.find(t => t.dataset.season === currentSeason);
+  if (initialTab) activateTab(initialTab);
 });
