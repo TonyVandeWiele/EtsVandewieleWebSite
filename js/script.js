@@ -329,6 +329,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const panel = document.getElementById(t.getAttribute('aria-controls'));
       if (panel) panel.classList.toggle('active', selected);
     });
+
+    // Ambiance de la section : couleurs et grand nom de la saison
+    const section = document.getElementById('actu');
+    if (section && tab.dataset.season) section.dataset.season = tab.dataset.season;
+    const ghost = document.getElementById('season-ghost');
+    if (ghost && tab.dataset.label) ghost.textContent = tab.dataset.label;
+
     if (focus) tab.focus();
   };
 
