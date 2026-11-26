@@ -7,8 +7,15 @@
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Mise en cache des polices et CSS
+# Mise en cache des polices, CSS et JS
+# CSS et JS sont appelés avec ?v=AAAAMMJJ : changer ce numéro dans les pages HTML à chaque modification
 /css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
 /sitemap.xml

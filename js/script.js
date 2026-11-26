@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
+  // Au chargement la page est en haut (voir plus haut) : on ne lit la position que
+  // si on arrive sur une ancre, et après le premier rendu, pour éviter un recalcul forcé
+  if (location.hash) requestAnimationFrame(() => setTimeout(handleScroll, 0));
 
   // =======================================================
   // 2. Menu actif selon la section visible
@@ -58,13 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
 
   if (hamburger && navLinks) {
-    const icon = hamburger.querySelector('i');
+    const icon = hamburger.querySelector('use');
 
     const setMenu = (open) => {
       navLinks.classList.toggle('active', open);
       hamburger.setAttribute('aria-expanded', String(open));
       hamburger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
-      if (icon) icon.className = open ? 'fas fa-xmark' : 'fas fa-bars';
+      if (icon) icon.setAttribute('href', open ? '#s-xmark' : '#s-bars');
       if (header) header.classList.toggle('menu-open', open);
     };
 
@@ -111,8 +113,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // =======================================================
   const reviewLists = document.querySelectorAll('.marquee .review-list');
   if (reviewLists.length === 2 && !reduceMotion) {
-    reviewLists[1].innerHTML = reviewLists[0].innerHTML;
-    reviewLists[1].querySelectorAll('img').forEach(img => img.setAttribute('alt', ''));
+    // Copie faite seulement à l'approche de la section : moins de travail au chargement
+    const cloneReviews = () => {
+      reviewLists[1].innerHTML = reviewLists[0].innerHTML;
+      reviewLists[1].querySelectorAll('img').forEach(img => img.setAttribute('alt', ''));
+    };
+    const marqueeObserver = new IntersectionObserver((entries, obs) => {
+      if (entries.some(e => e.isIntersecting)) {
+        cloneReviews();
+        obs.disconnect();
+      }
+    }, { rootMargin: '600px 0px' });
+    marqueeObserver.observe(reviewLists[0]);
   }
 
   // =======================================================

@@ -1,12 +1,13 @@
 {
-  "short_name": "",
-  "name": "",
-  "icons": [{
-    "src": "icon.png",
-    "type": "image/png",
-    "sizes": "192x192"
-  }],
-  "start_url": "/?utm_source=homescreen",
-  "background_color": "#fafafa",
-  "theme_color": "#fafafa"
+  "name": "Ets Van de Wiele – Motoculture",
+  "short_name": "Van de Wiele",
+  "lang": "fr-BE",
+  "icons": [
+    { "src": "images/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "images/favicon.png", "type": "image/png", "sizes": "48x48" }
+  ],
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F4F4F2",
+  "theme_color": "#2B2B2A"
 }
