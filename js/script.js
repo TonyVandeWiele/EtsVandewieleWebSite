@@ -112,19 +112,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. Avis : copie de la liste pour une boucle continue
   // =======================================================
   const reviewLists = document.querySelectorAll('.marquee .review-list');
-  if (reviewLists.length === 2 && !reduceMotion) {
+  // Sur téléphone / tactile, la CSS remplace le bandeau par un carrousel : pas de copie
+  const swipeReviews = window.matchMedia('(max-width: 720px), (hover: none)');
+  if (reviewLists.length === 2 && !reduceMotion && 'IntersectionObserver' in window) {
     // Copie faite seulement à l'approche de la section : moins de travail au chargement
+    let cloned = false;
     const cloneReviews = () => {
+      if (cloned) return;
+      cloned = true;
       reviewLists[1].innerHTML = reviewLists[0].innerHTML;
       reviewLists[1].querySelectorAll('img').forEach(img => img.setAttribute('alt', ''));
     };
-    const marqueeObserver = new IntersectionObserver((entries, obs) => {
-      if (entries.some(e => e.isIntersecting)) {
-        cloneReviews();
-        obs.disconnect();
-      }
-    }, { rootMargin: '600px 0px' });
-    marqueeObserver.observe(reviewLists[0]);
+    const watchMarquee = () => {
+      const marqueeObserver = new IntersectionObserver((entries, obs) => {
+        if (entries.some(e => e.isIntersecting)) {
+          cloneReviews();
+          obs.disconnect();
+        }
+      }, { rootMargin: '600px 0px' });
+      marqueeObserver.observe(reviewLists[0]);
+    };
+    if (!swipeReviews.matches) {
+      watchMarquee();
+    } else if (swipeReviews.addEventListener) {
+      // Rotation / fenêtre agrandie : le bandeau défilant revient, il lui faut la copie
+      swipeReviews.addEventListener('change', e => { if (!e.matches) cloneReviews(); });
+    }
   }
 
   // =======================================================

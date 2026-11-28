@@ -2418,6 +2418,35 @@ a.news-item:hover .news-more::after {
   text-underline-offset: 4px;
 }
 
+/* Téléphone / tactile : pas de défilement automatique (survol « collé » au toucher,
+   scintillement iOS sous mask-image) → carrousel natif qu'on fait glisser au doigt */
+@media (max-width: 720px), (hover: none) {
+  .marquee {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: clamp(1rem, 4vw, 2rem);
+    padding-inline: clamp(1rem, 4vw, 2rem);
+    padding-bottom: var(--space-2);
+    -webkit-mask-image: none;
+    mask-image: none;
+    scrollbar-width: thin;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  .marquee-track> :last-child {
+    display: none;
+  }
+
+  .review-card {
+    width: min(290px, 82vw);
+    scroll-snap-align: start;
+  }
+}
+
 /* 13. FAQ
    ========================================================================== */
 .faq-section {
@@ -3504,10 +3533,6 @@ body:has(.promo-toast.show) .back-to-top {
   .timeline-row {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.75rem;
-  }
-
-  .review-card {
-    width: 290px;
   }
 
   .rating-card {
